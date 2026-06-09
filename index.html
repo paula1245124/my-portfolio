@@ -1286,11 +1286,11 @@ body:hover .cursor { opacity: 1; }
         <form class="contact-form reveal" id="contactForm">
           <div class="form-group">
             <label>الاسم</label>
-            <input type="text" id="from_name" name="from_name" placeholder="اسمك الكريم" required />
+            <input type="text" id="from_name" name="name" placeholder="اسمك الكريم" required />
           </div>
           <div class="form-group">
             <label>البريد الإلكتروني</label>
-            <input type="email" id="reply_to" name="reply_to" placeholder="email@example.com" required />
+            <input type="email" id="reply_to" name="email" placeholder="email@example.com" required />
           </div>
           <div class="form-group">
             <label>الموضوع</label>
@@ -1504,7 +1504,7 @@ const form     = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 const submitBtn = document.getElementById('submitBtn');
 
-// EmailJS config - must match your EmailJS dashboard
+// EmailJS config
 const SERVICE_ID  = 'service_4v44hcg';
 const TEMPLATE_ID = 'template_wr4p30f';
 
@@ -1516,27 +1516,11 @@ form.addEventListener('submit', e => {
   formNote.textContent = '';
   formNote.style.color = 'var(--accent-green)';
 
-  // Get values
-  const fromName = document.getElementById('from_name').value;
-  const replyTo  = document.getElementById('reply_to').value;
-  const subject  = document.getElementById('subject').value;
-  const message  = document.getElementById('message').value;
-
-  console.log('Form values:', { fromName, replyTo, subject, message });
-
-  // Template variables must match your EmailJS template: {{name}}, {{email}}, {{subject}}, {{message}}
-  const templateParams = {
-    name:    fromName,
-    email:   replyTo,
-    subject: subject,
-    message: message,
-  };
-
-  console.log('Sending with:', { SERVICE_ID, TEMPLATE_ID, templateParams });
-
-  emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+  // Method 1: sendForm (reads form fields automatically by name attribute)
+  // Make sure input names match template variables: name, email, subject, message
+  emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
     .then((response) => {
-      console.log('EmailJS SUCCESS:', response);
+      console.log('EmailJS SUCCESS:', response.status, response.text);
       formNote.textContent = '✓ تم إرسال رسالتك بنجاح! سأرد عليك قريباً.';
       submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم الإرسال';
       submitBtn.style.background = 'var(--accent-green)';
@@ -1550,14 +1534,19 @@ form.addEventListener('submit', e => {
     })
     .catch((error) => {
       console.error('EmailJS ERROR:', error);
-      console.error('Error details:', {
-        status: error.status,
-        text: error.text,
-        name: error.name,
-        message: error.message
-      });
       formNote.style.color = '#ef4444';
-      formNote.textContent = '✗ حدث خطأ: ' + (error.text || error.message || 'تأكد من إعداد EmailJS.');
+
+      // Show specific error
+      let errorMsg = 'حدث خطأ غير معروف';
+      if (error.status === 0) {
+        errorMsg = 'مشكلة في الاتصال بالإنترنت أو حظر CORS';
+      } else if (error.text) {
+        errorMsg = error.text;
+      } else if (error.message) {
+        errorMsg = error.message;
+      }
+
+      formNote.textContent = '✗ ' + errorMsg;
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> إرسال الرسالة';
     });
