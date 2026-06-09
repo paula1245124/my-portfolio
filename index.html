@@ -436,15 +436,17 @@
         <p>&copy; 2026 باولا فوزي شفيق. جميع الحقوق محفوظة.</p>
     </footer>
 <script>
-  // عند إعادة تحميل الصفحة، يتم الانتقال إلى الأعلى فوراً
-  window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-  };
-
-  // تأكيد إضافي للتأكد من صعود الصفحة حتى لو قام المتصفح بحفظ مكان التمرير (Scroll Position)
-  if (history.scrollRestoration) {
+  // إجبار المتصفح على عدم تذكر مكان السكرول القديم
+  if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
+
+  // عند تحميل الصفحة بالكامل، انتظر لحظة واصعد للأعلى
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 10); // تأخير بسيط جداً بالملي ثانية للتأكد من استجابة المتصفح
+  });
 </script>
 </body>
 </html>
