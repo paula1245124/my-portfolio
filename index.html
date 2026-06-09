@@ -441,11 +441,16 @@
     history.scrollRestoration = 'manual';
   }
 
-  // عند تحميل الصفحة بالكامل، انتظر لحظة واصعد للأعلى
+  // عند تحميل الصفحة
   window.addEventListener('load', function() {
-    setTimeout(function() {
-      window.scrollTo(0, 0);
-    }, 10); // تأخير بسيط جداً بالملي ثانية للتأكد من استجابة المتصفح
+    // 1. الصعود لأول الصفحة فوراً
+    window.scrollTo(0, 0);
+    
+    // 2. إذا كان الرابط يحتوي على #، قم بإزالته من شريط العنوان دون إعادة تحميل الصفحة
+    if (window.location.hash) {
+      // نستخدم history.pushState لتغيير الرابط بشكل غير مرئي ونظيف
+      history.pushState("", document.title, window.location.pathname + window.location.search);
+    }
   });
 </script>
 </body>
