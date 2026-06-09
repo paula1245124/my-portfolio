@@ -1516,16 +1516,27 @@ form.addEventListener('submit', e => {
   formNote.textContent = '';
   formNote.style.color = 'var(--accent-green)';
 
+  // Get values
+  const fromName = document.getElementById('from_name').value;
+  const replyTo  = document.getElementById('reply_to').value;
+  const subject  = document.getElementById('subject').value;
+  const message  = document.getElementById('message').value;
+
+  console.log('Form values:', { fromName, replyTo, subject, message });
+
   // Template variables must match your EmailJS template: {{name}}, {{email}}, {{subject}}, {{message}}
   const templateParams = {
-    name:    document.getElementById('from_name').value,
-    email:   document.getElementById('reply_to').value,
-    subject: document.getElementById('subject').value,
-    message: document.getElementById('message').value,
+    name:    fromName,
+    email:   replyTo,
+    subject: subject,
+    message: message,
   };
 
+  console.log('Sending with:', { SERVICE_ID, TEMPLATE_ID, templateParams });
+
   emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-    .then(() => {
+    .then((response) => {
+      console.log('EmailJS SUCCESS:', response);
       formNote.textContent = '✓ تم إرسال رسالتك بنجاح! سأرد عليك قريباً.';
       submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم الإرسال';
       submitBtn.style.background = 'var(--accent-green)';
@@ -1536,10 +1547,17 @@ form.addEventListener('submit', e => {
         submitBtn.style.background = '';
         formNote.textContent = '';
       }, 4000);
-    }, (error) => {
-      console.error('EmailJS Error:', error);
+    })
+    .catch((error) => {
+      console.error('EmailJS ERROR:', error);
+      console.error('Error details:', {
+        status: error.status,
+        text: error.text,
+        name: error.name,
+        message: error.message
+      });
       formNote.style.color = '#ef4444';
-      formNote.textContent = '✗ حدث خطأ! ' + (error.text || 'تأكد من إعداد EmailJS.');
+      formNote.textContent = '✗ حدث خطأ: ' + (error.text || error.message || 'تأكد من إعداد EmailJS.');
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> إرسال الرسالة';
     });
