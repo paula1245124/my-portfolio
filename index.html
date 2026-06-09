@@ -1499,7 +1499,7 @@ const sectionObserver = new IntersectionObserver(entries => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-/* ── 8. CONTACT FORM (EmailJS) ── */
+/* ── 8. CONTACT FORM (EmailJS + Fallback) ── */
 const form     = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 const submitBtn = document.getElementById('submitBtn');
@@ -1507,19 +1507,58 @@ const submitBtn = document.getElementById('submitBtn');
 // EmailJS config
 const SERVICE_ID  = 'service_4v44hcg';
 const TEMPLATE_ID = 'template_wr4p30f';
+const TIMEOUT_MS  = 8000; // 8 seconds timeout
 
 form.addEventListener('submit', e => {
   e.preventDefault();
+
+  const name    = document.getElementById('from_name').value;
+  const email   = document.getElementById('reply_to').value;
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value;
 
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري الإرسال...';
   formNote.textContent = '';
   formNote.style.color = 'var(--accent-green)';
 
-  // Method 1: sendForm (reads form fields automatically by name attribute)
-  // Make sure input names match template variables: name, email, subject, message
+  let timedOut = false;
+
+  // Timeout handler
+  const timeoutId = setTimeout(() => {
+    timedOut = true;
+    console.warn('EmailJS timeout - using mailto fallback');
+
+    // Fallback: open mailto link
+    const mailtoBody = encodeURIComponent(
+      'الاسم: ' + name + '\n' +
+      'البريد: ' + email + '\n\n' +
+      'الرسالة:\n' + message
+    );
+    const mailtoSubject = encodeURIComponent(subject);
+    const mailtoLink = 'mailto:paulafawzy00@gmail.com?subject=' + mailtoSubject + '&body=' + mailtoBody;
+
+    window.open(mailtoLink, '_blank');
+
+    formNote.style.color = 'var(--accent-green)';
+    formNote.textContent = '✓ تم فتح تطبيق البريد. أرسل الرسالة من هناك.';
+    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم الفتح';
+    submitBtn.style.background = 'var(--accent-green)';
+
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> إرسال الرسالة';
+      submitBtn.style.background = '';
+      formNote.textContent = '';
+    }, 6000);
+  }, TIMEOUT_MS);
+
+  // Try EmailJS
   emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
     .then((response) => {
+      clearTimeout(timeoutId);
+      if (timedOut) return; // Already handled by fallback
+
       console.log('EmailJS SUCCESS:', response.status, response.text);
       formNote.textContent = '✓ تم إرسال رسالتك بنجاح! سأرد عليك قريباً.';
       submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم الإرسال';
@@ -1533,10 +1572,12 @@ form.addEventListener('submit', e => {
       }, 4000);
     })
     .catch((error) => {
+      clearTimeout(timeoutId);
+      if (timedOut) return;
+
       console.error('EmailJS ERROR:', error);
       formNote.style.color = '#ef4444';
 
-      // Show specific error
       let errorMsg = 'حدث خطأ غير معروف';
       if (error.status === 0) {
         errorMsg = 'مشكلة في الاتصال بالإنترنت أو حظر CORS';
@@ -1546,7 +1587,7 @@ form.addEventListener('submit', e => {
         errorMsg = error.message;
       }
 
-      formNote.textContent = '✗ ' + errorMsg;
+      formNote.textContent = '✗ ' + errorMsg + ' (جرب مرة أخرى)';
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> إرسال الرسالة';
     });
