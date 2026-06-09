@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>بولا فوزي | Paula Fawzy — Developer Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>بولا فوزي | Paula Fawzy — Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
 /* ============================================================
    PAULA FAWZY — PORTFOLIO CSS (MERGED)
    Best of Both: Claude's design + Kimi's content structure
@@ -866,487 +869,542 @@ body:hover .cursor { opacity: 1; }
   .scroll-line::after { animation: none; }
 }
   </style>
-<base target="_blank">
-<base target="_blank">
-</head>
-<body>
+    <base target="_blank">
+    <base target="_blank">
+  </head>
+  <body>
 
-  <!-- ===== CURSOR ===== -->
-  <div class="cursor" id="cursor"></div>
+    <!-- ===== CURSOR ===== -->
+    <div class="cursor" id="cursor"></div>
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo">
-        <span class="logo-bracket">&lt;</span>
-        <span class="logo-name">PF</span>
-        <span class="logo-bracket">/&gt;</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links" id="navLinks">
-        <a href="#about" class="nav-link">عني</a>
-        <a href="#skills" class="nav-link">مهاراتي</a>
-        <a href="#projects" class="nav-link">مشاريعي</a>
-        <a href="#education" class="nav-link">التعليم</a>
-        <a href="#contact" class="nav-link">تواصل</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="grid-lines"></div>
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
-    </div>
-    <div class="hero-content" style="align-items:center;text-align:center;width:100%;">
-      <div class="hero-tag reveal">
-        <span class="tag-dot"></span> متاحة للعمل
-      </div>
-      <h1 class="hero-title reveal">
-        <span class="title-sub">مرحباً، أنا</span>
-        <span class="title-main">بولا فوزي</span>
-      </h1>
-      <p class="hero-role reveal">
-        <span class="typed-wrapper">
-          <span class="typed" id="typed"></span><span class="typed-cursor">|</span>
-        </span>
-      </p>
-      <p class="hero-desc reveal">
-        طالب  علوم حاسب في كلية الحاسبات والمعلومات  في جامعة اسيوط ، شغوفة بالبرمجة وحل المشكلات وتصميم تجارب مستخدم أفضل. أجمع بين المنطق البرمجي والإبداع التصميمي.
-      </p>
-      <div class="hero-cta reveal">
-        <a href="#contact" class="btn btn-primary">تواصل معي</a>
-        <a href="D:\\Personal\\cv.docx" download class="btn btn-outline">
-          <i class="fa-solid fa-download"></i> تحميل الـ CV
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">&lt;</span>
+          <span class="logo-name">PF</span>
+          <span class="logo-bracket">/&gt;</span>
         </a>
+        <button class="nav-toggle" id="navToggle" aria-label="toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="navLinks">
+          <a href="#about" class="nav-link">عني</a>
+          <a href="#skills" class="nav-link">مهاراتي</a>
+          <a href="#projects" class="nav-link">مشاريعي</a>
+          <a href="#education" class="nav-link">التعليم</a>
+          <a href="#contact" class="nav-link">تواصل</a>
+        </nav>
       </div>
-      <div class="hero-scroll reveal">
-        <span>تمرر للأسفل</span>
-        <div class="scroll-line"></div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="grid-lines"></div>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="section-label reveal">// عني</div>
-      <h2 class="section-title reveal">من أنا؟</h2>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            أنا <strong>بولا فوزي</strong>، طالب في كلية الحاسبات والمعلومات — جامعة اسيوط الاهلية.
-            أجمع بين الشغف بالكود والاهتمام بتصميم الواجهات لأبني تجارب رقمية تُحل مشكلات حقيقية.
-          </p>
-          <p>
-            أمتلك أساساً قوياً في لغات البرمجة مثل Python وJava وC++، بالإضافة إلى خبرة في تطوير الواجهات الأمامية باستخدام HTML وCSS.
-            أؤمن بأن أفضل المنتجات الرقمية تولد من تقاطع البرمجة وتصميم تجربة المستخدم.
-          </p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-num">10+</span>
-              <span class="stat-label">شهادة تقنية</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">5+</span>
-              <span class="stat-label">لغات برمجة</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">3+</span>
-              <span class="stat-label">أدوات Adobe</span>
-            </div>
-          </div>
+      <div class="hero-content"
+        style="align-items:center;text-align:center;width:100%;">
+        <div class="hero-tag reveal">
+          <span class="tag-dot"></span> متاحة للعمل
         </div>
-        <div class="about-card reveal">
-          <div class="about-card-inner">
-            <div class="profile-avatar">
-              <div class="avatar-ring"></div>
-              <div class="avatar-initials">PF</div>
-            </div>
-            <div class="about-info">
-              <div class="info-row">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>اسيوط، مصر</span>
-              </div>
-              <div class="info-row">
-                <i class="fa-solid fa-envelope"></i>
-                <span>paulafawzy00@gmail.com</span>
-              </div>
-              <div class="info-row">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <span>جامعة اسيوط الاهلية—حاسبات وذكاء اصطناعي — علوم حاسب</span>
-              </div>
-              <div class="info-row">
-                <i class="fa-solid fa-circle-check" style="color:var(--accent-green)"></i>
-                <span>متاحة للفرص</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SKILLS ===== -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <div class="section-label reveal">// مهاراتي</div>
-      <h2 class="section-title reveal">Tech Stack</h2>
-
-      <div class="skills-tabs reveal">
-        <button class="tab-btn active" data-tab="languages">لغات البرمجة</button>
-        <button class="tab-btn" data-tab="database">قواعد البيانات</button>
-        <button class="tab-btn" data-tab="design">التصميم</button>
-        <button class="tab-btn" data-tab="tools">الأدوات</button>
-      </div>
-
-      <div class="skills-grid" id="skillsGrid">
-
-        <!-- Languages -->
-        <div class="skill-card active" data-category="languages">
-          <div class="skill-icon"><i class="fa-solid fa-c"></i></div>
-          <span>C</span>
-        </div>
-        <div class="skill-card active" data-category="languages">
-          <div class="skill-icon cpp-icon">C++</div>
-          <span>C++</span>
-        </div>
-        <div class="skill-card active" data-category="languages">
-          <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
-          <span>Python</span>
-        </div>
-        <div class="skill-card active" data-category="languages">
-          <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
-          <span>Java</span>
-        </div>
-        <div class="skill-card active" data-category="languages">
-          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
-          <span>HTML5</span>
-        </div>
-        <div class="skill-card active" data-category="languages">
-          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
-          <span>CSS3</span>
-        </div>
-
-        <!-- Database -->
-        <div class="skill-card" data-category="database" style="display:none">
-          <div class="skill-icon db-icon"><i class="fa-solid fa-database"></i></div>
-          <span>SQL</span>
-        </div>
-        <div class="skill-card" data-category="database" style="display:none">
-          <div class="skill-icon db-icon"><i class="fa-solid fa-table"></i></div>
-          <span>Database Design</span>
-        </div>
-        <div class="skill-card" data-category="database" style="display:none">
-          <div class="skill-icon db-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <span>MySQL</span>
-        </div>
-
-        <!-- Design -->
-        <div class="skill-card" data-category="design" style="display:none">
-          <div class="skill-icon ds-icon"><i class="fa-solid fa-pen-nib"></i></div>
-          <span>UX Design</span>
-        </div>
-        <div class="skill-card" data-category="design" style="display:none">
-          <div class="skill-icon ds-icon"><i class="fa-brands fa-figma"></i></div>
-          <span>Photoshop</span>
-        </div>
-        <div class="skill-card" data-category="design" style="display:none">
-          <div class="skill-icon ds-icon"><i class="fa-solid fa-layer-group"></i></div>
-          <span>Illustrator</span>
-        </div>
-        <div class="skill-card" data-category="design" style="display:none">
-          <div class="skill-icon ds-icon"><i class="fa-solid fa-film"></i></div>
-          <span>Premiere Pro</span>
-        </div>
-        <div class="skill-card" data-category="design" style="display:none">
-          <div class="skill-icon ds-icon"><i class="fa-solid fa-file-image"></i></div>
-          <span>InDesign</span>
-        </div>
-
-        <!-- Tools -->
-        <div class="skill-card" data-category="tools" style="display:none">
-          <div class="skill-icon tl-icon"><i class="fa-brands fa-git-alt"></i></div>
-          <span>Git</span>
-        </div>
-        <div class="skill-card" data-category="tools" style="display:none">
-          <div class="skill-icon tl-icon"><i class="fa-brands fa-github"></i></div>
-          <span>GitHub</span>
-        </div>
-        <div class="skill-card" data-category="tools" style="display:none">
-          <div class="skill-icon tl-icon"><i class="fa-solid fa-code"></i></div>
-          <span>VS Code</span>
-        </div>
-        <div class="skill-card" data-category="tools" style="display:none">
-          <div class="skill-icon tl-icon"><i class="fa-solid fa-note-sticky"></i></div>
-          <span>Notion</span>
-        </div>
-        <div class="skill-card" data-category="tools" style="display:none">
-          <div class="skill-icon tl-icon"><i class="fa-solid fa-project-diagram"></i></div>
-          <span>Visual Paradigm</span>
-        </div>
-
-      </div>
-
-      <div class="skills-extra reveal">
-        <div class="extra-tag"><i class="fa-solid fa-brain"></i> Algorithms & Problem Solving</div>
-        <div class="extra-tag"><i class="fa-solid fa-cubes"></i> OOP</div>
-        <div class="extra-tag"><i class="fa-solid fa-shield-halved"></i> CompTIA A+</div>
-        <div class="extra-tag"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <div class="section-label reveal">// مشاريعي</div>
-      <h2 class="section-title reveal">ما بنيته</h2>
-      <div class="projects-grid">
-
-        <div class="project-card reveal">
-          <div class="project-img">
-            <div class="project-img-placeholder gallery">
-              <i class="fa-solid fa-images"></i>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="overlay-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="#" class="overlay-btn" title="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="ptag">HTML</span>
-              <span class="ptag">CSS</span>
-              <span class="ptag">JavaScript</span>
-            </div>
-            <h3 class="project-title">Nature Photo Gallery</h3>
-            <p class="project-desc">
-              معرض صور طبيعية تفاعلي مبني بـ HTML وCSS. يتضمن تصفح الصور بواجهة أنيقة ومتجاوبة مع كل الشاشات،
-              مع تصفية حسب الفئات وتأثيرات بصرية جذابة.
-            </p>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-img">
-            <div class="project-img-placeholder algo">
-              <i class="fa-solid fa-code-branch"></i>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="overlay-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="ptag">C++</span>
-              <span class="ptag">Algorithms</span>
-            </div>
-            <h3 class="project-title">Problem Solving Solutions</h3>
-            <p class="project-desc">
-              مجموعة من حلول مسائل البرمجة والخوارزميات بلغة C++،
-              تشمل تطبيقات على هياكل البيانات والخوارزميات الأساسية.
-            </p>
-          </div>
-        </div>
-
-        <div class="project-card reveal">
-          <div class="project-img">
-            <div class="project-img-placeholder db">
-              <i class="fa-solid fa-database"></i>
-            </div>
-            <div class="project-overlay">
-              <a href="#" class="overlay-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="ptag">SQL</span>
-              <span class="ptag">Database Design</span>
-            </div>
-            <h3 class="project-title">Database Projects</h3>
-            <p class="project-desc">
-              مشاريع تصميم قواعد البيانات العلائقية وكتابة استعلامات SQL معقدة،
-              مع تطبيق مبادئ التطبيع ونمذجة البيانات.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EDUCATION & CERTS ===== -->
-  <section class="section education" id="education">
-    <div class="container">
-      <div class="section-label reveal">// التعليم والشهادات</div>
-      <h2 class="section-title reveal">مسيرتي التعليمية</h2>
-
-      <div class="edu-grid">
-        <!-- Education -->
-        <div class="edu-col reveal">
-          <h3 class="edu-col-title"><i class="fa-solid fa-graduation-cap"></i> التعليم</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="tl-dot"></div>
-              <div class="tl-content">
-                <span class="tl-date">2024 — الآن</span>
-                <h4>الفرقة الثاني علوم الحاسب</h4>
-                <p>كلية الحاسبات والمعلومات — جامعة اسيوط </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certifications -->
-        <div class="certs-col reveal">
-          <h3 class="edu-col-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
-          <div class="certs-grid">
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-solid fa-c"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">Introduction to Programming Using C++ — Level 1</span>
-                <span class="cert-source">ProgrammingAdvices</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">Algorithms & Problem Solving — Level 1 & 2</span>
-                <span class="cert-source">ProgrammingAdvices</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-solid fa-database"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">Database SQL — Concepts, Design, Projects & Practice</span>
-                <span class="cert-source">ProgrammingAdvices</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-brands fa-html5"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">HTML Deep Dive + CSS Foundations</span>
-                <span class="cert-source">ProgrammingAdvices</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">Python — Level 1</span>
-                <span class="cert-source">ProgrammingAdvices</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-brands fa-java"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">Java OOP</span>
-                <span class="cert-source">ProgrammingAdvices</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-solid fa-pen-nib"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">UX Design Fundamentals</span>
-                <span class="cert-source">Sahara Tech</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">CompTIA A+</span>
-                <span class="cert-source">CompTIA</span>
-              </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-icon"><i class="fa-solid fa-university"></i></div>
-              <div class="cert-info">
-                <span class="cert-title">CS50x — Introduction to Computer Science</span>
-                <span class="cert-source">Harvard University</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="section-label reveal">// تواصل</div>
-      <h2 class="section-title reveal">لنبني شيئاً معاً</h2>
-      <p class="contact-sub reveal">هل لديك فكرة أو فرصة؟ راسليني وسأرد في أقرب وقت.</p>
-
-      <div class="contact-grid">
-        <form class="contact-form reveal" id="contactForm">
-          <div class="form-group">
-            <label>الاسم</label>
-            <input type="text" id="from_name" name="name" placeholder="اسمك الكريم" required />
-          </div>
-          <div class="form-group">
-            <label>البريد الإلكتروني</label>
-            <input type="email" id="reply_to" name="email" placeholder="email@example.com" required />
-          </div>
-          <div class="form-group">
-            <label>الموضوع</label>
-            <input type="text" id="subject" name="subject" placeholder="موضوع الرسالة" required />
-          </div>
-          <div class="form-group">
-            <label>الرسالة</label>
-            <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary full-width" id="submitBtn">
-            <i class="fa-solid fa-paper-plane"></i> إرسال الرسالة
-          </button>
-          <p class="form-note" id="formNote"></p>
-        </form>
-
-        <div class="contact-links reveal">
-          <a href="mailto:paulafawzy00@gmail.com" class="contact-link">
-            <div class="cl-icon email-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div class="cl-text">
-              <span class="cl-label">البريد الإلكتروني</span>
-              <span class="cl-val">paulafawzy00@gmail.com</span>
-            </div>
-            <i class="fa-solid fa-arrow-left cl-arrow"></i>
-          </a>
-          <a href="https://github.com/paula1245124" target="_blank" class="contact-link">
-            <div class="cl-icon github-icon"><i class="fa-brands fa-github"></i></div>
-            <div class="cl-text">
-              <span class="cl-label">GitHub</span>
-              <span class="cl-val">github.com/paulafawzy00</span>
-            </div>
-            <i class="fa-solid fa-arrow-left cl-arrow"></i>
-          </a>
-          <a href="https://linkedin.com/in/paulafawzy" target="_blank" class="contact-link">
-            <div class="cl-icon linkedin-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-            <div class="cl-text">
-              <span class="cl-label">LinkedIn</span>
-              <span class="cl-val">linkedin.com/in/paulafawzy00</span>
-            </div>
-            <i class="fa-solid fa-arrow-left cl-arrow"></i>
+        <h1 class="hero-title reveal">
+          <span class="title-sub">مرحباً، أنا</span>
+          <span class="title-main">بولا فوزي</span>
+        </h1>
+        <p class="hero-role reveal">
+          <span class="typed-wrapper">
+            <span class="typed" id="typed"></span><span
+              class="typed-cursor">|</span>
+          </span>
+        </p>
+        <p class="hero-desc reveal">
+          طالب علوم حاسب في كلية الحاسبات والمعلومات في جامعة اسيوط ، شغوفة
+          بالبرمجة وحل المشكلات وتصميم تجارب مستخدم أفضل. أجمع بين المنطق
+          البرمجي والإبداع التصميمي.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#contact" class="btn btn-primary">تواصل معي</a>
+          <a href="\Paula_Fawzy_CV.pdf" download class="btn btn-outline">
+            <i class="fa-solid fa-download"></i> تحميل الـ CV
           </a>
         </div>
+        <div class="hero-scroll reveal">
+          <span>تمرر للأسفل</span>
+          <div class="scroll-line"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <p>
-        صُمِّم وبُني بـ <span class="heart">♥</span> من طرف
-        <strong>بولا فوزي</strong> — © 2026
-      </p>
-    </div>
-  </footer>
+    <!-- ===== ABOUT ===== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-label reveal">// عني</div>
+        <h2 class="section-title reveal">من أنا؟</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              أنا <strong>بولا فوزي</strong>، طالب في كلية الحاسبات والمعلومات —
+              جامعة اسيوط الاهلية.
+              أجمع بين الشغف بالكود والاهتمام بتصميم الواجهات لأبني تجارب رقمية
+              تُحل مشكلات حقيقية.
+            </p>
+            <p>
+              أمتلك أساساً قوياً في لغات البرمجة مثل Python وJava وC++، بالإضافة
+              إلى خبرة في تطوير الواجهات الأمامية باستخدام HTML وCSS.
+              أؤمن بأن أفضل المنتجات الرقمية تولد من تقاطع البرمجة وتصميم تجربة
+              المستخدم.
+            </p>
+            <div class="about-stats">
+              <div class="stat">
+                <span class="stat-num">10+</span>
+                <span class="stat-label">شهادة تقنية</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">5+</span>
+                <span class="stat-label">لغات برمجة</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">3+</span>
+                <span class="stat-label">أدوات Adobe</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-card reveal">
+            <div class="about-card-inner">
+              <div class="profile-avatar">
+                <div class="avatar-ring"></div>
+                <div class="avatar-initials">PF</div>
+              </div>
+              <div class="about-info">
+                <div class="info-row">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>اسيوط، مصر</span>
+                </div>
+                <div class="info-row">
+                  <i class="fa-solid fa-envelope"></i>
+                  <span>paulafawzy00@gmail.com</span>
+                </div>
+                <div class="info-row">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <span>جامعة اسيوط الاهلية—حاسبات وذكاء اصطناعي — علوم
+                    حاسب</span>
+                </div>
+                <div class="info-row">
+                  <i class="fa-solid fa-circle-check"
+                    style="color:var(--accent-green)"></i>
+                  <span>متاحة للفرص</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <script>
+    <!-- ===== SKILLS ===== -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-label reveal">// مهاراتي</div>
+        <h2 class="section-title reveal">Tech Stack</h2>
+
+        <div class="skills-tabs reveal">
+          <button class="tab-btn active" data-tab="languages">لغات
+            البرمجة</button>
+          <button class="tab-btn" data-tab="database">قواعد البيانات</button>
+          <button class="tab-btn" data-tab="design">التصميم</button>
+          <button class="tab-btn" data-tab="tools">الأدوات</button>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid">
+
+          <!-- Languages -->
+          <div class="skill-card active" data-category="languages">
+            <div class="skill-icon"><i class="fa-solid fa-c"></i></div>
+            <span>C</span>
+          </div>
+          <div class="skill-card active" data-category="languages">
+            <div class="skill-icon cpp-icon">C++</div>
+            <span>C++</span>
+          </div>
+          <div class="skill-card active" data-category="languages">
+            <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+            <span>Python</span>
+          </div>
+          <div class="skill-card active" data-category="languages">
+            <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
+            <span>Java</span>
+          </div>
+          <div class="skill-card active" data-category="languages">
+            <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+            <span>HTML5</span>
+          </div>
+          <div class="skill-card active" data-category="languages">
+            <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
+            <span>CSS3</span>
+          </div>
+
+          <!-- Database -->
+          <div class="skill-card" data-category="database" style="display:none">
+            <div class="skill-icon db-icon"><i
+                class="fa-solid fa-database"></i></div>
+            <span>SQL</span>
+          </div>
+          <div class="skill-card" data-category="database" style="display:none">
+            <div class="skill-icon db-icon"><i
+                class="fa-solid fa-table"></i></div>
+            <span>Database Design</span>
+          </div>
+          <div class="skill-card" data-category="database" style="display:none">
+            <div class="skill-icon db-icon"><i
+                class="fa-solid fa-magnifying-glass"></i></div>
+            <span>MySQL</span>
+          </div>
+
+          <!-- Design -->
+          <div class="skill-card" data-category="design" style="display:none">
+            <div class="skill-icon ds-icon"><i
+                class="fa-solid fa-pen-nib"></i></div>
+            <span>UX Design</span>
+          </div>
+          <div class="skill-card" data-category="design" style="display:none">
+            <div class="skill-icon ds-icon"><i
+                class="fa-brands fa-figma"></i></div>
+            <span>Photoshop</span>
+          </div>
+          <div class="skill-card" data-category="design" style="display:none">
+            <div class="skill-icon ds-icon"><i
+                class="fa-solid fa-layer-group"></i></div>
+            <span>Illustrator</span>
+          </div>
+          <div class="skill-card" data-category="design" style="display:none">
+            <div class="skill-icon ds-icon"><i
+                class="fa-solid fa-film"></i></div>
+            <span>Premiere Pro</span>
+          </div>
+          <div class="skill-card" data-category="design" style="display:none">
+            <div class="skill-icon ds-icon"><i
+                class="fa-solid fa-file-image"></i></div>
+            <span>InDesign</span>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-card" data-category="tools" style="display:none">
+            <div class="skill-icon tl-icon"><i
+                class="fa-brands fa-git-alt"></i></div>
+            <span>Git</span>
+          </div>
+          <div class="skill-card" data-category="tools" style="display:none">
+            <div class="skill-icon tl-icon"><i
+                class="fa-brands fa-github"></i></div>
+            <span>GitHub</span>
+          </div>
+          <div class="skill-card" data-category="tools" style="display:none">
+            <div class="skill-icon tl-icon"><i
+                class="fa-solid fa-code"></i></div>
+            <span>VS Code</span>
+          </div>
+          <div class="skill-card" data-category="tools" style="display:none">
+            <div class="skill-icon tl-icon"><i
+                class="fa-solid fa-note-sticky"></i></div>
+            <span>Notion</span>
+          </div>
+          <div class="skill-card" data-category="tools" style="display:none">
+            <div class="skill-icon tl-icon"><i
+                class="fa-solid fa-project-diagram"></i></div>
+            <span>Visual Paradigm</span>
+          </div>
+
+        </div>
+
+        <div class="skills-extra reveal">
+          <div class="extra-tag"><i class="fa-solid fa-brain"></i> Algorithms &
+            Problem Solving</div>
+          <div class="extra-tag"><i class="fa-solid fa-cubes"></i> OOP</div>
+          <div class="extra-tag"><i class="fa-solid fa-shield-halved"></i>
+            CompTIA A+</div>
+          <div class="extra-tag"><i class="fa-solid fa-mobile-screen"></i>
+            Responsive Design</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-label reveal">// مشاريعي</div>
+        <h2 class="section-title reveal">ما بنيته</h2>
+        <div class="projects-grid">
+
+          <div class="project-card reveal">
+            <div class="project-img">
+              <div class="project-img-placeholder gallery">
+                <i class="fa-solid fa-images"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="overlay-btn" title="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+                <a href="#" class="overlay-btn" title="Live Demo"><i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="ptag">HTML</span>
+                <span class="ptag">CSS</span>
+                <span class="ptag">JavaScript</span>
+              </div>
+              <h3 class="project-title">Nature Photo Gallery</h3>
+              <p class="project-desc">
+                معرض صور طبيعية تفاعلي مبني بـ HTML وCSS. يتضمن تصفح الصور
+                بواجهة أنيقة ومتجاوبة مع كل الشاشات،
+                مع تصفية حسب الفئات وتأثيرات بصرية جذابة.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-img">
+              <div class="project-img-placeholder algo">
+                <i class="fa-solid fa-code-branch"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="overlay-btn" title="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="ptag">C++</span>
+                <span class="ptag">Algorithms</span>
+              </div>
+              <h3 class="project-title">Problem Solving Solutions</h3>
+              <p class="project-desc">
+                مجموعة من حلول مسائل البرمجة والخوارزميات بلغة C++،
+                تشمل تطبيقات على هياكل البيانات والخوارزميات الأساسية.
+              </p>
+            </div>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-img">
+              <div class="project-img-placeholder db">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="overlay-btn" title="GitHub"><i
+                    class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="ptag">SQL</span>
+                <span class="ptag">Database Design</span>
+              </div>
+              <h3 class="project-title">Database Projects</h3>
+              <p class="project-desc">
+                مشاريع تصميم قواعد البيانات العلائقية وكتابة استعلامات SQL
+                معقدة،
+                مع تطبيق مبادئ التطبيع ونمذجة البيانات.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION & CERTS ===== -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-label reveal">// التعليم والشهادات</div>
+        <h2 class="section-title reveal">مسيرتي التعليمية</h2>
+
+        <div class="edu-grid">
+          <!-- Education -->
+          <div class="edu-col reveal">
+            <h3 class="edu-col-title"><i class="fa-solid fa-graduation-cap"></i>
+              التعليم</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <span class="tl-date">2024 — الآن</span>
+                  <h4>الفرقة الثاني علوم الحاسب</h4>
+                  <p>كلية الحاسبات والمعلومات — جامعة اسيوط </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="certs-col reveal">
+            <h3 class="edu-col-title"><i class="fa-solid fa-certificate"></i>
+              الشهادات</h3>
+            <div class="certs-grid">
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-solid fa-c"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">Introduction to Programming Using C++
+                    — Level 1</span>
+                  <span class="cert-source">ProgrammingAdvices</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i
+                    class="fa-solid fa-terminal"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">Algorithms & Problem Solving — Level
+                    1 & 2</span>
+                  <span class="cert-source">ProgrammingAdvices</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i
+                    class="fa-solid fa-database"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">Database SQL — Concepts, Design,
+                    Projects & Practice</span>
+                  <span class="cert-source">ProgrammingAdvices</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-brands fa-html5"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">HTML Deep Dive + CSS
+                    Foundations</span>
+                  <span class="cert-source">ProgrammingAdvices</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">Python — Level 1</span>
+                  <span class="cert-source">ProgrammingAdvices</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-brands fa-java"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">Java OOP</span>
+                  <span class="cert-source">ProgrammingAdvices</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">UX Design Fundamentals</span>
+                  <span class="cert-source">Sahara Tech</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i
+                    class="fa-solid fa-shield-halved"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">CompTIA A+</span>
+                  <span class="cert-source">CompTIA</span>
+                </div>
+              </div>
+              <div class="cert-card">
+                <div class="cert-icon"><i
+                    class="fa-solid fa-university"></i></div>
+                <div class="cert-info">
+                  <span class="cert-title">CS50x — Introduction to Computer
+                    Science</span>
+                  <span class="cert-source">Harvard University</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-label reveal">// تواصل</div>
+        <h2 class="section-title reveal">لنبني شيئاً معاً</h2>
+        <p class="contact-sub reveal">هل لديك فكرة أو فرصة؟ راسليني وسأرد في
+          أقرب وقت.</p>
+
+        <div class="contact-grid">
+          <form class="contact-form reveal" id="contactForm">
+            <div class="form-group">
+              <label>الاسم</label>
+              <input type="text" id="from_name" name="name"
+                placeholder="اسمك الكريم" required />
+            </div>
+            <div class="form-group">
+              <label>البريد الإلكتروني</label>
+              <input type="email" id="reply_to" name="email"
+                placeholder="email@example.com" required />
+            </div>
+            <div class="form-group">
+              <label>الموضوع</label>
+              <input type="text" id="subject" name="subject"
+                placeholder="موضوع الرسالة" required />
+            </div>
+            <div class="form-group">
+              <label>الرسالة</label>
+              <textarea id="message" name="message" rows="5"
+                placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary full-width"
+              id="submitBtn">
+              <i class="fa-solid fa-paper-plane"></i> إرسال الرسالة
+            </button>
+            <p class="form-note" id="formNote"></p>
+          </form>
+
+          <div class="contact-links reveal">
+            <a href="mailto:paulafawzy00@gmail.com" class="contact-link">
+              <div class="cl-icon email-icon"><i
+                  class="fa-solid fa-envelope"></i></div>
+              <div class="cl-text">
+                <span class="cl-label">البريد الإلكتروني</span>
+                <span class="cl-val">paulafawzy00@gmail.com</span>
+              </div>
+              <i class="fa-solid fa-arrow-left cl-arrow"></i>
+            </a>
+            <a href="https://github.com/paula1245124" target="_blank"
+              class="contact-link">
+              <div class="cl-icon github-icon"><i
+                  class="fa-brands fa-github"></i></div>
+              <div class="cl-text">
+                <span class="cl-label">GitHub</span>
+                <span class="cl-val">github.com/paulafawzy00</span>
+              </div>
+              <i class="fa-solid fa-arrow-left cl-arrow"></i>
+            </a>
+            <a href="https://linkedin.com/in/paulafawzy" target="_blank"
+              class="contact-link">
+              <div class="cl-icon linkedin-icon"><i
+                  class="fa-brands fa-linkedin-in"></i></div>
+              <div class="cl-text">
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-val">linkedin.com/in/paulafawzy00</span>
+              </div>
+              <i class="fa-solid fa-arrow-left cl-arrow"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <p>
+          صُمِّم وبُني بـ <span class="heart">♥</span> من طرف
+          <strong>بولا فوزي</strong> — © 2026
+        </p>
+      </div>
+    </footer>
+
+    <script>
 /* ============================================================
    PAULA FAWZY — PORTFOLIO JS (MERGED)
    Best of Both: Claude's design + Kimi's content structure
@@ -1399,8 +1457,10 @@ navLinks.querySelectorAll('.nav-link').forEach(link => {
 /* ── 4. TYPED EFFECT ── */
 const typedEl = document.getElementById('typed');
 const phrases = [
-  'CS Student @ Cairo Uni',
+  'CS Student @ assiut Uni',
   'C++ Developer',
+   'database Developer',
+  
   'Problem Solver',
   'Python Enthusiast',
   'UX Design Learner',
@@ -1738,7 +1798,7 @@ document.querySelectorAll('a[download]').forEach(link => {
   link.addEventListener('click', e => {
     // Check if file exists, if not show alert
     const href = link.getAttribute('href');
-    if (href === '#' || href === 'Paula_Fawzy_CV_No_Dashboard.pdf') {
+    if (href === '#' || href === 'Paula_Fawzy_CV.pdf') {
       // This is just a placeholder - in production, replace with actual file
       console.log('CV download initiated');
     }
@@ -1750,5 +1810,5 @@ console.log('%c Paula Fawzy Portfolio ', 'background: linear-gradient(135deg, #8
 console.log('%c Built with passion and lots of coffee ☕ ', 'color: #a78bfa; font-size: 12px;');
 
   </script>
-</body>
+  </body>
 </html>
