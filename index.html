@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="description" content="بولا فوزي، طالب علوم حاسب مهتمة بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب وتصميم تجربة المستخدم.">
+  <meta name="description" content="بولا فوزي، طالبة علوم حاسب مهتمة بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب وتصميم تجربة المستخدم.">
   <meta name="keywords" content="بولا فوزي, Paula Fawzy, علوم حاسب, برمجة, C++, Python, Java, قواعد بيانات, تطوير الويب, UX">
   <meta name="author" content="بولا فوزي">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -88,6 +88,35 @@
     img{max-width:100%;display:block}
     button,input,textarea{font:inherit}
     ::selection{background:rgba(139,92,246,.35)}
+
+    html, body{
+      overflow-x:hidden;
+      width:100%;
+      max-width:100%;
+    }
+    main{
+      position:relative;
+      width:100%;
+    }
+    .sr-only{
+      position:absolute !important;
+      width:1px !important;
+      height:1px !important;
+      padding:0 !important;
+      margin:-1px !important;
+      overflow:hidden !important;
+      clip:rect(0,0,0,0) !important;
+      white-space:nowrap !important;
+      border:0 !important;
+    }
+    .hero-inner, .container, .nav-wrap{
+      max-width:100%;
+    }
+    .about-text p, .hero p.desc, .item p, .project p, .contact-sub, .info-row, .v{
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
 
     .container{max-width:var(--max);margin:0 auto;padding:0 22px}
     .section{padding:96px 0;position:relative}
@@ -609,28 +638,47 @@
       .hero{padding-top:110px}
     }
     @media (max-width: 768px){
-      .section{padding:74px 0}
+      .section{padding:72px 0}
+      .container{padding:0 14px}
       .nav-toggle{display:flex}
       .nav-links{
         position:absolute;inset:100% 0 auto 0;
-        display:none;flex-direction:column;gap:22px;
-        padding:22px;
+        display:none;flex-direction:column;gap:18px;
+        padding:20px 16px;
         background:rgba(11,13,23,.98);
         backdrop-filter:blur(14px);
         border-bottom:1px solid var(--line)
       }
       .nav-links.open{display:flex}
-      .stats{grid-template-columns:1fr}
+      .hero{
+        min-height:auto;
+        padding:98px 0 54px
+      }
+      .hero::before, .hero::after{
+        width:220px;
+        height:220px;
+        filter:blur(70px);
+        opacity:.12
+      }
+      .hero-inner{
+        width:100%;
+        max-width:100%;
+        padding:0 10px
+      }
       .hero-actions{flex-direction:column}
       .hero-actions .btn{width:100%}
+      .stats{grid-template-columns:1fr}
+      .about-grid, .edu-grid, .contact-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .projects-grid{grid-template-columns:1fr}
+      .link-card .v{font-size:.82rem}
     }
     @media (max-width: 480px){
-      .container{padding:0 16px}
-      .title{margin-bottom:24px}
-      .hero h1{font-size:clamp(2.45rem,14vw,3.6rem)}
-      .skills-grid{grid-template-columns:repeat(auto-fill, minmax(118px,1fr))}
+      .container{padding:0 12px}
+      .title{margin-bottom:22px}
+      .hero h1{font-size:clamp(2.35rem,13vw,3.45rem)}
+      .skills-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
       .project-grid{grid-template-columns:1fr}
-      .link-card .v{font-size:.82rem}
     }
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
@@ -638,46 +686,6 @@
       .reveal{opacity:1;transform:none}
       .cursor{display:none}
     }
-    .container{
-    width:min(100%,1200px);
-    padding-inline:16px;
-}
-
-img{
-    max-width:100%;
-    height:auto;
-}
-
-.projects-grid,
-.skills-grid,
-.contact-grid,
-.about-grid,
-.edu-grid{
-    grid-template-columns:1fr !important;
-}
-
-@media (max-width:768px){
-    h1{
-        font-size:2.2rem !important;
-    }
-
-    .hero{
-        min-height:auto;
-        padding:120px 0 60px;
-    }
-
-    .hero-actions{
-        flex-direction:column;
-    }
-
-    .btn{
-        width:100%;
-    }
-
-    .project{
-        width:100%;
-    }
-}
   </style>
 </head>
 <body>
@@ -704,9 +712,7 @@ img{
   </header>
 
   <main>
-  <div id="siteSeoText" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
-    موقع شخصي لبولا فوزي، طالبة علوم حاسب من مصر، يعرض المهارات والمشاريع والشهادات ووسائل التواصل.
-  </div>
+  <div id="siteSeoText" class="sr-only">موقع شخصي لبولا فوزي، طالبة علوم حاسب من مصر، يعرض المهارات والمشاريع والشهادات ووسائل التواصل.</div>
 
     <section class="hero" id="hero">
       <div class="hero-grid"></div>
