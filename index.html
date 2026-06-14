@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <meta name="description" content="بولا فوزي، طالبة علوم حاسب مهتمة بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب وتصميم تجربة المستخدم.">
+  <meta name="description" content="بولا فوزي، طالب علوم حاسب مهتمة بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب وتصميم تجربة المستخدم.">
   <meta name="keywords" content="بولا فوزي, Paula Fawzy, علوم حاسب, برمجة, C++, Python, Java, قواعد بيانات, تطوير الويب, UX">
   <meta name="author" content="بولا فوزي">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -638,6 +638,46 @@
       .reveal{opacity:1;transform:none}
       .cursor{display:none}
     }
+    .container{
+    width:min(100%,1200px);
+    padding-inline:16px;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.projects-grid,
+.skills-grid,
+.contact-grid,
+.about-grid,
+.edu-grid{
+    grid-template-columns:1fr !important;
+}
+
+@media (max-width:768px){
+    h1{
+        font-size:2.2rem !important;
+    }
+
+    .hero{
+        min-height:auto;
+        padding:120px 0 60px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .project{
+        width:100%;
+    }
+}
   </style>
 </head>
 <body>
