@@ -1058,7 +1058,19 @@
 
   <script>
     'use strict';
+// عند تغيير الـ Section
+function navigateTo(section) {
+    localStorage.setItem('lastSection', section);
+    window.location.hash = section;
+}
 
+// لما الصفحة تتحمل
+window.addEventListener('load', function() {
+    const lastSection = localStorage.getItem('lastSection');
+    if (lastSection) {
+        window.location.hash = lastSection;
+    }
+});
     const cursor = document.getElementById('cursor');
     const finePointer = window.matchMedia('(pointer:fine)').matches;
 
