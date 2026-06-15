@@ -1215,31 +1215,7 @@ ${message}`;
       setTimeout(() => {
         formNote.textContent = '';
       }, 5000);
-    });// لما المستخدم يضغط على لينك في الـ Navbar
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href').replace('#', '');
-        sessionStorage.setItem('scrollToSection', targetId);
     });
-});
-
-// لما الصفحة تتحمل
-window.addEventListener('load', function() {
-    // امسح الـ Hash من URL
-    if (window.location.hash) {
-        history.replaceState(null, document.title, window.location.pathname + window.location.search);
-    }
-    
-    // روح للـ Section اللي كان المستخدم فيه
-    const sectionId = sessionStorage.getItem('scrollToSection');
-    if (sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'instant' });
-        }
-        sessionStorage.removeItem('scrollToSection');
-    }
-});
   </script>
 </body>
 </html>
