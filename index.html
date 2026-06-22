@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة المواد التعليمية</title>
+    <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#4F46E5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/icon-192x192.png">
     <style>
         /* ==========================================
            متغيرات الألوان الأساسية (Light - الافتراضي)
@@ -444,33 +449,24 @@
         .questions-display-area.active { display: block; }
         .quiz-view { display: none; }
         .quiz-view.active { display: block; }
-        .quiz-scroll-container {
-            height: 75vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg-quiz-container);
-            scroll-behavior: smooth;
-            transition: background-color 0.6s, border-color 0.4s;
-        }
+       .quiz-scroll-container {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-quiz-container);
+    padding: 10px;
+    transition: background-color 0.6s, border-color 0.4s;
+}
         .quiz-scroll-container::-webkit-scrollbar { width: 10px; }
         .quiz-scroll-container::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 5px; transition: background 0.4s; }
-        .quiz-card {
-            scroll-snap-align: start;
-            min-height: 75vh;
-            background: var(--bg-quiz-card);
-            margin: 15px;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 10px var(--shadow);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            transition: background-color 0.6s, box-shadow 0.4s;
-        }
+     .quiz-card {
+    background: var(--bg-quiz-card);
+    margin: 0 0 15px 0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 6px var(--shadow);
+    text-align: right;
+    transition: background-color 0.6s, box-shadow 0.4s;
+}
         .quiz-number {
             background: var(--quiz-number-bg);
             color: var(--text-white);
@@ -490,19 +486,21 @@
             color: var(--text-heading);
             transition: color 0.4s;
         }
-        .quiz-options { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .quiz-option-btn {
-            padding: 12px 35px;
-            font-size: 18px;
-            border: 3px solid var(--option-border);
-            background: var(--bg-quiz-card);
-            color: var(--option-text);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            min-width: 120px;
-        }
+.quiz-options {
+     display: flex; 
+    flex-direction: column; 
+    gap: 8px; }       
+   .quiz-option-btn {
+    padding: 10px 16px;
+    font-size: 20px;
+    border: 2px solid var(--option-border);
+    background: var(--bg-quiz-card);
+    color: var(--option-text);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: right;
+}
         .quiz-option-btn:hover { background: var(--option-hover-bg); }
         .quiz-option-btn.correct { background: var(--success); color: var(--text-white); border-color: var(--success); }
         .quiz-option-btn.incorrect { background: var(--danger); color: var(--text-white); border-color: var(--danger); }
@@ -534,7 +532,14 @@
             width: 0%;
         }
         .progress-text { text-align: center; font-size: 14px; color: var(--text-hint); margin-bottom: 10px; font-weight: bold; transition: color 0.4s; }
-        .show-score-btn-wrap { min-height: 75vh; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin: 15px; }
+        .show-score-btn-wrap { 
+             display: flex; 
+             flex-direction: column; 
+             justify-content: center;
+              align-items: center; 
+              text-align: center;
+               margin: 15px;
+             }
         .show-score-btn {
             background: linear-gradient(135deg, var(--show-score-bg-1), var(--show-score-bg-2));
             color: var(--text-white);
@@ -831,7 +836,14 @@
     </div>
 
 <script>
-    
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('SW جاهز ✓'))
+        .catch(err => console.log('SW مشكلة:', err));
+    });
+  }
+
 // ==========================================
 // 1. نظام المظهر (Theme System)
 // ==========================================
@@ -6517,17 +6529,14 @@ function openLecturePage(index) {
 
     var pdfHtml = '<div class="lecture-main"><div class="pdf-viewer"></div></div>';
 
-    if (l.interactive) {
+   if (l.questions && l.questions.length > 0 && typeof l.questions[0] === 'object') {
         var qid = 'lq-' + index;
-        box.innerHTML = '<div class="lecture-content">' + pdfHtml + notesHtml + '</div>' +
-            '<h3>اختبار تفاعلي - أسئلة هذه المحاضرة</h3>' +
+        box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3>' +
             '<div id="lq-h-' + index + '"></div>' +
-            '<p class="scroll-hint">مرر للأسفل للانتقال إلى السؤال التالي ↓</p>' +
-            '<div class="quiz-scroll-container" style="height:75vh" id="lq-c-' + index + '"></div>';
+            '<div class="quiz-scroll-container" id="lq-c-' + index + '"></div>';
         buildQuiz(document.getElementById('lq-c-' + index), l, 'lq-fb-' + index + '-', qid, document.getElementById('lq-h-' + index));
     } else {
-        box.innerHTML = '<div class="lecture-content">' + pdfHtml + notesHtml + '</div>' +
-            '<h3>أسئلة هذه المحاضرة</h3><ul id="lecture-questions"></ul>';
+        box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><ul id="lecture-questions"></ul>';
         var ul = document.getElementById('lecture-questions');
         l.questions.forEach(function(q) { var li = document.createElement('li'); li.innerHTML = q; ul.appendChild(li); });
     }
