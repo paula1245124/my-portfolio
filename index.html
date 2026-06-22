@@ -836,13 +836,6 @@
     </div>
 
 <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(() => console.log('SW جاهز ✓'))
-        .catch(err => console.log('SW مشكلة:', err));
-    });
-  }
 
 // ==========================================
 // 1. نظام المظهر (Theme System)
@@ -6636,7 +6629,16 @@ function openSubTab(evt, subTabName) {
         document.getElementById(p[1]).style.display = 'block';
     });
 }
-
+// ==========================================
+// تسجيل Service Worker للتطبيق
+// ==========================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function() { console.log('SW ✓'); })
+            .catch(function(err) { console.log('SW ✗', err); });
+    });
+}
 
 
 </script>

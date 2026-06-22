@@ -1,29 +1,18 @@
-const CACHE_NAME = 'pf-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/icon-192x192.png',
-  '/icon-512x512.png'
-];
+var CACHE_NAME = 'pf-v1';
+var urlsToCache = ['/', '/index.html'];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  );
-  self.skipWaiting();
+self.addEventListener('install', function(e) {
+    e.waitUntil(caches.open(CACHE_NAME).then(function(c) { return c.addAll(urlsToCache); }));
+    self.skipWaiting();
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
-    )
-  );
-  self.clients.claim();
+self.addEventListener('activate', function(e) {
+    e.waitUntil(caches.keys().then(function(keys) {
+        return Promise.all(keys.filter(function(k) { return k !== CACHE_NAME; }).map(function(k) { return caches.delete(k); }));
+    }));
+    self.clients.claim();
 });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
-  );
+self.addEventListener('fetch', function(e) {
+    e.respondWith(caches.match(e.request).then(function(r) { return r || fetch(e.request); }));
 });
