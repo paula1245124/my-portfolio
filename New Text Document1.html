@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة المواد التعليمية</title>
+    <style>
+        :root {
+            --bg-body: #f4f7f6; --bg-header: #2c3e50; --bg-content: white; --bg-card: #ecf0f1;
+            --bg-card-hover: #e0e5e6; --bg-questions-box: #f9f9f9; --bg-quiz-container: #f0f4f8;
+            --bg-quiz-card: white; --text-primary: #333; --text-secondary: #555; --text-heading: #2c3e50;
+            --text-hint: #7f8c8d; --text-white: white; --accent: #3498db; --accent-hover: #2980b9;
+            --accent-active: #2c3e50; --success: #27ae60; --success-light: #2ecc71; --danger: #e74c3c;
+            --danger-hover: #c0392b; --warning: #f39c12; --warning-hover: #e67e22; --gold: #f1c40f;
+            --border: #ddd; --shadow: rgba(0,0,0,0.1); --card-border: #3498db;
+            --questions-box-border: #27ae60; --quiz-number-bg: #2c3e50; --option-border: #3498db;
+            --option-text: #3498db; --option-hover-bg: #ecf0f1; --progress-bg: #e0e0e0;
+            --progress-fill-1: #27ae60; --progress-fill-2: #2ecc71; --score-bg-1: #2c3e50;
+            --score-bg-2: #3498db; --score-circle-border: rgba(255,255,255,0.3);
+            --score-circle-bg: rgba(255,255,255,0.1); --scrollbar-thumb: #3498db;
+            --wrong-card-bg: #fdecea; --wrong-card-border: #e74c3c; --wrong-card-text: #c0392b;
+            --correct-card-bg: #eafaf1; --correct-card-border: #27ae60; --correct-card-text: #1e8449;
+            --no-wrong-bg: #eafaf1; --no-wrong-border: #27ae60; --no-wrong-text: #1e8449;
+            --show-score-bg-1: #2c3e50; --show-score-bg-2: #3498db;
+            --show-score-shadow: rgba(52,152,219,0.4); --wrong-title-bg: #e74c3c;
+            --status-bg: #2c3e50; --status-text: white; --theme-btn-bg: rgba(255,255,255,0.15);
+            --theme-btn-active: rgba(255,255,255,0.35); --theme-btn-text: white;
+            --notif-panel-bg: white; --notif-panel-border: #ddd; --notif-item-hover: #f5f5f5;
+            --notif-badge-bg: #e74c3c; --score-badge-excellent: #27ae60; --score-badge-good: #f39c12;
+            --score-badge-bad: #e74c3c; --nav-link-bg: #ecf0f1; --nav-link-border: #3498db;
+            --collapse-header-bg: #e74c3c; --collapse-body-bg: white;
+        }
+        [data-theme="dark"] {
+            --bg-body: #0d1117; --bg-header: #161b22; --bg-content: #161b22; --bg-card: #1c2333;
+            --bg-card-hover: #242d3d; --bg-questions-box: #1c2333; --bg-quiz-container: #0d1117;
+            --bg-quiz-card: #161b22; --text-primary: #e6edf3; --text-secondary: #a0aec0;
+            --text-heading: #ffffff; --text-hint: #718096; --accent: #58a6ff; --accent-hover: #79b8ff;
+            --accent-active: #161b22; --border: #30363d; --shadow: rgba(0,0,0,0.4);
+            --card-border: #58a6ff; --quiz-number-bg: #30363d; --option-border: #58a6ff;
+            --option-text: #58a6ff; --option-hover-bg: #242d3d; --progress-bg: #30363d;
+            --score-bg-1: #161b22; --score-bg-2: #30363d; --score-circle-border: rgba(255,255,255,0.15);
+            --score-circle-bg: rgba(255,255,255,0.05); --scrollbar-thumb: #58a6ff;
+            --wrong-card-bg: #2a1a1a; --wrong-card-border: #e74c3c; --correct-card-bg: #1a2a1a;
+            --correct-card-border: #27ae60; --no-wrong-bg: #1a2a1a; --no-wrong-border: #27ae60;
+            --show-score-bg-1: #161b22; --show-score-bg-2: #30363d;
+            --show-score-shadow: rgba(88,166,255,0.3); --status-bg: #0d1117;
+            --theme-btn-bg: rgba(255,255,255,0.08); --theme-btn-active: rgba(88,166,255,0.3);
+            --notif-panel-bg: #1c2333; --notif-panel-border: #30363d; --notif-item-hover: #242d3d;
+            --nav-link-bg: #1c2333; --nav-link-border: #58a6ff; --collapse-body-bg: #161b22;
+        }
+        [data-theme="morning"] {
+            --bg-body: #fef9ef; --bg-header: #e67e22; --bg-content: #fffdf7; --bg-card: #fef5e7;
+            --bg-card-hover: #fdebd0; --bg-questions-box: #fef9ef; --bg-quiz-container: #fef5e7;
+            --bg-quiz-card: #fffdf7; --text-primary: #5d4037; --text-secondary: #795548;
+            --text-heading: #bf6516; --text-hint: #a1887f; --accent: #e67e22; --accent-hover: #d35400;
+            --accent-active: #e67e22; --border: #f0d9b5; --shadow: rgba(230,126,34,0.1);
+            --card-border: #e67e22; --quiz-number-bg: #e67e22; --option-border: #e67e22;
+            --option-text: #e67e22; --option-hover-bg: #fef5e7; --progress-bg: #fdebd0;
+            --progress-fill-1: #e67e22; --progress-fill-2: #f39c12; --score-bg-1: #e67e22;
+            --score-bg-2: #f39c12; --show-score-bg-1: #e67e22; --show-score-bg-2: #f39c12;
+            --show-score-shadow: rgba(230,126,34,0.4); --status-bg: #e67e22;
+            --theme-btn-active: rgba(255,255,255,0.35); --notif-panel-bg: #fffdf7;
+            --notif-panel-border: #f0d9b5; --notif-item-hover: #fef5e7; --nav-link-bg: #fef5e7;
+            --nav-link-border: #e67e22; --collapse-body-bg: #fffdf7;
+        }
+        [data-theme="noon"] {
+            --bg-body: #ffffff; --bg-header: #111111; --bg-content: #ffffff; --bg-card: #f8f8f8;
+            --bg-card-hover: #eeeeee; --bg-questions-box: #f8f8f8; --bg-quiz-container: #f0f0f0;
+            --bg-quiz-card: #ffffff; --text-primary: #000000; --text-secondary: #222222;
+            --text-heading: #000000; --text-hint: #555555; --accent: #0055cc; --accent-hover: #0044aa;
+            --accent-active: #111111; --border: #cccccc; --shadow: rgba(0,0,0,0.08);
+            --card-border: #0055cc; --quiz-number-bg: #111111; --option-border: #0055cc;
+            --option-text: #0055cc; --option-hover-bg: #f0f0f0; --progress-bg: #dddddd;
+            --progress-fill-1: #0055cc; --progress-fill-2: #0077ff; --score-bg-1: #111111;
+            --score-bg-2: #333333; --show-score-bg-1: #111111; --show-score-bg-2: #333333;
+            --show-score-shadow: rgba(0,0,0,0.3); --status-bg: #111111;
+            --theme-btn-active: rgba(255,255,255,0.25); --notif-panel-bg: #ffffff;
+            --notif-panel-border: #cccccc; --notif-item-hover: #f8f8f8; --nav-link-bg: #f8f8f8;
+            --nav-link-border: #0055cc; --collapse-body-bg: #ffffff;
+        }
+        [data-theme="afternoon"] {
+            --bg-body: #f5f0e8; --bg-header: #6d4c41; --bg-content: #faf7f2; --bg-card: #efe9e0;
+            --bg-card-hover: #e3dbd0; --bg-questions-box: #f5f0e8; --bg-quiz-container: #efe9e0;
+            --bg-quiz-card: #faf7f2; --text-primary: #3e2723; --text-secondary: #5d4037;
+            --text-heading: #5d4037; --text-hint: #8d6e63; --accent: #8d6e63; --accent-hover: #795548;
+            --accent-active: #6d4c41; --border: #d7ccc8; --shadow: rgba(109,76,65,0.1);
+            --card-border: #8d6e63; --quiz-number-bg: #6d4c41; --option-border: #8d6e63;
+            --option-text: #8d6e63; --option-hover-bg: #efe9e0; --progress-bg: #d7ccc8;
+            --progress-fill-1: #8d6e63; --progress-fill-2: #a1887f; --score-bg-1: #6d4c41;
+            --score-bg-2: #8d6e63; --show-score-bg-1: #6d4c41; --show-score-bg-2: #8d6e63;
+            --show-score-shadow: rgba(109,76,65,0.4); --status-bg: #6d4c41;
+            --theme-btn-active: rgba(255,255,255,0.3); --notif-panel-bg: #faf7f2;
+            --notif-panel-border: #d7ccc8; --notif-item-hover: #efe9e0; --nav-link-bg: #efe9e0;
+            --nav-link-border: #8d6e63; --collapse-body-bg: #faf7f2;
+        }
+        [data-theme="night"] {
+            --bg-body: #0a0a14; --bg-header: #12121f; --bg-content: #12121f; --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a; --bg-questions-box: #1a1a2e; --bg-quiz-container: #0a0a14;
+            --bg-quiz-card: #12121f; --text-primary: #d4d4e8; --text-secondary: #9999bb;
+            --text-heading: #eeeeff; --text-hint: #666688; --accent: #6c8cff; --accent-hover: #8da4ff;
+            --accent-active: #12121f; --border: #2a2a44; --shadow: rgba(0,0,0,0.5);
+            --card-border: #6c8cff; --quiz-number-bg: #2a2a44; --option-border: #6c8cff;
+            --option-text: #6c8cff; --option-hover-bg: #1a1a2e; --progress-bg: #2a2a44;
+            --progress-fill-1: #4a6cf7; --progress-fill-2: #6c8cff; --score-bg-1: #12121f;
+            --score-bg-2: #2a2a44; --score-circle-border: rgba(108,140,255,0.2);
+            --score-circle-bg: rgba(108,140,255,0.05); --scrollbar-thumb: #6c8cff;
+            --wrong-card-bg: #2a1520; --wrong-card-border: #e74c3c; --correct-card-bg: #152a1a;
+            --correct-card-border: #27ae60; --no-wrong-bg: #152a1a; --no-wrong-border: #27ae60;
+            --show-score-bg-1: #12121f; --show-score-bg-2: #2a2a44;
+            --show-score-shadow: rgba(108,140,255,0.3); --status-bg: #0a0a14;
+            --theme-btn-bg: rgba(255,255,255,0.06); --theme-btn-active: rgba(108,140,255,0.25);
+            --notif-panel-bg: #1a1a2e; --notif-panel-border: #2a2a44; --notif-item-hover: #22223a;
+            --nav-link-bg: #1a1a2e; --nav-link-border: #6c8cff; --collapse-body-bg: #12121f;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-body); margin: 0; padding: 0; color: var(--text-primary); transition: background-color 0.6s, color 0.4s; }
+        header { background-color: var(--bg-header); color: var(--text-white); text-align: center; padding: 15px 20px 10px; box-shadow: 0 4px 6px var(--shadow); position: sticky; top: 0; z-index: 1000; transition: background-color 0.6s; }
+        header h1 { margin: 0 0 12px; font-size: 24px; }
+        .header-row { display: flex; justify-content: center; align-items: center; position: relative; flex-wrap: wrap; gap: 10px; }
+        .theme-controls { display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .theme-pill { background: var(--theme-btn-bg); color: var(--theme-btn-text); border: 2px solid transparent; padding: 6px 16px; border-radius: 50px; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 5px; }
+        .theme-pill:hover { background: var(--theme-btn-active); transform: scale(1.05); }
+        .theme-pill.active { border-color: var(--text-white); background: var(--theme-btn-active); box-shadow: 0 0 12px rgba(255,255,255,0.2); }
+        .auto-only { display: none; }
+        .auto-visible .auto-only { display: inline-flex; }
+        .demo-btn { background: #e67e22; color: white; border: none; padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: bold; transition: all 0.3s; animation: demoPulse 1.5s infinite; }
+        .demo-btn:hover { filter: brightness(1.15); transform: scale(1.05); }
+        @keyframes demoPulse { 0%,100%{box-shadow:0 0 0 0 rgba(230,126,34,0.4)} 50%{box-shadow:0 0 0 8px rgba(230,126,34,0)} }
+
+        /* جرس الإشعارات */
+        .notif-bell { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 22px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--theme-btn-bg); transition: all 0.3s; position: relative; }
+        .notif-bell:hover { background: var(--theme-btn-active); transform: translateY(-50%) scale(1.1); }
+        .notif-badge { position: absolute; top: -2px; left: -2px; background: var(--notif-badge-bg); color: white; font-size: 11px; font-weight: bold; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--bg-header); }
+        .notif-badge.hidden { display: none; }
+        .notif-panel { position: absolute; left: 15px; top: 55px; width: 380px; max-width: 90vw; max-height: 70vh; background: var(--notif-panel-bg); border: 1px solid var(--notif-panel-border); border-radius: 12px; box-shadow: 0 8px 30px var(--shadow); z-index: 2000; display: none; flex-direction: column; overflow: hidden; transition: background 0.4s, border-color 0.4s; }
+        .notif-panel.open { display: flex; }
+        .notif-panel-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); }
+        .notif-panel-header h3 { margin: 0; font-size: 16px; color: var(--text-heading); }
+        .notif-clear-btn { background: var(--danger); color: white; border: none; padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: bold; transition: background 0.3s; }
+        .notif-clear-btn:hover { background: var(--danger-hover); }
+        .notif-list { overflow-y: auto; flex: 1; max-height: 50vh; }
+        .notif-list::-webkit-scrollbar { width: 6px; }
+        .notif-list::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+        .notif-item { padding: 14px 18px; border-bottom: 1px solid var(--border); cursor: default; transition: background 0.2s; }
+        .notif-item:hover { background: var(--notif-item-hover); }
+        .notif-item:last-child { border-bottom: none; }
+        .notif-item-title { font-size: 13px; font-weight: bold; color: var(--accent); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .notif-item-title .notif-time { font-size: 11px; color: var(--text-hint); font-weight: normal; margin-right: auto; }
+        .notif-field { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .notif-field b { color: var(--text-heading); }
+        .notif-old-answer { color: var(--danger); text-decoration: line-through; }
+        .notif-new-answer { color: var(--success); font-weight: bold; }
+        .notif-empty { padding: 40px 20px; text-align: center; color: var(--text-hint); font-size: 15px; }
+
+        .container { max-width: 980px; width: 100%; margin: 20px auto; padding: 0 16px; padding-bottom: 70px; }
+        .tabs { display: flex; justify-content: center; margin-bottom: 30px; gap: 10px; flex-wrap: wrap; }
+        .tab-button { background-color: var(--accent); color: var(--text-white); border: none; padding: 12px 25px; font-size: 18px; cursor: pointer; border-radius: 8px; transition: background 0.3s, color 0.3s; }
+        .tab-button:hover { background-color: var(--accent-hover); }
+        .tab-button.active { background-color: var(--accent-active); }
+        .content-section { display: none; background: var(--bg-content); padding: 30px; border-radius: 10px; box-shadow: 0 2px 5px var(--shadow); transition: background-color 0.6s; }
+        .content-section.active { display: block; }
+        .card { background: var(--bg-card); padding: 15px; margin-bottom: 15px; border-radius: 8px; border-right: 5px solid var(--card-border); cursor: pointer; transition: transform 0.2s, background 0.4s, border-color 0.4s; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+        .card:hover { transform: translateX(-5px); background: var(--bg-card-hover); }
+        .card-text { flex: 1; min-width: 0; }
+        .card-text h3 { margin: 0 0 5px 0; color: var(--text-heading); font-size: 18px; transition: color 0.4s; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .card-text p { margin: 0; color: var(--text-secondary); transition: color 0.4s; }
+        .card-download-btn { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 6px; background: var(--accent); color: white; text-decoration: none; font-size: 14px; transition: all 0.3s; flex-shrink: 0; border: none; cursor: pointer; }
+        .card-download-btn:hover { background: var(--accent-hover); transform: scale(1.15); }
+        .score-badge { padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; color: white; white-space: nowrap; flex-shrink: 0; }
+        .score-badge.excellent { background: var(--score-badge-excellent); }
+        .score-badge.good { background: var(--score-badge-good); }
+        .score-badge.bad { background: var(--score-badge-bad); }
+        .back-btn { background-color: var(--danger); color: var(--text-white); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-bottom: 20px; transition: background 0.3s; }
+        .back-btn:hover { background-color: var(--danger-hover); }
+        .pdf-viewer { border: 2px solid var(--border); border-radius: 5px; overflow: hidden; margin-bottom: 30px; transition: border-color 0.4s; }
+        iframe { width: 100%; height: min(600px, 75vh); border: none; display: block; }
+        .questions-box { background: var(--bg-questions-box); padding: 20px; border-radius: 8px; border-right: 5px solid var(--questions-box-border); transition: background-color 0.6s, border-color 0.4s; }
+        .questions-box h3 { margin-top: 0; color: var(--text-heading); transition: color 0.4s; }
+        .questions-box ul { line-height: 1.8; font-size: 18px; }
+        .sub-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 10px; flex-wrap: wrap; transition: border-color 0.4s; position: relative; }
+        .sub-tab-button { background-color: var(--bg-card); color: var(--text-primary); border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-size: 15px; transition: all 0.3s; }
+        .sub-tab-button.active { background-color: var(--success); color: var(--text-white); }
+        .sub-content { display: none; }
+        .sub-content.active { display: block; }
+        .questions-display-area { display: none; }
+        .questions-display-area.active { display: block; }
+        .download-html-btn { background: var(--accent); color: white; border: none; padding: 8px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 6px; position: absolute; left: 0; top: -48px; }
+        .download-html-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
+        .quiz-scroll-container { border: 2px solid var(--border); border-radius: 10px; background: var(--bg-quiz-container); padding: 10px; transition: background-color 0.6s, border-color 0.4s; overflow-y: auto; max-height: 75vh; }
+        .quiz-scroll-container::-webkit-scrollbar { width: 10px; }
+        .quiz-scroll-container::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 5px; }
+        .quiz-card { background: var(--bg-quiz-card); margin: 0 0 15px 0; border-radius: 10px; padding: 20px; box-shadow: 0 2px 6px var(--shadow); text-align: right; transition: background-color 0.6s, box-shadow 0.4s; }
+        .quiz-number { background: var(--quiz-number-bg); color: var(--text-white); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 15px; transition: background-color 0.4s; font-size: 16px; }
+        .quiz-question-text { font-size: 20px; font-weight: bold; margin-bottom: 25px; max-width: 800px; line-height: 1.6; color: var(--text-heading); transition: color 0.4s; }
+        .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+        .quiz-option-btn { padding: 10px 16px; font-size: 17px; border: 2px solid var(--option-border); background: var(--bg-quiz-card); color: var(--option-text); border-radius: 8px; cursor: pointer; transition: all 0.3s; text-align: right; }
+        .quiz-option-btn:hover { background: var(--option-hover-bg); }
+        .quiz-option-btn.correct { background: var(--success); color: var(--text-white); border-color: var(--success); }
+        .quiz-option-btn.incorrect { background: var(--danger); color: var(--text-white); border-color: var(--danger); }
+        .quiz-option-btn.disabled { opacity: 0.6; cursor: not-allowed; pointer-events: none; }
+        .quiz-feedback { margin-top: 20px; font-size: 18px; font-weight: bold; display: none; }
+        .quiz-feedback.show { display: block; }
+        .quiz-feedback.correct-text { color: var(--success); }
+        .quiz-feedback.wrong-text { color: var(--danger); }
+        .scroll-hint { text-align: center; color: var(--text-hint); margin-top: 10px; font-size: 14px; transition: color 0.4s; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+        .reset-btn { background-color: var(--warning); color: var(--text-white); border: none; padding: 10px 22px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+        .reset-btn:hover { background-color: var(--warning-hover); }
+        .progress-bar-wrap { background: var(--progress-bg); border-radius: 20px; height: 14px; margin-bottom: 15px; overflow: hidden; transition: background 0.4s; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--progress-fill-1), var(--progress-fill-2)); border-radius: 20px; transition: width 0.5s ease, background 0.6s; width: 0%; }
+        .progress-text { text-align: center; font-size: 14px; color: var(--text-hint); margin-bottom: 10px; font-weight: bold; transition: color 0.4s; }
+        .show-score-btn-wrap { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin: 15px; }
+        .show-score-btn { background: linear-gradient(135deg, var(--show-score-bg-1), var(--show-score-bg-2)); color: var(--text-white); border: none; padding: 20px 60px; border-radius: 50px; cursor: pointer; font-size: 24px; font-weight: bold; transition: all 0.5s; box-shadow: 0 6px 20px var(--show-score-shadow); }
+        .show-score-btn:hover { transform: scale(1.08); }
+        .show-score-subtitle { color: var(--text-hint); font-size: 16px; margin-bottom: 20px; transition: color 0.4s; }
+        .score-card { background: linear-gradient(135deg, var(--score-bg-1), var(--score-bg-2)); margin: 15px; border-radius: 10px; padding: 40px 30px; box-shadow: 0 4px 10px var(--shadow); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-white); transition: background 0.6s; }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--score-circle-border); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; background: var(--score-circle-bg); transition: border-color 0.6s, background 0.6s; }
+        .score-number { font-size: 48px; font-weight: bold; line-height: 1; }
+        .score-label { font-size: 15px; opacity: 0.8; margin-top: 5px; }
+        .score-details { font-size: 18px; margin-bottom: 10px; line-height: 1.8; }
+        .score-message { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+        .score-excellent { color: var(--success-light); }
+        .score-good { color: var(--gold); }
+        .score-bad { color: var(--danger); }
+        .retry-btn { background-color: var(--text-white); color: var(--score-bg-1); border: none; padding: 12px 35px; border-radius: 50px; cursor: pointer; font-size: 17px; font-weight: bold; transition: all 0.3s; margin-top: 10px; }
+        .retry-btn:hover { transform: scale(1.05); }
+
+        /* قسم الأسئلة الخاطئة المتقلص */
+        .wrong-collapse-section { margin: 15px; border-radius: 10px; overflow: hidden; border: 1px solid var(--wrong-card-border); }
+        .wrong-collapse-header { background: var(--collapse-header-bg); color: white; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; transition: background 0.3s; gap: 10px; }
+        .wrong-collapse-header:hover { filter: brightness(1.1); }
+        .wrong-collapse-header span { font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .wrong-collapse-arrow { transition: transform 0.3s; font-size: 14px; }
+        .wrong-collapse-arrow.open { transform: rotate(180deg); }
+        .wrong-collapse-actions { display: flex; align-items: center; gap: 8px; }
+        .download-word-btn { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 5px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.3s; white-space: nowrap; }
+        .download-word-btn:hover { background: rgba(255,255,255,0.35); }
+        .wrong-collapse-body { background: var(--collapse-body-bg); max-height: 0; overflow: hidden; transition: max-height 0.4s ease, background 0.4s; }
+        .wrong-collapse-body.open { max-height: 2000px; overflow-y: auto; }
+        .wrong-collapse-body::-webkit-scrollbar { width: 8px; }
+        .wrong-collapse-body::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+        .wrong-q-card { border-bottom: 1px solid var(--border); padding: 18px 22px; transition: background 0.4s; }
+        .wrong-q-card:last-child { border-bottom: none; }
+        .wrong-q-num { display: inline-block; background: var(--danger); color: var(--text-white); width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: 13px; font-weight: bold; margin-left: 8px; }
+        .wrong-q-text { font-size: 16px; font-weight: bold; color: var(--text-heading); margin: 8px 0; line-height: 1.7; transition: color 0.4s; }
+        .wrong-q-answer { padding: 8px 14px; border-radius: 6px; margin: 5px 0; font-size: 15px; line-height: 1.6; }
+        .wrong-q-user { background: var(--wrong-card-bg); border-right: 4px solid var(--wrong-card-border); color: var(--wrong-card-text); transition: all 0.4s; }
+        .wrong-q-correct { background: var(--correct-card-bg); border-right: 4px solid var(--correct-card-border); color: var(--correct-card-text); transition: all 0.4s; }
+        .wrong-q-label { font-weight: bold; font-size: 12px; display: block; margin-bottom: 2px; }
+
+        /* روابط التنقل بعد الامتحان */
+        .quiz-nav-section { margin: 15px; }
+        .quiz-nav-title { font-size: 18px; font-weight: bold; color: var(--text-heading); margin-bottom: 12px; text-align: center; }
+        .quiz-nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+        .quiz-nav-card { background: var(--nav-link-bg); border: 2px solid var(--nav-link-border); border-radius: 10px; padding: 16px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .quiz-nav-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px var(--shadow); }
+        .quiz-nav-card-title { font-size: 14px; font-weight: bold; color: var(--text-heading); margin-bottom: 6px; }
+        .quiz-nav-card-count { font-size: 13px; color: var(--text-secondary); }
+        .quiz-nav-card-count b { color: var(--accent); }
+
+        .status-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--status-bg); color: var(--status-text); text-align: center; padding: 8px 15px; font-size: 13px; font-weight: bold; z-index: 999; direction: ltr; letter-spacing: 0.5px; box-shadow: 0 -2px 10px var(--shadow); transition: background-color 0.6s, color 0.4s; }
+        .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--success-light); margin-left: 8px; vertical-align: middle; animation: dotPulse 2s infinite; }
+        @keyframes dotPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        .status-demo { color: var(--warning); }
+        .status-demo .status-dot { background: var(--warning); }
+        .no-transition, .no-transition * { transition: none !important; }
+
+        /* سهم الصعود */
+        .scroll-top-btn { position: fixed; bottom: 50px; left: 25px; width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: white; border: none; cursor: pointer; font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px var(--show-score-shadow); z-index: 998; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.35s ease; }
+        .scroll-top-btn.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top-btn:hover { background: var(--accent-hover); transform: translateY(-3px); box-shadow: 0 6px 20px var(--show-score-shadow); }
+        .scroll-top-btn:active { transform: translateY(0) scale(0.95); }
+
+        .lecture-content { display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start; }
+        .lecture-main { flex: 1; min-width: 0; }
+        .notes-sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 100px; }
+        .notes-sidebar label { font-size: 15px; font-weight: bold; color: var(--text-heading); display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; transition: color 0.3s; }
+        .notes-sidebar label:hover { color: var(--accent); }
+        .notes-textarea { width: 100%; height: 500px; padding: 12px; border: 2px solid var(--border); border-radius: 8px; font-size: 15px; line-height: 1.8; resize: vertical; background: var(--bg-card); color: var(--text-primary); direction: rtl; font-family: 'Segoe UI', Tahoma, sans-serif; transition: border-color 0.3s, background 0.4s, color 0.4s; }
+        .notes-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(52,152,219,0.15); }
+        .notes-saved { background: var(--success); color: white; padding: 2px 10px; border-radius: 20px; font-size: 11px; opacity: 0; transition: opacity 0.3s; }
+        .notes-saved.show { opacity: 1; }
+        .notes-counter { color: var(--text-hint); font-size: 12px; margin-right: auto; }
+
+        @media (max-width: 768px) {
+            .lecture-content { flex-direction: column; }
+            .notes-sidebar { width: 100%; position: static; }
+            .quiz-nav-grid { grid-template-columns: repeat(2, 1fr); }
+            .notif-panel { width: 95vw; left: 2.5vw; }
+            .card { flex-direction: column; }
+            .score-badge { align-self: flex-start; }
+            .sub-tabs { position: relative; padding-top: 40px; }
+            .download-html-btn { top: 0; left: 0; position: absolute; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>منصة المواد التعليمية</h1>
+        <div class="header-row">
+            <div class="theme-controls" id="theme-controls">
+                <button class="theme-pill" data-mode="light" onclick="setThemeMode('light')">☀️ فاتح</button>
+                <button class="theme-pill" data-mode="dark" onclick="setThemeMode('dark')">🌙 غامق</button>
+                <button class="theme-pill" data-mode="auto" onclick="setThemeMode('auto')">🔄 تلقائي</button>
+                <button class="demo-btn auto-only" id="demo-btn" onclick="runDemo()">▶ Demo</button>
+            </div>
+            <div class="notif-bell" id="notif-bell" onclick="toggleNotifPanel(event)">
+                🔔
+                <span class="notif-badge hidden" id="notif-badge">0</span>
+            </div>
+            <div class="notif-panel" id="notif-panel">
+                <div class="notif-panel-header">
+                    <h3>مركز الإشعارات</h3>
+                    <button class="notif-clear-btn" onclick="clearAllNotifications()">مسح الكل</button>
+                </div>
+                <div class="notif-list" id="notif-list"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="main-view">
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'section1')">القسم الأول: المحاضرات</button>
+                <button class="tab-button" onclick="openTab(event, 'section2')">القسم الثاني: الأسئلة</button>
+            </div>
+            <div id="section1" class="content-section active">
+                <h2>المحاضرات</h2>
+                <p>اضغط على أي محاضرة لفتح ملفها وأسئلتها داخل الموقع.</p>
+                <div id="lectures-list"></div>
+            </div>
+            <div id="section2" class="content-section">
+                <h2>بنك الأسئلة</h2>
+                <div class="sub-tabs" id="sub-tabs-area">
+                    <button class="download-html-btn" onclick="downloadPageAsHTML()">⬇ تحميل صفحة HTML</button>
+                    <button class="sub-tab-button active" onclick="openSubTab(event, 'sub-lectures')">أسئلة محاضرات</button>
+                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-mid')">ميدتيرم</button>
+                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-final')">فاينل</button>
+                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-exam-model')">نماذج الامتحانات</button>
+                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-test-bank')">بنك الأسئلة</button>
+                </div>
+                <div id="sub-lectures" class="sub-content active">
+                    <div id="questions-lectures-list"></div>
+                    <div id="lecture-questions-view" class="questions-display-area">
+                        <button class="back-btn" onclick="goBackToList('questions-lectures-list', 'lecture-questions-view')">← العودة لقائمة المحاضرات</button>
+                        <h3 id="ql-title"></h3>
+                        <div class="questions-box"><ul id="ql-questions"></ul></div>
+                    </div>
+                </div>
+                <div id="sub-mid" class="sub-content">
+                    <div id="midterms-list"></div>
+                    <div id="midterm-questions-view" class="questions-display-area">
+                        <button class="back-btn" onclick="goBackToList('midterms-list', 'midterm-questions-view')">← العودة لامتحانات الميدتيرم</button>
+                        <h3 id="mid-title"></h3>
+                        <div class="questions-box"><ul id="mid-questions"></ul></div>
+                    </div>
+                </div>
+                <div id="sub-final" class="sub-content">
+                    <div id="finals-list"></div>
+                    <div id="final-questions-view" class="questions-display-area">
+                        <button class="back-btn" onclick="goBackToList('finals-list', 'final-questions-view')">← العودة لامتحانات الفاينل</button>
+                        <h3 id="final-title"></h3>
+                        <div class="questions-box"><ul id="final-questions"></ul></div>
+                    </div>
+                </div>
+                <div id="sub-exam-model" class="sub-content">
+                    <div id="exam-models-list"></div>
+                    <div id="exam-model-questions-view" class="questions-display-area">
+                        <button class="back-btn" onclick="goBackToList('exam-models-list', 'exam-model-questions-view')">← العودة لقائمة نماذج الامتحانات</button>
+                        <h3 id="exam-model-title"></h3>
+                        <div class="questions-box"><ul id="exam-model-questions"></ul></div>
+                    </div>
+                </div>
+                <div id="sub-test-bank" class="sub-content">
+                    <div id="test-banks-list"></div>
+                    <div id="test-bank-questions-view" class="questions-display-area">
+                        <button class="back-btn" onclick="goBackToList('test-banks-list', 'test-bank-questions-view')">← العودة لقائمة بنك الأسئلة</button>
+                        <h3 id="test-bank-title"></h3>
+                        <div class="questions-box"><ul id="test-bank-questions"></ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="lecture-view" class="content-section">
+            <button class="back-btn" onclick="goBackToMain()">← العودة لقائمة المحاضرات</button>
+            <h2 id="lecture-title"></h2>
+            <div id="lecture-content-area"></div>
+            <div class="questions-box" id="lecture-questions-box">
+                <h3>أسئلة هذه المحاضرة</h3>
+                <ul id="lecture-questions"></ul>
+            </div>
+        </div>
+        <div id="quiz-view" class="content-section">
+            <button class="back-btn" id="quiz-back-btn" onclick="goBackFromQuiz()">← العودة</button>
+            <h2 id="quiz-title" style="text-align: center;"></h2>
+            <div id="quiz-header-area"></div>
+            <div id="quiz-scroll-container" class="quiz-scroll-container"></div>
+            <div id="quiz-results-area"></div>
+        </div>
+    </div>
+
+    <!-- سهم الصعود -->
+    <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" title="الصعود للأعلى">▲</button>
+
+    <!-- شريط الحالة السفلي -->
+    <div class="status-bar" id="status-bar">Theme Sync: Light <span class="status-dot"></span></div>
+
+<script>
+// ==========================================
+// 1. نظام المظهر
+// ==========================================
+var themeMode = localStorage.getItem('themeMode') || 'auto';
+var demoInterval = null;
+var isDemoRunning = false;
+var themeNames = { light:'Light', dark:'Dark', morning:'Morning', noon:'Noon', afternoon:'Afternoon', night:'Night' };
+
+function setThemeMode(mode) {
+    themeMode = mode;
+    localStorage.setItem('themeMode', mode);
+    updateThemeUI();
+    if (!isDemoRunning) {
+        document.documentElement.classList.add('no-transition');
+        applyTimeTheme();
+        setTimeout(function(){ document.documentElement.classList.remove('no-transition'); }, 50);
+    }
+}
+function updateThemeUI() {
+    document.querySelectorAll('.theme-pill').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-mode') === themeMode); });
+    var ctrl = document.getElementById('theme-controls');
+    if (themeMode === 'auto') ctrl.classList.add('auto-visible'); else ctrl.classList.remove('auto-visible');
+}
+function getAutoTheme(h) { if(h>=6&&h<12) return 'morning'; if(h>=12&&h<15) return 'noon'; if(h>=15&&h<18) return 'afternoon'; return 'night'; }
+function applyTheme(n) { document.documentElement.setAttribute('data-theme', n); }
+function applyTimeTheme() {
+    if (themeMode==='light') applyTheme('light');
+    else if (themeMode==='dark') applyTheme('dark');
+    else applyTheme(getAutoTheme(new Date().getHours()));
+    updateStatusBar();
+}
+function formatTime(d) { var h=d.getHours(),m=d.getMinutes(),s=d.getSeconds(),ap=h>=12?'PM':'AM',h12=h%12||12; return h12+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+' '+ap; }
+function updateStatusBar(ft) {
+    var bar=document.getElementById('status-bar'), ct=document.documentElement.getAttribute('data-theme')||'light', n=themeNames[ct]||ct, ts=ft||formatTime(new Date()), dc=isDemoRunning?' status-demo':'';
+    bar.className='status-bar'+dc; bar.innerHTML='Theme Sync: '+n+' — '+ts+' <span class="status-dot"></span>';
+}
+function runDemo() {
+    if(isDemoRunning) return; isDemoRunning=true;
+    var btn=document.getElementById('demo-btn'); btn.textContent='⏸ Running...'; btn.style.animation='none';
+    var st=[{t:'morning',l:'6:00:00 AM'},{t:'noon',l:'12:00:00 PM'},{t:'afternoon',l:'3:30:00 PM'},{t:'night',l:'8:00:00 PM'}], idx=0;
+    applyTheme(st[0].t); updateStatusBar(st[0].l);
+    demoInterval=setInterval(function(){ idx++; if(idx>=st.length){ clearInterval(demoInterval); isDemoRunning=false; btn.textContent='▶ Demo'; btn.style.animation=''; applyTimeTheme(); return; } applyTheme(st[idx].t); updateStatusBar(st[idx].l); }, 2500);
+}
+(function(){ document.documentElement.classList.add('no-transition'); updateThemeUI(); applyTimeTheme(); setTimeout(function(){ document.documentElement.classList.remove('no-transition'); },50); })();
+setInterval(function(){ if(!isDemoRunning&&themeMode==='auto') applyTimeTheme(); else if(!isDemoRunning) updateStatusBar(); }, 1000);
+
+// ==========================================
+// 2. سهم الصعود
+// ==========================================
+var scrollBtn = document.getElementById('scroll-top-btn');
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) scrollBtn.classList.add('visible');
+    else scrollBtn.classList.remove('visible');
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+// ==========================================
+// 3. البيانات
+// ==========================================
+var lectures = [
+    { title:"المحاضرة الأولى", desc:"شرح مقدمة المادة والمفاهيم الأساسية.", pdf:"\\lectures\\اخلاقيات وحاسبات المحاضرة الاولي.pdf", interactive:true,
+      questions:[
+        {text:"ما هو تعريف القانون في اللغة؟", options:["مجموعة قواعد تنظم سلوك الأفراد","كل قاعدة ثابتة ومطردة","مجموعة قواعد إنسانية في مجتمع معين","يبدأ بالتصادف وينتهي بالثبات"], answer:"كل قاعدة ثابتة ومطردة"},
+        {text:"ما هو المعنى الضيق للقانون؟", options:["مجموعة القواعد التي تنظم سلوك الأفراد في مجتمع معين أو زمن معين أو بلد معين","مجموعة القواعد القانونية التي تنظم سلوك الأفراد داخل المجتمع","قواعد تنظم العلاقات الأسرية فقط","قواعد تنظم الاقتصاد فقط"], answer:"مجموعة القواعد التي تنظم سلوك الأفراد في مجتمع معين أو زمن معين أو بلد معين"},
+        {text:"ما هي أهمية القانون في المجتمع؟", options:["تعسف الأفراد","استغلال الأفراد للمجتمع","تنظيم العلاقات بين الأفراد في المجتمع","تمهيد الاعتداء على الأفراد"], answer:"تنظيم العلاقات بين الأفراد في المجتمع"}
+      ]},
+    { title:"المحاضرة الثانية", desc:"شرح الموضوع الثاني من المنهج الدراسي.", pdf:"\\lectures\\اخلاقيات وحاسبات المحاضرة الثانية.pdf", interactive:false,
+      questions:[
+        {text:"القاعدة القانونية تعتبر قاعدة سلوك لأنها:", options:["تهدف إلى توجيه سلوك الأفراد في المجتمع","تهتم فقط بالنوايا والبواعث الداخلية","تعتمد على الأخلاق فقط دون جزاء قانوني","لا تهتم بتنظيم المجتمع"], answer:"تهدف إلى توجيه سلوك الأفراد في المجتمع"},
+        {text:"ما الذي يميز القاعدة القانونية عن القاعدة التقريرية؟", options:["القاعدة القانونية تقريرية بطبيعتها","القاعدة القانونية تهدف إلى تقويم سلوك الأفراد","القاعدة التقريرية تهدف إلى فرض الجزاءات","القاعدة التقريرية تهتم فقط بالعقوبات"], answer:"القاعدة القانونية تهدف إلى تقويم سلوك الأفراد"}
+      ]},
+    { title:"المحاضرة الثالثة", desc:"تعمق في المفاهيم مع أمثلة تطبيقية.", pdf:"\\lectures\\اخلاقيات وحاسبات المحاضرة الثالثة.pdf", interactive:false,
+      questions:[
+        {text:"ما هو الأساس الذي تقوم عليه قواعد الدين؟", options:["الإنسان وضعها","الله سبحانه وتعالى أوحى بها","المجتمع وضعها","العادات والتقاليد"], answer:"الله سبحانه وتعالى أوحى بها"},
+        {text:"أي مما يلي يُعتبر وجهاً من أوجه التشابه بين قواعد الدين وقواعد القانون؟", options:["كلاهما من صنع البشر","كلاهما قواعد تنظم السلوك الإنساني في المجتمع","كلاهما يهدف إلى تحقيق الجزاء المادي فقط","كلاهما يهدف إلى تحقيق المصالح الشخصية"], answer:"كلاهما قواعد تنظم السلوك الإنساني في المجتمع"},
+        {text:"ما هو الاختلاف الأساسي بين قواعد الدين وقواعد القانون من حيث الجزاء؟", options:["الجزاء في القانون في الدنيا فقط، بينما في الدين في الدنيا والآخرة","الجزاء في الدين في الدنيا فقط","القانون لا يتضمن جزاءات","الدين يعاقب فقط في الآخرة"], answer:"الجزاء في القانون في الدنيا فقط، بينما في الدين في الدنيا والآخرة"}
+      ]},
+    { title:"المحاضرة الرابعة", desc:"شرح الجزء الخاص بفروع القانون.", pdf:"\\lectures\\اخلاقيات وحاسبات المحاضرة الرابعة.pdf", interactive:false,
+      questions:[
+        {text:"أي مما يلي يُعتبر فرعاً من فروع القانون العام؟", options:["القانون المدني","القانون التجاري","القانون الدستوري","القانون الجنائي الخاص"], answer:"القانون الدستوري"},
+        {text:"القانون الدولي العام يُنظم العلاقات بين:", options:["الأشخاص الطبيعيين فقط","الأشخاص الاعتباريين فقط","الدول وبعضها البعض","الشركات التجارية"], answer:"الدول وبعضها البعض"},
+        {text:"أي من الفروع التالية يُحدد شكل الدولة ونظام الحكم فيها؟", options:["القانون الإداري","القانون الدستوري","القانون الجنائي","القانون المدني"], answer:"القانون الدستوري"}
+      ]},
+    { title:"المحاضرة الخامسة", desc:"دراسة الحالات المتقدمة وحل المسائل.", pdf:"\\lectures\\اخلاقيات وحاسبات المحاضرة الخامسة.pdf", interactive:false,
+      questions:[
+        {text:"أي مما يلي يُعتبر أساساً للالتزام بالإعلام قبل التعاقد؟", options:["المصلحة الشخصية للمتعاقد فقط","الإعلام يُعتبر واجباً أخلاقياً فقط","المصلحة الاجتماعية والحاجة إلى تحقيق العدالة","الإعلام يُعتبر تطوعاً دون إلزام"], answer:"المصلحة الاجتماعية والحاجة إلى تحقيق العدالة"},
+        {text:"ما هو مصدر الالتزام قبل التعاقدي بالإعلام؟", options:["العقد نفسه","القانون فقط","المبادئ العامة للقانون كمبدأ حسن النية قبل التعاقدي","العادات والتقاليد فقط"], answer:"المبادئ العامة للقانون كمبدأ حسن النية قبل التعاقدي"},
+        {text:"ما هو الفرق الأساسي بين الالتزام بالإعلام قبل التعاقد والالتزام التعاقدي بالإعلام؟", options:["الالتزام قبل التعاقد ينشأ بعد العقد، بينما التعاقدي ينشأ قبله","الالتزام قبل التعاقد ينشأ قبل تكوين العقد، بينما التعاقدي ينشأ بعده","لا يوجد فرق بينهما","الالتزام التعاقدي لا يحتاج إلى إعلام"], answer:"الالتزام قبل التعاقد ينشأ قبل تكوين العقد، بينما التعاقدي ينشأ بعده"},
+        {text:"ما هو الفرق بين الواجب والالتزام وفقاً للمحاضرة؟", options:["الواجب يعتمد على الجزاء المادي، والالتزام يعتمد على المعنوي","الواجب يشير إلى قواعد السلوك ذات الطابع الأخلاقي، والالتزام يمثل الجانب السلبي في الحق الشخصي","لا يوجد فرق بينهما","الواجب والالتزام مصطلحان لمعنى واحد"], answer:"الواجب يشير إلى قواعد السلوك ذات الطابع الأخلاقي، والالتزام يمثل الجانب السلبي في الحق الشخصي"}
+      ]}
+];
+
+var midterms = [
+    { title:"امتحان ميدتيرم 2024 - النموذج الأول", pdf:"\\exams\\midterm1.pdf",
+      questions:[
+        {text:"القانون بمعناه العام يشمل:", options:["القواعد القانونية فقط","القواعد القانونية والقواعد الدينية والأخلاقية","القواعد الأخلاقية فقط","العادات والتقاليد فقط"], answer:"القواعد القانونية والقواعد الدينية والأخلاقية"},
+        {text:"من خصائص القاعدة القانونية أنها:", options:["تقريرية","ملزمة","اختيارية","شخصية"], answer:"ملزمة"},
+        {text:"الجزاء في القانون يكون:", options:["أخلاقيا فقط","ماديا فقط","معنويا فقط","ماديا ومعنويا"], answer:"ماديا ومعنويا"}
+      ]},
+    { title:"امتحان ميدتيرم 2024 - النموذج الثاني", pdf:"\\exams\\midterm2.pdf",
+      questions:[
+        {text:"مصدر القاعدة القانونية هو:", options:["العرف فقط","التشريع فقط","التشريع والعرف والقضاء","الدين فقط"], answer:"التشريع والعرف والقضاء"},
+        {text:"القانون الدستوري يعتبر من:", options:["القانون الخاص","القانون الدولي","القانون العام","القانون التجاري"], answer:"القانون العام"},
+        {text:"مبدأ المشروعية يعني:", options:["حرية الأفراد المطلقة","خضوع الإدارة للقانون","سيادة القانون الجنائي","استقلال القضاء"], answer:"خضوع الإدارة للقانون"}
+      ]}
+];
+
+var finals = [
+    { title:"امتحان فاينل 2024 - النموذج الأول", pdf:"\\exams\\final1.pdf",
+      questions:[
+        {text:"العقد يعتبر:", options:["عمل قانوني أحادي","عمل قانوني ثنائي","عمل مادي","تصرف إداري"], answer:"عمل قانوني ثنائي"},
+        {text:"من شروط صحة العقد:", options:["التراضي والمحل والسبب","التراضي فقط","المحل فقط","السبب فقط"], answer:"التراضي والمحل والسبب"},
+        {text:"الالتزام ينتج عن:", options:["العقد فقط","العمل غير المشروع فقط","الإثراء بلا سبب فقط","العقد والعمل غير المشروع والإثراء بلا سبب والقانون"], answer:"العقد والعمل غير المشروع والإثراء بلا سبب والقانون"}
+      ]},
+    { title:"امتحان فاينل 2024 - النموذج الثاني", pdf:"\\exams\\final2.pdf",
+      questions:[
+        {text:"الحق العيني هو:", options:["حق على شيء معين","حق شخصي","حق أدبي","حق مالي"], answer:"حق على شيء معين"},
+        {text:"الملكية تمنح صاحبها:", options:["حق الاستعمال فقط","حق الاستهلاك فقط","حق التصرف والاستعمال والاستغلال","حق الحبس فقط"], answer:"حق التصرف والاستعمال والاستغلال"},
+        {text:"الحق الشخصي هو:", options:["سلطة مباشرة على شيء","سلطة على شخص بتنفيذ عمل","حق عيني","حق ارتقائي"], answer:"سلطة على شخص بتنفيذ عمل"}
+      ]}
+];
+
+var examModels = [
+    { title:"نموذج امتحان شامل 2023", pdf:"\\exams\\model2023.pdf",
+      questions:[
+        {text:"الفقه هو:", options:["علم القانون","علم يبحث في القواعد القانونية وتفسيرها","تطبيق القانون","وضع القانون"], answer:"علم يبحث في القواعد القانونية وتفسيرها"},
+        {text:"التشريع يصدر عن:", options:["القضاء","الإدارة","السلطة التشريعية","الأفراد"], answer:"السلطة التشريعية"},
+        {text:"العرف مصدر:", options:["رسمي فقط","غير رسمي فقط","رسمي وغير رسمي","ليس مصدرا للقانون"], answer:"رسمي وغير رسمي"}
+      ]},
+    { title:"نموذج امتحان شامل 2022", pdf:"\\exams\\model2022.pdf",
+      questions:[
+        {text:"القانون الإداري يختص ب:", options:["العلاقات بين الأفراد","نشاط الإدارة العامة","العلاقات التجارية","الأحوال الشخصية"], answer:"نشاط الإدارة العامة"},
+        {text:"القرار الإداري هو:", options:["عمل تشريعي","عمل قضائي","تصرف قانوني صادر عن سلطة إدارية","عمل من أعمال القانون الخاص"], answer:"تصرف قانوني صادر عن سلطة إدارية"}
+      ]}
+];
+
+var testBanks = [
+    { title:"بنك أسئلة - الوحدة الأولى والثانية", pdf:"\\banks\\bank1.pdf",
+      questions:[
+        {text:"من مصادر القانون:", options:["التشريع","العرف","القضاء","كل ما سبق"], answer:"كل ما سبق"},
+        {text:"القاعدة القانونية تنظم:", options:["سلوك الأفراد فقط","سلوك الدولة فقط","سلوك الأفراد والدولة","لا شيء"], answer:"سلوك الأفراد والدولة"},
+        {text:"القانون الجنائي يهدف إلى:", options:["حماية الحقوق الخاصة","حماية المجتمع من الجرائم","تنظيم العقود","حماية الملكية الفكرية"], answer:"حماية المجتمع من الجرائم"},
+        {text:"من خصائص القاعدة القانونية:", options:["العمومية","التجريد","الإلزام","كل ما سبق"], answer:"كل ما سبق"}
+      ]},
+    { title:"بنك أسئلة - الوحدة الثالثة والرابعة", pdf:"\\banks\\bank2.pdf",
+      questions:[
+        {text:"العقد الرضائي يتم بتوافق:", options:["إرادتين فأكثر","إرادة واحدة","قرار إداري","حكم قضائي"], answer:"إرادتين فأكثر"},
+        {text:"السبب في العقد هو:", options:["الغاية الاقتصادية","الباعث الدافع","الهدف المباشر الذي من أجله تم التعاقد","الثمن"], answer:"الهدف المباشر الذي من أجله تم التعاقد"},
+        {text:"بطلان العقد يترتب عليه:", options:["عدم وجود العقد منذ البداية","إمكانية تصحيحه","سريانه من وقت البطلان","لا يترتب عليه شيء"], answer:"عدم وجود العقد منذ البداية"}
+      ]}
+];
+
+// ==========================================
+// 4. نظام النتائج (localStorage)
+// ==========================================
+function getSavedScore(type, index) {
+    var d = localStorage.getItem('quizScore_' + type + '_' + index);
+    return d ? JSON.parse(d) : null;
+}
+function saveQuizScore(type, index, score, total, wrongArr) {
+    localStorage.setItem('quizScore_' + type + '_' + index, JSON.stringify({
+        score: score, total: total, percentage: Math.round((score/total)*100),
+        date: new Date().toLocaleDateString('ar-EG'), wrongCount: wrongArr.length
+    }));
+}
+function clearQuizScore(type, index) { localStorage.removeItem('quizScore_' + type + '_' + index); }
+function countSolved(type, total) {
+    var c = 0; for (var i = 0; i < total; i++) { if (getSavedScore(type, i)) c++; } return c;
+}
+function getScoreBadgeClass(pct) { if (pct >= 80) return 'excellent'; if (pct >= 50) return 'good'; return 'bad'; }
+function renderScoreBadge(scoreData) {
+    if (!scoreData) return '';
+    return '<span class="score-badge ' + getScoreBadgeClass(scoreData.percentage) + '">' + scoreData.percentage + '% (' + scoreData.score + '/' + scoreData.total + ')</span>';
+}
+
+// ==========================================
+// 5. التنقل بين الأقسام
+// ==========================================
+function openTab(e, id) {
+    document.querySelectorAll('.tab-button').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.content-section').forEach(function(s){ s.classList.remove('active'); });
+    e.target.classList.add('active');
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+function openSubTab(e, id) {
+    e.target.parentElement.querySelectorAll('.sub-tab-button').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.sub-content').forEach(function(s){ s.classList.remove('active'); });
+    e.target.classList.add('active');
+    document.getElementById(id).classList.add('active');
+    // إخفاء أي عرض أسئلة
+    document.querySelectorAll('.questions-display-area').forEach(function(v){ v.classList.remove('active'); });
+    // إظهار القائمة المناسبة
+    var listMap = {'sub-lectures':'questions-lectures-list','sub-mid':'midterms-list','sub-final':'finals-list','sub-exam-model':'exam-models-list','sub-test-bank':'test-banks-list'};
+    var listEl = document.getElementById(listMap[id]);
+    if (listEl) listEl.style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+function goBackToList(listId, viewId) {
+    document.getElementById(listId).style.display = 'block';
+    document.getElementById(viewId).classList.remove('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+function goBackToMain() {
+    document.getElementById('lecture-view').classList.remove('active');
+    document.getElementById('main-view').style.display = 'block';
+    document.getElementById('lecture-content-area').innerHTML = '';
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ==========================================
+// 6. بناء القوائم
+// ==========================================
+function buildCard(title, desc, pdf, type, index) {
+    var sc = getSavedScore(type, index);
+    var badge = renderScoreBadge(sc);
+    var dlBtn = pdf ? '<a href="' + pdf + '" download class="card-download-btn" onclick="event.stopPropagation()" title="تحميل الملف">⬇</a>' : '';
+    return '<div class="card" onclick="startQuiz(\'' + type + '\',' + index + ')">' +
+        '<div class="card-text"><h3>' + dlBtn + title + '</h3>' + (desc ? '<p>' + desc + '</p>' : '') + '</div>' +
+        badge + '</div>';
+}
+
+function renderAllLists() {
+    // قائمة المحاضرات (القسم الأول)
+    var ll = document.getElementById('lectures-list');
+    ll.innerHTML = '';
+    lectures.forEach(function(l, i) {
+        var d = document.createElement('div');
+        d.innerHTML = buildCard(l.title, l.desc, l.pdf, 'lectures', i);
+        var card = d.firstElementChild;
+        card.onclick = function(e) { if(e.target.closest('.card-download-btn')) return; openLecturePage(i); };
+        ll.appendChild(card);
+    });
+
+    // أسئلة المحاضرات
+    var ql = document.getElementById('questions-lectures-list');
+    ql.innerHTML = '';
+    lectures.forEach(function(l, i) { ql.innerHTML += buildCard(l.title, l.questions.length + ' سؤال', l.pdf, 'lectures', i); });
+
+    // ميدتيرم
+    var ml = document.getElementById('midterms-list');
+    ml.innerHTML = '';
+    midterms.forEach(function(m, i) { ml.innerHTML += buildCard(m.title, m.questions.length + ' سؤال', m.pdf, 'mid', i); });
+
+    // فاينل
+    var fl = document.getElementById('finals-list');
+    fl.innerHTML = '';
+    finals.forEach(function(f, i) { fl.innerHTML += buildCard(f.title, f.questions.length + ' سؤال', f.pdf, 'final', i); });
+
+    // نماذج امتحانات
+    var eml = document.getElementById('exam-models-list');
+    eml.innerHTML = '';
+    examModels.forEach(function(e, i) { eml.innerHTML += buildCard(e.title, e.questions.length + ' سؤال', e.pdf, 'examModel', i); });
+
+    // بنك أسئلة
+    var tbl = document.getElementById('test-banks-list');
+    tbl.innerHTML = '';
+    testBanks.forEach(function(t, i) { tbl.innerHTML += buildCard(t.title, t.questions.length + ' سؤال', t.pdf, 'testBank', i); });
+}
+
+// ==========================================
+// 7. فتح صفحة المحاضرة
+// ==========================================
+function openLecturePage(index) {
+    var l = lectures[index];
+    document.getElementById('main-view').style.display = 'none';
+    document.getElementById('lecture-view').classList.add('active');
+    document.getElementById('quiz-view').classList.remove('active');
+    document.getElementById('lecture-title').innerText = l.title;
+    var contentArea = document.getElementById('lecture-content-area');
+    var box = document.getElementById('lecture-questions-box');
+    var notesId = 'notes-' + index;
+    var savedNotes = localStorage.getItem(notesId) || '';
+    var notesHtml = '<div class="notes-sidebar"><label>📝 ملاحظاتي <span class="notes-saved" id="notes-saved-' + index + '">✓ حفظ</span><span class="notes-counter" id="notes-counter-' + index + '">0</span></label><textarea class="notes-textarea" id="' + notesId + '" placeholder="اكتب ملاحظاتك هنا..."></textarea></div>';
+    var pdfHtml = '<div class="lecture-main"><div class="pdf-viewer"><iframe src="' + l.pdf + '"></iframe></div></div>';
+    contentArea.innerHTML = '<div class="lecture-content">' + pdfHtml + notesHtml + '</div>';
+    if (l.interactive) {
+        box.innerHTML = '<h3>اختبار تفاعلي - أسئلة هذه المحاضرة</h3><div id="lq-h-' + index + '"></div><p class="scroll-hint">مرر للأسفل للانتقال إلى السؤال التالي ↓</p><div class="quiz-scroll-container" style="height:75vh" id="lq-c-' + index + '"></div><div id="lq-r-' + index + '"></div>';
+        buildQuiz(document.getElementById('lq-c-' + index), l.questions, document.getElementById('lq-h-' + index), document.getElementById('lq-r-' + index), 'lectures', index, l.title);
+    } else {
+        box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><ul id="lecture-questions"></ul>';
+        var ul = document.getElementById('lecture-questions');
+        l.questions.forEach(function(q){ var li=document.createElement('li'); li.innerHTML=q.text; ul.appendChild(li); });
+    }
+    var textarea = document.getElementById(notesId);
+    textarea.value = savedNotes;
+    var savedSpan = document.getElementById('notes-saved-' + index);
+    var counterSpan = document.getElementById('notes-counter-' + index);
+    counterSpan.textContent = textarea.value.length;
+    var saveTimer = null;
+    textarea.addEventListener('input', function() {
+        counterSpan.textContent = textarea.value.length;
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function(){ localStorage.setItem(notesId, textarea.value); savedSpan.classList.add('show'); setTimeout(function(){ savedSpan.classList.remove('show'); },2000); }, 500);
+    });
+    window.scrollTo(0, 0);
+}
+
+// ==========================================
+// 8. نظام الاختبارات
+// ==========================================
+var currentQuizType = '';
+var currentQuizIndex = -1;
+var currentQuizTitle = '';
+var currentWrongAnswers = [];
+
+function startQuiz(type, index) {
+    var data, title, listId, viewId;
+    switch(type) {
+        case 'lectures': data = lectures[index]; title = data.title; listId = 'questions-lectures-list'; viewId = 'lecture-questions-view'; break;
+        case 'mid': data = midterms[index]; title = data.title; listId = 'midterms-list'; viewId = 'midterm-questions-view'; break;
+        case 'final': data = finals[index]; title = data.title; listId = 'finals-list'; viewId = 'final-questions-view'; break;
+        case 'examModel': data = examModels[index]; title = data.title; listId = 'exam-models-list'; viewId = 'exam-model-questions-view'; break;
+        case 'testBank': data = testBanks[index]; title = data.title; listId = 'test-banks-list'; viewId = 'test-bank-questions-view'; break;
+        default: return;
+    }
+    currentQuizType = type;
+    currentQuizIndex = index;
+    currentQuizTitle = title;
+    currentWrongAnswers = [];
+
+    document.getElementById('main-view').style.display = 'none';
+    document.getElementById('lecture-view').classList.remove('active');
+    document.getElementById('quiz-view').classList.add('active');
+    document.getElementById('quiz-title').textContent = title;
+    document.getElementById('quiz-back-btn').setAttribute('data-list', listId);
+    document.getElementById('quiz-back-btn').setAttribute('data-view', viewId);
+
+    var headerArea = document.getElementById('quiz-header-area');
+    var scrollArea = document.getElementById('quiz-scroll-container');
+    var resultsArea = document.getElementById('quiz-results-area');
+    headerArea.innerHTML = '';
+    scrollArea.innerHTML = '';
+    resultsArea.innerHTML = '';
+    scrollArea.style.display = 'block';
+
+    buildQuiz(scrollArea, data.questions, headerArea, resultsArea, type, index, title);
+    window.scrollTo(0, 0);
+}
+
+function goBackFromQuiz() {
+    var btn = document.getElementById('quiz-back-btn');
+    var listId = btn.getAttribute('data-list');
+    var viewId = btn.getAttribute('data-view');
+    document.getElementById('quiz-view').classList.remove('active');
+    document.getElementById('main-view').style.display = 'block';
+    if (listId && viewId) {
+        document.getElementById(viewId).classList.remove('active');
+        document.getElementById(listId).style.display = 'block';
+    }
+    renderAllLists(); // تحديث الدرجات المعروضة
+    window.scrollTo(0, 0);
+}
+
+function buildQuiz(container, questions, headerArea, resultsArea, type, index, title) {
+    var answered = 0;
+    var correct = 0;
+    var wrongArr = [];
+    var total = questions.length;
+
+    // بناء رأس الاختبار
+    headerArea.innerHTML = '<div class="quiz-header">' +
+        '<button class="reset-btn" id="quiz-reset-btn-' + type + '-' + index + '">إعادة تعيين</button>' +
+        '</div>' +
+        '<div class="progress-text" id="quiz-progress-text-' + type + '-' + index + '">تم الإجابة على 0 من ' + total + '</div>' +
+        '<div class="progress-bar-wrap"><div class="progress-bar-fill" id="quiz-progress-' + type + '-' + index + '"></div></div>';
+
+    // بناء بطاقات الأسئلة
+    questions.forEach(function(q, i) {
+        var card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.id = 'qcard-' + type + '-' + index + '-' + i;
+        card.innerHTML = '<div class="quiz-number">' + (i+1) + '</div>' +
+            '<div class="quiz-question-text">' + q.text + '</div>' +
+            '<div class="quiz-options" id="qopts-' + type + '-' + index + '-' + i + '"></div>' +
+            '<div class="quiz-feedback" id="qfb-' + type + '-' + index + '-' + i + '"></div>';
+        container.appendChild(card);
+
+        var optsDiv = card.querySelector('.quiz-options');
+        q.options.forEach(function(opt, oi) {
+            var btn = document.createElement('button');
+            btn.className = 'quiz-option-btn';
+            btn.textContent = opt;
+            btn.onclick = function() { handleAnswer(q, opt, i, oi, type, index); };
+            optsDiv.appendChild(btn);
+        });
+    });
+
+    function handleAnswer(q, selected, qi, oi, t, idx) {
+        var opts = document.querySelectorAll('#qopts-' + t + '-' + idx + '-' + qi + ' .quiz-option-btn');
+        var fb = document.getElementById('qfb-' + t + '-' + idx + '-' + qi);
+        opts.forEach(function(o, j) {
+            o.classList.add('disabled');
+            if (q.options[j] === q.answer) o.classList.add('correct');
+            if (j === oi && selected !== q.answer) o.classList.add('incorrect');
+        });
+        if (selected === q.answer) {
+            correct++;
+            fb.textContent = '✅ إجابة صحيحة';
+            fb.className = 'quiz-feedback show correct-text';
+        } else {
+            wrongArr.push({ num: qi+1, text: q.text, userAnswer: selected, correctAnswer: q.answer });
+            fb.textContent = '❌ إجابة خاطئة - الإجابة الصحيحة: ' + q.answer;
+            fb.className = 'quiz-feedback show wrong-text';
+        }
+        answered++;
+        // تحديث التقدم
+        var pText = document.getElementById('quiz-progress-text-' + t + '-' + idx);
+        var pBar = document.getElementById('quiz-progress-' + t + '-' + idx);
+        if (pText) pText.textContent = 'تم الإجابة على ' + answered + ' من ' + total;
+        if (pBar) pBar.style.width = ((answered/total)*100) + '%';
+
+        // عند الانتهاء من كل الأسئلة
+        if (answered === total) {
+            setTimeout(function() { showResults(t, idx, correct, total, wrongArr, title, resultsArea); }, 600);
+        }
+    }
+
+    // زر إعادة التعيين
+    var resetBtn = document.getElementById('quiz-reset-btn-' + type + '-' + index);
+    if (resetBtn) {
+        resetBtn.onclick = function() {
+            clearQuizScore(type, index);
+            container.innerHTML = '';
+            resultsArea.innerHTML = '';
+            buildQuiz(container, questions, headerArea, resultsArea, type, index, title);
+        };
+    }
+}
+
+function showResults(type, index, correct, total, wrongArr, title, resultsArea) {
+    var pct = Math.round((correct/total)*100);
+    currentWrongAnswers = wrongArr;
+
+    // حفظ النتيجة
+    saveQuizScore(type, index, correct, total, wrongArr);
+
+    var msgClass, msgText;
+    if (pct >= 80) { msgClass = 'score-excellent'; msgText = 'ممتاز! أداء رائع'; }
+    else if (pct >= 50) { msgClass = 'score-good'; msgText = 'جيد، واصل التحسين'; }
+    else { msgClass = 'score-bad'; msgText = 'يحتاج مراجعة أكثر'; }
+
+    var html = '<div class="show-score-btn-wrap">' +
+        '<p class="show-score-subtitle">لقد أكملت جميع الأسئلة</p>' +
+        '<button class="show-score-btn" onclick="document.getElementById(\'score-card-reveal-' + type + '-' + index + '\').scrollIntoView({behavior:\'smooth\'})">إظهار النتيجة</button></div>' +
+        '<div class="score-card" id="score-card-reveal-' + type + '-' + index + '">' +
+        '<div class="score-circle"><span class="score-number">' + pct + '%</span><span class="score-label">النتيجة</span></div>' +
+        '<div class="score-details">الإجابات الصحيحة: ' + correct + ' من ' + total + '<br>الإجابات الخاطئة: ' + wrongArr.length + '</div>' +
+        '<div class="score-message ' + msgClass + '">' + msgText + '</div>' +
+        '<button class="retry-btn" onclick="retryQuiz(\'' + type + '\',' + index + ')">إعادة المحاولة</button></div>';
+
+    // قسم الأسئلة الخاطئة (متقلص افتراضياً)
+    if (wrongArr.length > 0) {
+        html += '<div class="wrong-collapse-section" id="wrong-section-' + type + '-' + index + '">' +
+            '<div class="wrong-collapse-header" onclick="toggleWrongCollapse(\'' + type + '\',' + index + ')">' +
+            '<span>❌ الأسئلة الخاطئة (' + wrongArr.length + ' سؤال) <span class="wrong-collapse-arrow" id="wrong-arrow-' + type + '-' + index + '">▼</span></span>' +
+            '<div class="wrong-collapse-actions"><button class="download-word-btn" onclick="event.stopPropagation(); downloadWrongAsWord(\'' + type + '\',' + index + ')">⬇ تحميل ملف ورد</button></div>' +
+            '</div><div class="wrong-collapse-body" id="wrong-body-' + type + '-' + index + '">';
+        wrongArr.forEach(function(w) {
+            html += '<div class="wrong-q-card">' +
+                '<span class="wrong-q-num">' + w.num + '</span>' +
+                '<div class="wrong-q-text">' + w.text + '</div>' +
+                '<div class="wrong-q-answer wrong-q-user"><span class="wrong-q-label">إجابتي:</span>' + w.userAnswer + '</div>' +
+                '<div class="wrong-q-answer wrong-q-correct"><span class="wrong-q-label">الإجابة الصحيحة:</span>' + w.correctAnswer + '</div></div>';
+        });
+        html += '</div></div>';
+    }
+
+    // روابط التنقل لاقسام الأسئلة
+    html += '<div class="quiz-nav-section">' +
+        '<div class="quiz-nav-title">انتقل إلى أقسام الأسئلة الأخرى</div>' +
+        '<div class="quiz-nav-grid">' +
+        buildNavLink('أسئلة المحاضرات', 'sub-lectures', 'lectures', lectures.length) +
+        buildNavLink('أسئلة الميدتيرم', 'sub-mid', 'mid', midterms.length) +
+        buildNavLink('أسئلة الفاينل', 'sub-final', 'final', finals.length) +
+        buildNavLink('نماذج الامتحانات', 'sub-exam-model', 'examModel', examModels.length) +
+        buildNavLink('بنك الأسئلة', 'sub-test-bank', 'testBank', testBanks.length) +
+        '</div></div>';
+
+    resultsArea.innerHTML = html;
+}
+
+function buildNavLink(title, subTabId, type, total) {
+    var solved = countSolved(type, total);
+    return '<div class="quiz-nav-card" onclick="navigateToSection(\'' + subTabId + '\')">' +
+        '<div class="quiz-nav-card-title">' + title + '</div>' +
+        '<div class="quiz-nav-card-count">تم حل <b>' + solved + '</b> من <b>' + total + '</b></div></div>';
+}
+
+function navigateToSection(subTabId) {
+    // العودة للقسم الرئيسي وفتح التبويب المطلوب
+    document.getElementById('quiz-view').classList.remove('active');
+    document.getElementById('main-view').style.display = 'block';
+    // فتح تبويب الأسئلة
+    document.querySelectorAll('.tab-button').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.content-section').forEach(function(s){ s.classList.remove('active'); });
+    document.querySelectorAll('.tab-button')[1].classList.add('active');
+    document.getElementById('section2').classList.add('active');
+    // فتح التبويب الفرعي
+    document.querySelectorAll('.sub-tab-button').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.sub-content').forEach(function(s){ s.classList.remove('active'); });
+    document.querySelectorAll('.questions-display-area').forEach(function(v){ v.classList.remove('active'); });
+    var subBtns = document.querySelectorAll('.sub-tab-button');
+    var subIds = ['sub-lectures','sub-mid','sub-final','sub-exam-model','sub-test-bank'];
+    var idx = subIds.indexOf(subTabId);
+    if (idx >= 0 && subBtns[idx]) subBtns[idx].classList.add('active');
+    var el = document.getElementById(subTabId);
+    if (el) el.classList.add('active');
+    // إظهار القائمة المناسبة
+    var listMap = {'sub-lectures':'questions-lectures-list','sub-mid':'midterms-list','sub-final':'finals-list','sub-exam-model':'exam-models-list','sub-test-bank':'test-banks-list'};
+    var listEl = document.getElementById(listMap[subTabId]);
+    if (listEl) listEl.style.display = 'block';
+    renderAllLists();
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function toggleWrongCollapse(type, index) {
+    var body = document.getElementById('wrong-body-' + type + '-' + index);
+    var arrow = document.getElementById('wrong-arrow-' + type + '-' + index);
+    if (body.classList.contains('open')) {
+        body.classList.remove('open');
+        arrow.classList.remove('open');
+    } else {
+        body.classList.add('open');
+        arrow.classList.add('open');
+    }
+}
+
+function retryQuiz(type, index) {
+    clearQuizScore(type, index);
+    var scrollArea = document.getElementById('quiz-scroll-container');
+    var headerArea = document.getElementById('quiz-header-area');
+    var resultsArea = document.getElementById('quiz-results-area');
+    var data;
+    switch(type) {
+        case 'lectures': data = lectures[index]; break;
+        case 'mid': data = midterms[index]; break;
+        case 'final': data = finals[index]; break;
+        case 'examModel': data = examModels[index]; break;
+        case 'testBank': data = testBanks[index]; break;
+    }
+    scrollArea.innerHTML = '';
+    scrollArea.style.display = 'block';
+    resultsArea.innerHTML = '';
+    buildQuiz(scrollArea, data.questions, headerArea, resultsArea, type, index, currentQuizTitle);
+    window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ==========================================
+// 9. تحميل ملف ورد للأسئلة الخاطئة
+// ==========================================
+function downloadWrongAsWord(type, index) {
+    var wrongArr = currentWrongAnswers;
+    if (!wrongArr || wrongArr.length === 0) { alert('لا توجد أسئلة خاطئة للتحميل'); return; }
+    var htmlContent = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
+        '<head><meta charset="utf-8"><title>الأسئلة الخاطئة</title>' +
+        '<style>body{font-family:Arial,sans-serif;direction:rtl;padding:20px} h1{text-align:center;color:#e74c3c;border-bottom:2px solid #e74c3c;padding-bottom:10px} ' +
+        '.q{margin:20px 0;padding:15px;border:1px solid #ddd;border-radius:8px} .qn{background:#e74c3c;color:white;display:inline-block;padding:3px 10px;border-radius:50%;font-weight:bold;margin-left:8px} ' +
+        '.qt{font-size:16px;font-weight:bold;margin:10px 0;color:#333} .mya{background:#fdecea;border-right:4px solid #e74c3c;padding:8px 14px;margin:5px 0;color:#c0392b} ' +
+        '.ca{background:#eafaf1;border-right:4px solid #27ae60;padding:8px 14px;margin:5px 0;color:#1e8449} .label{font-weight:bold;font-size:13px}</style></head>' +
+        '<body><h1>' + currentQuizTitle + ' - الأسئلة الخاطئة (' + wrongArr.length + ' سؤال)</h1>';
+    wrongArr.forEach(function(w) {
+        htmlContent += '<div class="q"><span class="qn">' + w.num + '</span>' +
+            '<div class="qt">' + w.text + '</div>' +
+            '<div class="mya"><span class="label">إجابتي:</span> ' + w.userAnswer + '</div>' +
+            '<div class="ca"><span class="label">الإجابة الصحيحة:</span> ' + w.correctAnswer + '</div></div>';
+    });
+    htmlContent += '</body></html>';
+    var blob = new Blob(['\ufeff' + htmlContent], { type: 'application/msword' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'الأسئلة الخاطئة - ' + currentQuizTitle + '.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// ==========================================
+// 10. تحميل صفحة HTML
+// ==========================================
+function downloadPageAsHTML() {
+    var htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    var blob = new Blob([htmlContent], { type: 'text/html; charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'منصة المواد التعليمية.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// ==========================================
+// 11. نظام الإشعارات
+// ==========================================
+function getNotifications() {
+    var d = localStorage.getItem('notifications');
+    return d ? JSON.parse(d) : [];
+}
+function saveNotifications(arr) {
+    localStorage.setItem('notifications', JSON.stringify(arr));
+    updateNotifBadge();
+}
+function addNotification(data) {
+    var notifs = getNotifications();
+    notifs.unshift({
+        id: Date.now(),
+        time: new Date().toLocaleString('ar-EG'),
+        context: data.context || '',
+        questionNum: data.questionNum || '',
+        questionText: data.questionText || '',
+        oldAnswer: data.oldAnswer || '',
+        newAnswer: data.newAnswer || ''
+    });
+    saveNotifications(notifs);
+    renderNotifications();
+}
+function clearAllNotifications() {
+    saveNotifications([]);
+    renderNotifications();
+}
+function updateNotifBadge() {
+    var notifs = getNotifications();
+    var badge = document.getElementById('notif-badge');
+    if (notifs.length > 0) {
+        badge.textContent = notifs.length > 99 ? '99+' : notifs.length;
+        badge.classList.remove('hidden');
+    } else {
+        badge.classList.add('hidden');
+    }
+}
+function renderNotifications() {
+    var list = document.getElementById('notif-list');
+    var notifs = getNotifications();
+    updateNotifBadge();
+    if (notifs.length === 0) {
+        list.innerHTML = '<div class="notif-empty">🔔 لا توجد إشعارات جديدة</div>';
+        return;
+    }
+    var html = '';
+    notifs.forEach(function(n) {
+        html += '<div class="notif-item">' +
+            '<div class="notif-item-title">🔧 تعديل إجابة نموذجية <span class="notif-time">' + n.time + '</span></div>' +
+            '<div class="notif-field"><b>التبعية:</b> ' + n.context + '</div>' +
+            '<div class="notif-field"><b>رقم السؤال:</b> ' + n.questionNum + '</div>' +
+            '<div class="notif-field"><b>نص السؤال:</b> ' + n.questionText + '</div>' +
+            '<div class="notif-field"><b>الإجابة القديمة:</b> <span class="notif-old-answer">' + n.oldAnswer + '</span></div>' +
+            '<div class="notif-field"><b>الإجابة الجديدة:</b> <span class="notif-new-answer">' + n.newAnswer + '</span></div></div>';
+    });
+    list.innerHTML = html;
+}
+function toggleNotifPanel(e) {
+    e.stopPropagation();
+    var panel = document.getElementById('notif-panel');
+    panel.classList.toggle('open');
+}
+// إغلاق لوحة الإشعارات عند الضغط خارجها
+document.addEventListener('click', function(e) {
+    var panel = document.getElementById('notif-panel');
+    var bell = document.getElementById('notif-bell');
+    if (!panel.contains(e.target) && !bell.contains(e.target)) {
+        panel.classList.remove('open');
+    }
+});
+
+// إشعارات تجريبية للعرض (يمكن حذفها لاحقاً)
+
+// ==========================================
+// 12. التهيئة
+// ==========================================
+renderAllLists();
+renderNotifications();
+</script>
+</body>
+</html>
