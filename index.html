@@ -670,19 +670,13 @@
     flex: 1;
     min-width: 0;
 }
-.pdf-viewer {
-    border: 2px solid var(--border);
-    border-radius: 5px;
-    overflow: hidden;
-    direction: ltr;
-    transition: border-color 0.4s;
-}
 .pdf-viewer iframe {
-    width: 140%;
-    margin-left: -40%;
+    width: 100%;
     height: 600px;
     border: none;
+    display: block;
 }
+
 .notes-sidebar {
     width: 280px;
     flex-shrink: 0;
@@ -814,15 +808,15 @@
                 </div>
             </div>
         </div>
-        <div id="lecture-view" class="content-section">
-            <button class="back-btn" onclick="goBackToMain()">← العودة لقائمة المحاضرات</button>
-            <h2 id="lecture-title"></h2>
-            <div class="pdf-viewer"><iframe id="lecture-iframe" src=""></iframe></div>
-            <div class="questions-box" id="lecture-questions-box">
-                <h3>أسئلة هذه المحاضرة</h3>
-                <ul id="lecture-questions"></ul>
-            </div>
-        </div>
+     <div id="lecture-view" class="content-section">
+    <button class="back-btn" onclick="goBackToMain()">← العودة لقائمة المحاضرات</button>
+    <h2 id="lecture-title"></h2>
+    <div class="pdf-viewer"><iframe id="lecture-iframe" src=""></iframe></div>
+    <div class="questions-box" id="lecture-questions-box">
+        <h3>أسئلة هذه المحاضرة</h3>
+        <ul id="lecture-questions"></ul>
+    </div>
+</div>
         <div id="quiz-view" class="content-section">
             <button class="back-btn" onclick="goBackFromQuiz()">← العودة</button>
             <h2 id="quiz-title" style="text-align: center;"></h2>
@@ -841,9 +835,7 @@
 // ==========================================
 // 1. نظام المظهر (Theme System)
 // ==========================================
-// ==========================================
-// 1. نظام المظهر (Theme System)
-// ==========================================
+
 var themeMode = localStorage.getItem('themeMode') || 'auto';
 var demoInterval = null;
 var isDemoRunning = false;
@@ -959,6 +951,70 @@ setInterval(function() {
         updateStatusBar();
     }
 }, 1000);
+
+// ==========================================
+// دالة فتح المحاضرة مع الملاحظات
+// ==========================================
+function openLecturePage(index) {
+    var l = lectures[index];
+    document.getElementById('main-view').style.display = 'none';
+    document.getElementById('lecture-view').classList.add('active');
+    document.getElementById('quiz-view').classList.remove('active');
+    document.getElementById('lecture-title').innerText = l.title;
+
+    var contentArea = document.getElementById('lecture-content-area');
+    var box = document.getElementById('lecture-questions-box');
+    var notesId = 'notes-' + index;
+    var savedNotes = localStorage.getItem(notesId) || '';
+
+    var notesHtml = '<div class="notes-sidebar">' +
+        '<label>📝 ملاحظاتي <span class="notes-saved" id="notes-saved-' + index + '">✓ حفظ</span><span class="notes-counter" id="notes-counter-' + index + '">0</span></label>' +
+        '<textarea class="notes-textarea" id="' + notesId + '" placeholder="اكتب ملاحظاتك هنا..."></textarea>' +
+        '</div>';
+
+    var pdfHtml = '<div class="lecture-main"><div class="pdf-viewer"><iframe src="' + l.pdf + '"></iframe></div></div>';
+
+    contentArea.innerHTML = '<div class="lecture-content">' + pdfHtml + notesHtml + '</div>';
+
+    if (l.interactive) {
+        var qid = 'lq-' + index;
+        box.innerHTML = '<h3>اختبار تفاعلي - أسئلة هذه المحاضرة</h3>' +
+            '<div id="lq-h-' + index + '"></div>' +
+            '<p class="scroll-hint">مرر للأسفل للانتقال إلى السؤال التالي ↓</p>' +
+            '<div class="quiz-scroll-container" style="height:75vh" id="lq-c-' + index + '"></div>';
+        buildQuiz(document.getElementById('lq-c-' + index), l, 'lq-fb-' + index + '-', qid, document.getElementById('lq-h-' + index));
+    } else {
+        box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><ul id="lecture-questions"></ul>';
+        var ul = document.getElementById('lecture-questions');
+        l.questions.forEach(function(q) { var li = document.createElement('li'); li.innerHTML = q; ul.appendChild(li); });
+    }
+
+    var textarea = document.getElementById(notesId);
+    textarea.value = savedNotes;
+    var savedSpan = document.getElementById('notes-saved-' + index);
+    var counterSpan = document.getElementById('notes-counter-' + index);
+    counterSpan.textContent = textarea.value.length;
+
+    var saveTimer = null;
+    textarea.addEventListener('input', function() {
+        counterSpan.textContent = textarea.value.length;
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function() {
+            localStorage.setItem(notesId, textarea.value);
+            savedSpan.classList.add('show');
+            setTimeout(function() { savedSpan.classList.remove('show'); }, 2000);
+        }, 500);
+    });
+
+    window.scrollTo(0, 0);
+}
+
+function goBackToMain() {
+    document.getElementById('lecture-view').classList.remove('active');
+    document.getElementById('main-view').style.display = 'block';
+    document.getElementById('lecture-content-area').innerHTML = '';
+    window.scrollTo(0, 0);
+}
 // ==========================================
 // 1. البيانات
 // ==========================================
