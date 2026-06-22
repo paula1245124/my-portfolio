@@ -6515,7 +6515,7 @@ function openLecturePage(index) {
         '<textarea class="notes-textarea" id="' + notesId + '" placeholder="اكتب ملاحظاتك هنا..."></textarea>' +
         '</div>';
 
-    var pdfHtml = '<div class="lecture-main"><div class="pdf-viewer"><iframe id="lecture-iframe" src="' + l.pdf + '"></iframe></div></div>';
+    var pdfHtml = '<div class="lecture-main"><div class="pdf-viewer"></div></div>';
 
     if (l.interactive) {
         var qid = 'lq-' + index;
