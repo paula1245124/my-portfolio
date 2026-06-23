@@ -5765,31 +5765,34 @@
         // ========== Navigation ==========
         var currentLectureIndex = null;
         var currentQuizId = null;
-
-        function openLecturePage(index) {
-            currentLectureIndex = index;
-            var l = lectures[index];
-            document.getElementById('main-view').style.display = 'none';
-            document.getElementById('lecture-view').classList.add('active');
-            document.getElementById('quiz-view').classList.remove('active');
-            document.getElementById('lecture-title').textContent = l.title;
-            renderLectureContent(l);
-            var box = document.getElementById('lecture-questions-box');
-            if (l.interactive && l.questions && l.questions.length > 0) {
-                var qid = 'lecture-embedded-' + index;
-                box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><div id="lq-h-' + index + '"></div><div class="quiz-scroll-container" id="lq-c-' + index + '"></div>';
-                currentQuizExam = l;
-                document.getElementById('quiz-download-btn').style.display = 'inline-block';
-                buildQuiz(document.getElementById('lq-c-' + index), l, 'lq-fb-' + index + '-', qid, document.getElementById('lq-h-' + index));
-            } else if (l.questions && l.questions.length > 0) {
-                box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><ul id="lecture-questions"></ul>';
-                var ul = document.getElementById('lecture-questions');
-                l.questions.forEach(function(q) { var li = document.createElement('li'); li.textContent = q.text || q; ul.appendChild(li); });
-            }
-            window.scrollTo(0, 0);
-            saveCurrentView();
-        }
-
+        
+function openLecturePage(index) {
+    currentLectureIndex = index;
+    var l = lectures[index];
+    document.getElementById('main-view').style.display = 'none';
+    document.getElementById('lecture-view').classList.add('active');
+    document.getElementById('quiz-view').classList.remove('active');
+    document.getElementById('lecture-title').textContent = l.title;
+    renderLectureContent(l);
+    
+    var box = document.getElementById('lecture-questions-box');
+    
+    // ✅ الحل: أزل l.interactive من الشرط
+    if (l.questions && l.questions.length > 0) {
+        var qid = 'lecture-embedded-' + index;
+        box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><div id="lq-h-' + index + '"></div><div class="quiz-scroll-container" id="lq-c-' + index + '"></div>';
+        currentQuizExam = l;
+        document.getElementById('quiz-download-btn').style.display = 'inline-block';
+        buildQuiz(document.getElementById('lq-c-' + index), l, 'lq-fb-' + index + '-', qid, document.getElementById('lq-h-' + index));
+    } else {
+        box.innerHTML = '';
+        document.getElementById('quiz-download-btn').style.display = 'none';
+    }
+    
+    window.scrollTo(0, 0);
+    saveCurrentView();
+}
+        
         function goBackToMain() {
             document.getElementById('lecture-view').classList.remove('active');
             document.getElementById('main-view').style.display = 'block';
