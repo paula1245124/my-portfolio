@@ -6085,17 +6085,36 @@
             URL.revokeObjectURL(a.href);
         }
 
-        function downloadCurrentQuiz() {
-            if (!currentQuizExam) return;
-            var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>' + currentQuizExam.title + '</title><style>body{font-family:Tahoma;padding:20px;line-height:2;}h2{color:#2c3e50;}</style></head><body><h2>📝 ' + currentQuizExam.title + '</h2>';
-            currentQuizExam.questions.forEach(function(q, i) { html += '<div style="margin-bottom:20px;"><b>' + (i + 1) + '. ' + q.text + '</b><ul>' + q.options.map(function(o) { return '<li>' + o + '</li>'; }).join('') + '</ul></div>'; });
-            html += '</body></html>';
-            var blob = new Blob([html], { type: 'application/msword' });
-            var a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'أسئلة_' + currentQuizExam.title.replace(/\s/g, '_') + '.doc';
-            a.click();
-        }
+         function downloadCurrentQuiz() {
+    if (!currentQuizExam) return;
+    var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>' + currentQuizExam.title + '</title>' +
+               '<style>body{font-family:Tahoma;padding:20px;line-height:2;}h2{color:#2c3e50;}</style>' +
+               '</head><body><h2>📝 ' + currentQuizExam.title + '</h2>';
+    
+    currentQuizExam.questions.forEach(function(q, i) {
+        html += '<div style="margin-bottom:20px;">';
+        html += '<b>' + (i + 1) + '. ' + q.text + '</b>';
+        html += '<ul>';
+        q.options.forEach(function(opt) {
+            html += '<li>' + opt + '</li>';
+        });
+        html += '</ul>';
+        html += '<p><strong>الإجابة الصحيحة:</strong> ' + q.answer + '</p>';
+        html += '</div>';
+    });
+    
+    html += '</body></html>';
+    var blob = new Blob([html], { type: 'application/msword' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'أسئلة_' + currentQuizExam.title.replace(/\s/g, '_') + '.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+}
+     
+
 
 window.addEventListener('load', function() {
     restoreLastView();
