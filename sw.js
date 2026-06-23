@@ -1,4 +1,4 @@
-var CACHE_NAME = 'pf-v1';
+var CACHE_NAME = 'pf-v2';
 var urlsToCache = ['/', '/index.html'];
 
 self.addEventListener('install', function(e) {
