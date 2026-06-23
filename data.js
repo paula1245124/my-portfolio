@@ -3,7 +3,7 @@
 // 1. البيانات
 // ==========================================
         var lectures = [
-            { title: "المحاضرة الأولى",  desc: "شرح مقدمة المادة والمفاهيم الأساسية.", pdf: "lectures/lec1.pdf",pdf2:"qestions/Lecture questions/lec1_questions.pdf",
+            { title: "المحاضرة الأولى",  desc: "شرح مقدمة المادة والمفاهيم الأساسية.", pdf: "lectures/lec1.pdf",pdf2:"qestions/Lecture_questions/lec1_questions.pdf",
              interactive: true, 
             questions: [
                   {
@@ -208,7 +208,7 @@
             }
 
             ] },
-            { title: "المحاضرة الثانية", desc: "شرح الموضوع الثاني من المنهج الدراسي.", pdf: "lectures/lec2.pdf",pdf2:"qestions/Lecture questions/lec2_questions.pdf", 
+            { title: "المحاضرة الثانية", desc: "شرح الموضوع الثاني من المنهج الدراسي.", pdf: "lectures/lec2.pdf",pdf2:"qestions/Lecture_questions/lec2_questions.pdf", 
             questions: [
 
 {
@@ -412,7 +412,7 @@
                 "answer": "قواعد قانونية عامة ومجردة"
             }            
             ] },
-            { title: "المحاضرة الثالثة", desc: "تعمق في المفاهيم مع أمثلة تطبيقية.",pdf: "lectures/lec3.pdf",pdf2:"qestions/Lecture questions/lec3_questions.pdf", 
+            { title: "المحاضرة الثالثة", desc: "تعمق في المفاهيم مع أمثلة تطبيقية.",pdf: "lectures/lec3.pdf",pdf2:"qestions/Lecture_questions/lec3_questions.pdf", 
             questions: [
                  {
                 "text": "ما هو الأساس الذي تقوم عليه قواعد الدين؟",
@@ -615,7 +615,7 @@
                 "answer": "القانون"
             }
             ] },
-            { title: "المحاضرة الرابعة", desc: "شرح الجزء الخاص بـ [اسم الموضوع].", pdf: "lectures/lec4.pdf",pdf2:"qestions/Lecture questions/lec4_questions.pdf", 
+            { title: "المحاضرة الرابعة", desc: "شرح الجزء الخاص بـ [اسم الموضوع].", pdf: "lectures/lec4.pdf",pdf2:"qestions/Lecture_questions/lec4_questions.pdf", 
             questions: [
                  {
                 "text": "أي مما يلي يُعتبر فرعاً من فروع القانون العام؟",
@@ -818,7 +818,7 @@
                 "answer": "يُنظم العلاقات التي تكون الدولة طرفاً فيها باعتبارها صاحبة سيادة"
             }
             ] },
-            { title: "المحاضرة الخامسة", desc: "دراسة الحالات المتقدمة وحل المسائل.",pdf: "lectures/lec5.pdf",pdf2:"qestions/Lecture questions/lec5_questions.pdf",
+            { title: "المحاضرة الخامسة", desc: "دراسة الحالات المتقدمة وحل المسائل.",pdf: "lectures/lec5.pdf",pdf2:"qestions/Lecture_questions/lec5_questions.pdf",
              questions: [
                  {
                 "text": "أي مما يلي يُعتبر أساساً للالتزام بالإعلام قبل التعاقد؟",
@@ -1022,7 +1022,7 @@
             }
         
             ] },
-            { title: "المحاضرة السادسة", desc: "المراجعة النهائية والخلاصة.", pdf: "lectures/lec6.pdf",pdf2:"qestions/Lecture questions/lec6_questions.pdf",
+            { title: "المحاضرة السادسة", desc: "المراجعة النهائية والخلاصة.", pdf: "lectures/lec6.pdf",pdf2:"qestions/Lecture_questions/lec6_questions.pdf",
              questions: [
                  {
                 "text": "ما هو الهدف الأساسي الذي يدعو إليه الإسلام من الصدق؟",
@@ -3563,7 +3563,7 @@
         // ==========================================
         var examModels = [
             { 
-                title: "Exam Model 1 - Computer & Ethics",pdf:"qestions/Exam Model/Exam Model 1 - Solutions - Computer & Ethics.pdf" , 
+                title: "Exam Model 1 - Computer & Ethics",pdf:"qestions/Exam_Model/Exam Model 1 - Solutions - Computer & Ethics.pdf" , 
                 interactive: true,
                 questions: [{"text": "تخاطب القاعدة القانونية سلوك الفرد دوماً ولا تطرق مطلقاً إلى نواياه.", "options": ["صح", "خطأ"], "answer": "صح"},
                     {"text": "الأصل أن ينصاع الفرد المخاطب بالقاعدة القانونية لمضمونها إرادته واختياره.", "options": ["صح", "خطأ"], "answer": "خطأ"},
@@ -3604,7 +3604,7 @@
                 ]
             },
             { 
-                title: "Exam Model 2 - Computer & Ethics", pdf:"qestions/Exam Model/Exam Model 2 - Computer & Ethics.pdf" ,
+                title: "Exam Model 2 - Computer & Ethics", pdf:"qestions/Exam_Model/Exam Model 2 - Computer & Ethics.pdf" ,
                 interactive: true,
                 questions:
              [
@@ -5137,7 +5137,7 @@
         // ==========================================
         var testBanks = [
             { 
-                title: "Test Bank 2020 - Computer & Ethics",pdf:"qestions/tast bank/Test Bank - 2020 - Computer & Ethics.pdf" ,
+                title: "Test Bank 2020 - Computer & Ethics",pdf:"qestions/tast bank/Test_Bank - 2020 - Computer & Ethics.pdf" ,
                 interactive: true,
                 questions: [{"text": "ما علاقة العادات والتقاليد بالمواعظ الأخلاقية؟", "options": ["أ- كل العادات والتقاليد مواعظ أخلاقية", "ب- كل العادات والتقاليد مواعظ غير أخلاقية", "ج- بعض العادات والتقاليد مواعظ أخلاقية"], "answer": "ج- بعض العادات والتقاليد مواعظ أخلاقية"},
                     {"text": "هل عادة الأخذ بالثأر جائزة أم لا؟", "options": ["أ- عادة الأخذ بالثأر عادة جائزة قانوناً", "ب- عادة الأخذ بالثأر عادة جائزة شرعاً", "ج- عادة الأخذ بالثأر عادة غير جائزة شرعاً وقانوناً"], "answer": "ج- عادة الأخذ بالثأر عادة غير جائزة شرعاً وقانوناً"},
