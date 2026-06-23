@@ -6094,28 +6094,23 @@
             a.click();
         }
 
-        window.addEventListener('load', function() {
-            restoreLastView();
-            window.addEventListener('beforeunload', saveCurrentView);
-        });
+window.addEventListener('load', function() {
+    restoreLastView();
+    window.addEventListener('beforeunload', saveCurrentView);
+});
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js').then(function() { console.log('SW ✓'); }).catch(function(err) { console.log('SW ✗', err); });
-            });
-        }
-
-        console.log('✅ المنصة جاهزة للنشر على GitHub Pages مع ترميز المسارات');
-  if ('serviceWorker' in navigator) {
+// تسجيل السيرفيس وركر مرة واحدة فقط بشكل صامت ودون إزعاج الزوار
+if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        // تسجيل السيرفيس وركر بشكل طبيعي وصامت تماماً
         navigator.serviceWorker.register('sw.js').then(function(reg) {
             console.log('SW جاهز ويعمل في الخلفية ✓');
         }).catch(function(err) {
-            console.log('خطأ في التسجيل:', err);
+            console.log('خطأ في تسجيل السيرفيس وركر:', err);
         });
     });
 }
+
+console.log('✅ المنصة جاهزة للنشر على GitHub Pages مع ترميز المسارات');
   
   </script>
 </body>
