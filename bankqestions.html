@@ -519,7 +519,7 @@
             white-space: nowrap;
         }
         .btn-sm:hover { filter: brightness(1.2); transform: scale(1.05); }
-        .btn-download-exam { background: var(--download-btn-bg); }
+        
         .back-btn {
             background: var(--danger);
             color: #fff;
@@ -938,6 +938,7 @@
             .wrong-collapse-header { font-size: 14px; padding: 10px 14px; }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -1071,8 +1072,12 @@
 // ==========================================
 // 1. البيانات
 // ==========================================
+
+  // ==========================================
+// 1. البيانات
+// ==========================================
         var lectures = [
-            { title: "المحاضرة الأولى",  desc: "شرح مقدمة المادة والمفاهيم الأساسية.", pdf: "\\lectures\\lec1.pdf",
+            { title: "المحاضرة الأولى",  desc: "شرح مقدمة المادة والمفاهيم الأساسية.", pdf: "lectures/lec1.pdf",pdf2:"qestions/Lecture_questions/lec1_questions.pdf",
              interactive: true, 
             questions: [
                   {
@@ -1277,7 +1282,7 @@
             }
 
             ] },
-            { title: "المحاضرة الثانية", desc: "شرح الموضوع الثاني من المنهج الدراسي.", pdf: "\\lectures\\lec2.pdf", 
+            { title: "المحاضرة الثانية", desc: "شرح الموضوع الثاني من المنهج الدراسي.", pdf: "lectures/lec2.pdf",pdf2:"qestions/Lecture_questions/lec2_questions.pdf", 
             questions: [
 
 {
@@ -1481,7 +1486,7 @@
                 "answer": "قواعد قانونية عامة ومجردة"
             }            
             ] },
-            { title: "المحاضرة الثالثة", desc: "تعمق في المفاهيم مع أمثلة تطبيقية.", pdf: "\\lectures\\lec3.pdf", 
+            { title: "المحاضرة الثالثة", desc: "تعمق في المفاهيم مع أمثلة تطبيقية.",pdf: "lectures/lec3.pdf",pdf2:"qestions/Lecture_questions/lec3_questions.pdf", 
             questions: [
                  {
                 "text": "ما هو الأساس الذي تقوم عليه قواعد الدين؟",
@@ -1684,7 +1689,7 @@
                 "answer": "القانون"
             }
             ] },
-            { title: "المحاضرة الرابعة", desc: "شرح الجزء الخاص بـ [اسم الموضوع].", pdf: "\\lectures\\lec4.pdf", 
+            { title: "المحاضرة الرابعة", desc: "شرح الجزء الخاص بـ [اسم الموضوع].", pdf: "lectures/lec4.pdf",pdf2:"qestions/Lecture_questions/lec4_questions.pdf", 
             questions: [
                  {
                 "text": "أي مما يلي يُعتبر فرعاً من فروع القانون العام؟",
@@ -1887,7 +1892,7 @@
                 "answer": "يُنظم العلاقات التي تكون الدولة طرفاً فيها باعتبارها صاحبة سيادة"
             }
             ] },
-            { title: "المحاضرة الخامسة", desc: "دراسة الحالات المتقدمة وحل المسائل.", pdf: "\\lectures\\lec5.pdf",
+            { title: "المحاضرة الخامسة", desc: "دراسة الحالات المتقدمة وحل المسائل.",pdf: "lectures/lec5.pdf",pdf2:"qestions/Lecture_questions/lec5_questions.pdf",
              questions: [
                  {
                 "text": "أي مما يلي يُعتبر أساساً للالتزام بالإعلام قبل التعاقد؟",
@@ -2091,7 +2096,7 @@
             }
         
             ] },
-            { title: "المحاضرة السادسة", desc: "المراجعة النهائية والخلاصة.", pdf: "\\lectures\\lec6.pdf",
+            { title: "المحاضرة السادسة", desc: "المراجعة النهائية والخلاصة.", pdf: "lectures/lec6.pdf",pdf2:"qestions/Lecture_questions/lec6_questions.pdf",
              questions: [
                  {
                 "text": "ما هو الهدف الأساسي الذي يدعو إليه الإسلام من الصدق؟",
@@ -2300,7 +2305,7 @@
         // 2. قاعدة بيانات الميدتيرم
         // ==========================================
         var midterms = [
-            { title: "Midterm Exam - 2022 - Computer & Ethics",pdf:"\\qestions\\mid\\2022\\Midterm Exam - 2022 - Computer & Ethics.pdf" ,
+            { title: "Midterm Exam - 2022 - Computer & Ethics",pdf:"qestions/mid/2022/Midterm_Exam_2022_Computer_Ethics.pdf" ,
             interactive: true, 
             questions: [{
              "text": ". يجوز أن تخاطب القاعدة القانونية شخصا واحدا فقط أو فئة معينة من الأشخاص",
@@ -2514,7 +2519,7 @@
     }
 ]
 },
-            { title: "Midterm Exam - 2023 - Computer & Ethics",pdf:"\\qestions\\mid\\2023\\Midterm Exam - 2023 - Computer & Ethics.pdf" ,
+            { title: "Midterm Exam - 2023 - Computer & Ethics",pdf:"qestions/mid/2023/Midterm_Exam_2023_Computer_Ethics.pdf" ,
                  interactive: true, 
             
             questions: [
@@ -2719,7 +2724,7 @@
             "answer": "True"
         }
              ] },
-            { title: "Midterm Computer & Ethics - National – 2024", pdf:"\\qestions\\mid\\2024\\Computer & Ethics - National - 2024.pdf" ,
+            { title: "Midterm Computer & Ethics - National – 2024", pdf:"qestions/mid/2024/Computer_Ethics_National_2024.pdf" ,
             interactive: true, 
             questions: [
            {
@@ -2923,7 +2928,7 @@
         "answer": "صح"
     }            ]
          },
-            { title: "Midterm 2025 - General - Dr. Muhammed Abdel3leem",pdf:"\\qestions\\mid\\2025\\Midterm 2025 - General - Dr. Muhammed Abdel3leem.pdf" ,
+            { title: "Midterm 2025 - General - Dr. Muhammed Abdel3leem",pdf:"qestions/mid/2025/Midterm_2025_General_Dr.Muhammed_Abdel3leem.pdf" ,
             interactive: true,          
             questions: [
     {
@@ -3128,7 +3133,7 @@
     }
 ]
         },
-            { title: "Midterm 2025 - National - Dr. Muhammed Abdel3leem", pdf:"\\qestions\\mid\\2025\\Midterm 2025 - National - Dr. Muhammed Abdel3leem.pdf" ,
+            { title: "Midterm 2025 - National - Dr. Muhammed Abdel3leem", pdf:"qestions/mid/2025/Midterm_2025_National_Dr.Muhammed_Abdel3leem.pdf" ,
            interactive: true, 
             questions: [
       {
@@ -3283,7 +3288,7 @@
         // 3. قاعدة بيانات الفاينل
         // ==========================================
         var finals = [
-            { title: "Final Exam - 2023 - Computer & Ethics",pdf:"\\qestions\\final\\2023\\Final Exam - 2023 - Computer & Ethics.pdf" ,
+            { title: "Final Exam - 2023 - Computer & Ethics",pdf:"qestions/final/2023/Final_Exam_2023_Computer_Ethics.pdf" ,
                 interactive: true, 
 
              questions:[
@@ -3714,7 +3719,7 @@
     }
 ]         }  ,
             { 
-                title: "Final Computer & Ethics - National – 2024", pdf:"\\qestions\\final\\2024\\Computer & Ethics - National - 2024.pdf" ,
+                title: "Final Computer & Ethics - National – 2024", pdf:"qestions/final/2024/Computer_Ethics_National_2024.pdf" ,
                 interactive: true, 
                 questions: [
     {
@@ -4144,7 +4149,7 @@
     }
 ]
             },
-            { title: "Final 2024 - Computer & Ethics - Dr. Muhammed Abdel3leem",
+            { title: "Final 2024 - Computer & Ethics - Dr. Muhammed Abdel3leem",pdf:"qestions/final/2024/Final2024_Computer_Ethics_Dr.Muhammed_Abdel3leem.pdf",
             interactive: true, 
 
              questions: [
@@ -4570,7 +4575,7 @@
 
            },
             { 
-                title: "Final 2025 - National - Dr. Muhammed Abdel3leem", pdf:"\\qestions\\final\\2025\\Final 2025 - National - Dr. Muhammed Abdel3leem.pdf" ,
+                title: "Final 2025 - National - Dr. Muhammed Abdel3leem", pdf:"qestions/final/2025/Final2025_National_Dr.Muhammed_Abdel3leem.pdf" ,
                 interactive: true, 
                 questions: [
                     { text: "يستمد الالتزام بالإعلام قبل التعاقد مصدره من:", options: ["العرف", "المعاهدات الدولية", "المبادئ العامة للقانون"], answer: "العرف" },
@@ -4632,7 +4637,7 @@
         // ==========================================
         var examModels = [
             { 
-                title: "Exam Model 1 - Computer & Ethics",pdf:"\\qestions\\Exam Model\\Exam Model 1 - Solutions - Computer & Ethics.pdf" , 
+                title: "Exam Model 1 - Computer & Ethics",pdf:"qestions/Exam_Model/Exam_Model_1_Solutions_Computer_Ethics.pdf" , 
                 interactive: true,
                 questions: [{"text": "تخاطب القاعدة القانونية سلوك الفرد دوماً ولا تطرق مطلقاً إلى نواياه.", "options": ["صح", "خطأ"], "answer": "صح"},
                     {"text": "الأصل أن ينصاع الفرد المخاطب بالقاعدة القانونية لمضمونها إرادته واختياره.", "options": ["صح", "خطأ"], "answer": "خطأ"},
@@ -4673,7 +4678,7 @@
                 ]
             },
             { 
-                title: "Exam Model 2 - Computer & Ethics", pdf:"\\qestions\\Exam Model\\Exam Model 2 - Computer & Ethics.pdf" ,
+                title: "Exam Model 2 - Computer & Ethics", pdf:"qestions/Exam_Model/Exam_Model_2_Computer_Ethics.pdf" ,
                 interactive: true,
                 questions:
              [
@@ -6206,7 +6211,7 @@
         // ==========================================
         var testBanks = [
             { 
-                title: "Test Bank 2020 - Computer & Ethics",pdf:"\\qestions\\tast bank\\Test Bank - 2020 - Computer & Ethics.pdf" ,
+                title: "Test Bank 2020 - Computer & Ethics",pdf:"qestions/tast_bank/Test_Bank_2020_Computer_Ethics.pdf" ,
                 interactive: true,
                 questions: [{"text": "ما علاقة العادات والتقاليد بالمواعظ الأخلاقية؟", "options": ["أ- كل العادات والتقاليد مواعظ أخلاقية", "ب- كل العادات والتقاليد مواعظ غير أخلاقية", "ج- بعض العادات والتقاليد مواعظ أخلاقية"], "answer": "ج- بعض العادات والتقاليد مواعظ أخلاقية"},
                     {"text": "هل عادة الأخذ بالثأر جائزة أم لا؟", "options": ["أ- عادة الأخذ بالثأر عادة جائزة قانوناً", "ب- عادة الأخذ بالثأر عادة جائزة شرعاً", "ج- عادة الأخذ بالثأر عادة غير جائزة شرعاً وقانوناً"], "answer": "ج- عادة الأخذ بالثأر عادة غير جائزة شرعاً وقانوناً"},
@@ -6271,9 +6276,6 @@
         ];
 
 
-
-  
-  
     function getQuizScoreFromStorage(quizId) {
         try { var s = localStorage.getItem('quiz_' + quizId); if (s) { var state = JSON.parse(s); if (state && state.done && state.total > 0) { return { done: true, pct: Math.round((state.correct / state.total) * 100), correct: state.correct, total: state.total }; } } } catch (e) {}
         return { done: false, pct: 0, correct: 0, total: 0 };
@@ -6290,33 +6292,12 @@
             var badgeHtml = '';
             if (item.interactive && scoreInfo.done) { badgeHtml = '<span class="badge done">✅ تم الحل</span>'; }
             else if (item.interactive) { badgeHtml = '<span class="badge new">📝 جديد</span>'; }
-            var dlBtn = '';
-            if (item.interactive && !item.pdf) { dlBtn += '<button class="btn-sm btn-download-exam" onclick="event.stopPropagation();downloadExamWord(\'' + qid + '\')">📥 تحميل الامتحان</button>'; }
-            card.innerHTML = '<div class="card-text"><h3>' + item.title + '</h3><p>' + (item.desc || '') + '</p></div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' + badgeHtml + dlBtn + '</div>';
+            card.innerHTML = '<div class="card-text"><h3>' + item.title + '</h3><p>' + (item.desc || '') + '</p></div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' + badgeHtml + '</div>';
             card.addEventListener('click', function() {
                 openInteractiveQuiz(item, qid);
             });
             c.appendChild(card);
         });
-    }
-
-    function downloadExamWord(qid) {
-        var exam = null;
-        [midterms, finals, examModels, testBanks].forEach(function(arr) {
-            arr.forEach(function(item, idx) {
-                var prefix = arr === midterms ? 'midterms' : arr === finals ? 'finals' : arr === examModels ? 'examModels' : 'testBanks';
-                if (qid === prefix + '-' + idx) exam = item;
-            });
-        });
-        if (!exam) return;
-        var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>' + exam.title + '</title><style>body{font-family:Tahoma;padding:20px;line-height:2;}h2{color:#2c3e50;}li{margin:10px 0;}</style></head><body><h2>📝 ' + exam.title + '</h2>';
-        exam.questions.forEach(function(q, i) { html += '<div style="margin-bottom:20px;"><b>' + (i + 1) + '. ' + q.text + '</b><ul>' + q.options.map(function(o) { return '<li>' + o + '</li>'; }).join('') + '</ul></div>'; });
-        html += '</body></html>';
-        var blob = new Blob([html], { type: 'application/msword' });
-        var a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = exam.title.replace(/\s/g, '_') + '.doc';
-        a.click();
     }
 
     function refreshAllCards() {
