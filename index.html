@@ -360,7 +360,8 @@
         // ========== Shared Answer-Edits Log ==========
         var answerEditsLog = [
          { id: "edit-001", context: "المحاضرة الأولى", questionNum: 3, questionText: "ما هو تعريف القانون في اللغة؟", oldAnswer: "الإجابة القديمة", newAnswer: "الإجابة الصحيحة الجديدة" },
-        { id: "edit-002", context: "المحاضرة الأولى", questionNum: 2, questionText: "ما هو تعريف القانون في اللغة؟", oldAnswer: "الإجابة القديمة", newAnswer: "الإجابة الصحيحة الجديدة" },
+        { id: "edit-004", context: "المحاضرة الأولى", questionNum: 3, questionText: "ما هو تعريف القانون في اللغة؟", oldAnswer: "الإجابة القديمة", newAnswer: "الإجابة الصحيحة الجديدة" },
+         { id: "edit-002", context: "المحاضرة الأولى", questionNum: 2, questionText: "ما هو تعريف القانون في اللغة؟", oldAnswer: "الإجابة القديمة", newAnswer: "الإجابة الصحيحة الجديدة" },
         { id: "edit-003", context: "المحاضرة الأولى", questionNum: 1, questionText: "ما هو تعريف القانون في اللغة؟", oldAnswer: "الإجابة القديمة", newAnswer: "الإجابة الصحيحة الجديدة" }
 
         ];
@@ -6103,6 +6104,7 @@
                 navigator.serviceWorker.register('sw.js').then(function() { console.log('SW ✓'); }).catch(function(err) { console.log('SW ✗', err); });
             });
         }
+
         console.log('✅ المنصة جاهزة للنشر على GitHub Pages مع ترميز المسارات');
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
