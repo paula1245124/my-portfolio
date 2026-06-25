@@ -309,13 +309,21 @@
   function hideLoading(){ loadingOverlay.classList.remove("show"); }
 
   // ---------------- Storage helpers ----------------
+  // ملحوظة: الموقع ده هيتفتح كموقع حقيقي مستقل (مش جوه بيئة Claude)،
+  // فبنستخدم localStorage بتاع المتصفح نفسه — بيتخزن على نفس الدومين
+  // اللي الموقع شغال عليه، ويفضل محفوظ لما ترجع تاني من نفس المتصفح/الجهاز.
+  const STORAGE_PREFIX = "pdfqalam:";
   async function storeGet(key){
-    try{ const r = await window.storage.get(key, false); return r ? JSON.parse(r.value) : null; }
-    catch(e){ return null; }
+    try{
+      const raw = localStorage.getItem(STORAGE_PREFIX + key);
+      return raw ? JSON.parse(raw) : null;
+    }catch(e){ console.error("storage get failed", e); return null; }
   }
   async function storeSet(key, value){
-    try{ await window.storage.set(key, JSON.stringify(value), false); return true; }
-    catch(e){ console.error("storage set failed", e); return false; }
+    try{
+      localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(value));
+      return true;
+    }catch(e){ console.error("storage set failed", e); return false; }
   }
 
   function fileId(name, size){
