@@ -164,6 +164,10 @@
     <div class="sep" id="toolSep" style="display:none"></div>
 
     <div id="toolGroup" style="display:none;align-items:center;gap:10px;">
+      <button class="tbtn" data-tool="select" title="تصفّح - للتنقل والتمرير بسهولة بين الصفحات">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>
+        <span class="lbl">تصفّح</span>
+      </button>
       <button class="tbtn" data-tool="pen" title="قلم">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16.5 3.5l4 4L7 21H3v-4L16.5 3.5z"/></svg>
         <span class="lbl">قلم</span>
@@ -179,7 +183,7 @@
 
       <div class="pen-rack" id="colorRack"></div>
 
-      <span class="mono" style="font-size:11px;color:var(--muted)">السُمك</span>
+      <span class="mono" id="widthLabel" style="font-size:11px;color:var(--muted)">السُمك</span>
       <input type="range" id="widthRange" min="1" max="40" value="4">
 
       <div class="sep"></div>
@@ -267,7 +271,7 @@
   let redoByPage = {};        // {pageNum: [stroke,...]}
   let zoom = 1.0;             // display zoom multiplier on top of fit-width
   let baseScale = 1.0;        // fit-width scale in px-per-point
-  let currentTool = "pen";
+  let currentTool = "select";
   let currentColor = "#1B2430";
   let currentWidth = 4;
   let drawing = false;
@@ -556,6 +560,7 @@
       attachPointerEvents(inkCanvas, p);
       drawPageStrokes(p);
     }
+    updateCanvasInteractivity();
   }
 
   // ---------------- Drawing helpers ----------------
@@ -728,10 +733,30 @@
       if(currentTool === "highlighter"){ currentWidth = Math.max(currentWidth, 14); widthRange.value = currentWidth; }
       if(currentTool === "pen" && currentWidth>14){ currentWidth=4; widthRange.value=4; }
       buildColorRack();
+      updateToolUIVisibility();
+      updateCanvasInteractivity();
     });
   });
-  document.querySelector('[data-tool="pen"]').classList.add("active");
+  document.querySelector('[data-tool="select"]').classList.add("active");
   buildColorRack();
+  updateToolUIVisibility();
+
+  function updateToolUIVisibility(){
+    const showDrawControls = (currentTool === "pen" || currentTool === "highlighter");
+    colorRack.style.display = showDrawControls ? "flex" : "none";
+    widthRange.style.display = showDrawControls ? "inline-block" : "none";
+    $("#widthLabel").style.display = showDrawControls ? "inline" : "none";
+  }
+
+  // وضع "تصفّح": يلغي تفاعل طبقة الرسم تمامًا فيرجع التمرير والتنقل بين
+  // الصفحات طبيعي جدًا (سكرول، لمس، تكبير بإصبعين) بدل ما يترسم خط بالغلط.
+  function updateCanvasInteractivity(){
+    const interactive = currentTool !== "select";
+    viewer.querySelectorAll("canvas.ink-canvas").forEach(c=>{
+      c.style.pointerEvents = interactive ? "auto" : "none";
+      c.style.cursor = interactive ? (currentTool==="eraser" ? "cell" : "crosshair") : "default";
+    });
+  }
 
   widthRange.addEventListener("input", ()=>{ currentWidth = parseInt(widthRange.value,10); });
 
