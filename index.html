@@ -1,1064 +1,1221 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة المواد التعليمية</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#4F46E5">
-    <link rel="apple-touch-icon" href="icon-192x192.png">
-    <script src="data.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="description" content="بولا فوزي، طالب علوم حاسب مهتم بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب وتصميم تجربة المستخدم.">
+  <meta name="keywords" content="بولا فوزي, Paula Fawzy, علوم حاسب, برمجة, C++, Python, Java, قواعد بيانات, تطوير الويب, UX">
+  <meta name="author" content="بولا فوزي">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://paulafawzy.me/">
+
+  <meta property="og:locale" content="ar_EG">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="بولا فوزي | Paula Fawzy">
+  <meta property="og:title" content="بولا فوزي | Paula Fawzy — Portfolio">
+  <meta property="og:description" content="طالب علوم حاسب مهتم بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب.">
+  <meta property="og:url" content="https://paulafawzy.me/">
+  <meta property="og:image" content="https://paulafawzy.me/preview.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="بولا فوزي | Paula Fawzy — Portfolio">
+  <meta name="twitter:description" content="طالب علوم حاسب مهتم بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب.">
+  <meta name="twitter:image" content="https://paulafawzy.me/preview.png">
+
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "بولا فوزي",
+    "alternateName": "Paula Fawzy",
+    "url": "https://paulafawzy.me/",
+    "email": "mailto:paulafawzy00@gmail.com",
+    "jobTitle": "Computer Science Student",
+    "description": "طالب علوم حاسب مهتم بالبرمجة وقواعد البيانات وحل المشكلات وتطوير الويب.",
+    "sameAs": [
+      "https://github.com/paula1245124",
+      "https://linkedin.com/in/paulafawzy00"
+    ]
+  }
+  </script>
+
+<meta name="theme-color" content="#0b0d17" />
+  <title>بولا فوزي | Paula Fawzy — Computer Science Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-            /* ========== جميع الأنماط كما هي بدون تغيير ========== */
-            :root {
-            --bg-body: #f3f4fa; --bg-header: #322f87; --bg-content: #fff; --bg-card: #edeffb; --bg-card-hover: #dfe2f6;
-            --bg-quiz-container: #f0f1fa; --bg-quiz-card: #fff; --text-primary: #262456; --text-secondary: #585b78;
-            --text-heading: #2d2a66; --text-hint: #8587a3; --text-white: #fff; --accent: #4f46e5; --accent-hover: #4338ca;
-            --accent-active: #322f87; --success: #16a34a; --success-light: #22c55e; --danger: #dc2626; --danger-hover: #b91c1c;
-            --warning: #d97706; --warning-hover: #b45309; --gold: #eab308; --border: #e1e3f0; --shadow: rgba(49,46,129,0.09);
-            --card-border: #4f46e5; --quiz-number-bg: #322f87; --option-border: #4f46e5; --option-text: #4338ca;
-            --option-hover-bg: #edeffb; --progress-bg: #e1e3f0; --progress-fill-1: #16a34a; --progress-fill-2: #22c55e;
-            --score-bg-1: #322f87; --score-bg-2: #4f46e5; --score-circle-border: rgba(255,255,255,0.3);
-            --score-circle-bg: rgba(255,255,255,0.1); --wrong-card-bg: #fef2f2; --wrong-card-border: #dc2626;
-            --wrong-card-text: #b91c1c; --correct-card-bg: #f0fdf4; --correct-card-border: #16a34a; --correct-card-text: #15803d;
-            --no-wrong-bg: #f0fdf4; --no-wrong-border: #16a34a; --no-wrong-text: #15803d;
-            --show-score-bg-1: #322f87; --show-score-bg-2: #4f46e5; --show-score-shadow: rgba(79,70,229,0.4);
-            --wrong-title-bg: #dc2626; --status-bg: #322f87; --status-text: #fff;
-            --theme-btn-bg: rgba(255,255,255,0.15); --theme-btn-active: rgba(255,255,255,0.35); --theme-btn-text: #fff;
-            --badge-bg: #4f46e5; --badge-text: #fff; --collapse-bg: #f8f8fc; --collapse-border: #e1e3f0;
-            --summary-bg: #f8f8fc; --notif-bg: #fff; --notif-unread-bg: #edeffb; --scroll-btn-bg: #4f46e5;
-            --scroll-btn-text: #fff; --download-btn-bg: #d97706; --subtab-bg: #edeffb; --subtab-active-bg: #16a34a;
-        }
-        /* ... (باقي متغيرات الثيمات light/dark/morning/noon/afternoon/night) ... */
-        [data-theme="dark"] { --bg-body:#0d1117; --bg-header:#161b22; --bg-content:#161b22; --bg-card:#1c2333; --bg-card-hover:#242d3d; --bg-quiz-container:#0d1117; --bg-quiz-card:#161b22; --text-primary:#e6edf3; --text-secondary:#a0aec0; --text-heading:#fff; --text-hint:#718096; --accent:#818cf8; --accent-hover:#a5b4fc; --accent-active:#161b22; --border:#30363d; --shadow:rgba(0,0,0,0.4); --card-border:#818cf8; --quiz-number-bg:#30363d; --option-border:#818cf8; --option-text:#a5b4fc; --option-hover-bg:#242d3d; --progress-bg:#30363d; --score-bg-1:#161b22; --score-bg-2:#30363d; --score-circle-border:rgba(255,255,255,0.15); --score-circle-bg:rgba(255,255,255,0.05); --wrong-card-bg:#2a1a1a; --wrong-card-border:#f87171; --correct-card-bg:#1a2a1a; --correct-card-border:#4ade80; --no-wrong-bg:#1a2a1a; --no-wrong-border:#4ade80; --show-score-bg-1:#161b22; --show-score-bg-2:#30363d; --show-score-shadow:rgba(129,140,248,0.3); --status-bg:#0d1117; --theme-btn-bg:rgba(255,255,255,0.06); --theme-btn-active:rgba(129,140,248,0.25); --badge-bg:#818cf8; --collapse-bg:#1c2333; --collapse-border:#30363d; --summary-bg:#1c2333; --notif-bg:#161b22; --notif-unread-bg:#1a2a3e; --scroll-btn-bg:#818cf8; --download-btn-bg:#f59e0b; --subtab-bg:#1c2333; --subtab-active-bg:#22c55e; --progress-fill-1:#16a34a; --progress-fill-2:#22c55e; --wrong-card-text:#f87171; --correct-card-text:#4ade80; --no-wrong-text:#4ade80; --wrong-title-bg:#dc2626; --theme-btn-text:#fff; --badge-text:#fff; --scroll-btn-text:#fff; }
-        [data-theme="morning"] { --bg-body:#fdf6ec; --bg-header:#e8743b; --bg-content:#fffaf3; --bg-card:#fdecd8; --bg-card-hover:#fbe0bd; --bg-quiz-container:#fdecd8; --bg-quiz-card:#fffaf3; --text-primary:#5a3825; --text-secondary:#8a5a3c; --text-heading:#c1521e; --text-hint:#b08968; --accent:#e8743b; --accent-hover:#d9632a; --accent-active:#c1521e; --border:#f3ddc0; --shadow:rgba(232,116,59,0.12); --card-border:#e8743b; --quiz-number-bg:#e8743b; --option-border:#e8743b; --option-text:#c1521e; --option-hover-bg:#fdecd8; --progress-bg:#fbe0bd; --progress-fill-1:#e8743b; --progress-fill-2:#f4a261; --score-bg-1:#c1521e; --score-bg-2:#e8743b; --show-score-bg-1:#c1521e; --show-score-bg-2:#e8743b; --show-score-shadow:rgba(232,116,59,0.4); --status-bg:#e8743b; --theme-btn-active:rgba(255,255,255,0.35); --badge-bg:#e8743b; --collapse-bg:#fdecd8; --collapse-border:#f3ddc0; --summary-bg:#fdecd8; --notif-bg:#fffaf3; --notif-unread-bg:#fdecd8; --scroll-btn-bg:#e8743b; --download-btn-bg:#c1521e; --subtab-bg:#fdecd8; --subtab-active-bg:#2a9d8f; --score-circle-border:rgba(255,255,255,0.3); --score-circle-bg:rgba(255,255,255,0.1); --wrong-card-bg:#fef2f2; --wrong-card-border:#dc2626; --wrong-card-text:#b91c1c; --correct-card-bg:#f0fdf4; --correct-card-border:#16a34a; --correct-card-text:#15803d; --no-wrong-bg:#f0fdf4; --no-wrong-border:#16a34a; --no-wrong-text:#15803d; --wrong-title-bg:#dc2626; --theme-btn-bg:rgba(255,255,255,0.15); --theme-btn-text:#fff; --badge-text:#fff; --scroll-btn-text:#fff; }
-        [data-theme="noon"] { --bg-body:#f7fbff; --bg-header:#0c4a6e; --bg-content:#fff; --bg-card:#eaf6ff; --bg-card-hover:#d6edfb; --bg-quiz-container:#eef8ff; --bg-quiz-card:#fff; --text-primary:#0c2233; --text-secondary:#395a6b; --text-heading:#0c4a6e; --text-hint:#5b7c8d; --accent:#0284c7; --accent-hover:#0369a1; --accent-active:#0c4a6e; --border:#d3e7f0; --shadow:rgba(2,132,199,0.1); --card-border:#0284c7; --quiz-number-bg:#0c4a6e; --option-border:#0284c7; --option-text:#0369a1; --option-hover-bg:#eaf6ff; --progress-bg:#d3e7f0; --score-bg-1:#0c4a6e; --score-bg-2:#0284c7; --show-score-bg-1:#0c4a6e; --show-score-bg-2:#0284c7; --show-score-shadow:rgba(2,132,199,0.35); --status-bg:#0c4a6e; --theme-btn-active:rgba(255,255,255,0.25); --badge-bg:#0284c7; --collapse-bg:#eaf6ff; --collapse-border:#d3e7f0; --summary-bg:#eaf6ff; --notif-bg:#fff; --notif-unread-bg:#eaf6ff; --scroll-btn-bg:#0284c7; --download-btn-bg:#ca8a04; --subtab-bg:#eaf6ff; --subtab-active-bg:#16a34a; --progress-fill-1:#16a34a; --progress-fill-2:#22c55e; --score-circle-border:rgba(255,255,255,0.3); --score-circle-bg:rgba(255,255,255,0.1); --wrong-card-bg:#fef2f2; --wrong-card-border:#dc2626; --wrong-card-text:#b91c1c; --correct-card-bg:#f0fdf4; --correct-card-border:#16a34a; --correct-card-text:#15803d; --no-wrong-bg:#f0fdf4; --no-wrong-border:#16a34a; --no-wrong-text:#15803d; --wrong-title-bg:#dc2626; --theme-btn-bg:rgba(255,255,255,0.15); --theme-btn-text:#fff; --badge-text:#fff; --scroll-btn-text:#fff; }
-        [data-theme="afternoon"] { --bg-body:#fbf3ec; --bg-header:#9c4221; --bg-content:#fffaf5; --bg-card:#f5e6d8; --bg-card-hover:#eed7c2; --bg-quiz-container:#f5e6d8; --bg-quiz-card:#fffaf5; --text-primary:#4a2c1a; --text-secondary:#6b4226; --text-heading:#7c3a14; --text-hint:#a9805f; --accent:#b5562a; --accent-hover:#9c4221; --accent-active:#7c3a14; --border:#e9d4ba; --shadow:rgba(157,75,30,0.12); --card-border:#b5562a; --quiz-number-bg:#9c4221; --option-border:#b5562a; --option-text:#9c4221; --option-hover-bg:#f5e6d8; --progress-bg:#eed7c2; --score-bg-1:#7c3a14; --score-bg-2:#b5562a; --show-score-bg-1:#7c3a14; --show-score-bg-2:#b5562a; --show-score-shadow:rgba(181,86,42,0.4); --status-bg:#7c3a14; --theme-btn-active:rgba(255,255,255,0.3); --badge-bg:#b5562a; --collapse-bg:#f5e6d8; --collapse-border:#e9d4ba; --summary-bg:#f5e6d8; --notif-bg:#fffaf5; --notif-unread-bg:#f5e6d8; --scroll-btn-bg:#b5562a; --download-btn-bg:#7c3a14; --subtab-bg:#f5e6d8; --subtab-active-bg:#2a9d8f; --progress-fill-1:#b5562a; --progress-fill-2:#d9803f; --score-circle-border:rgba(255,255,255,0.3); --score-circle-bg:rgba(255,255,255,0.1); --wrong-card-bg:#fef2f2; --wrong-card-border:#dc2626; --wrong-card-text:#b91c1c; --correct-card-bg:#f0fdf4; --correct-card-border:#16a34a; --correct-card-text:#15803d; --no-wrong-bg:#f0fdf4; --no-wrong-border:#16a34a; --no-wrong-text:#15803d; --wrong-title-bg:#dc2626; --theme-btn-bg:rgba(255,255,255,0.15); --theme-btn-text:#fff; --badge-text:#fff; --scroll-btn-text:#fff; }
-        [data-theme="night"] { --bg-body:#0b0b18; --bg-header:#15152b; --bg-content:#15152b; --bg-card:#1d1d38; --bg-card-hover:#262647; --bg-quiz-container:#0b0b18; --bg-quiz-card:#15152b; --text-primary:#dcdcf5; --text-secondary:#a3a3c2; --text-heading:#f0f0ff; --text-hint:#6f6f96; --accent:#8b7bf0; --accent-hover:#a594f5; --accent-active:#15152b; --border:#2c2c4d; --shadow:rgba(0,0,0,0.5); --card-border:#8b7bf0; --quiz-number-bg:#2c2c4d; --option-border:#8b7bf0; --option-text:#a594f5; --option-hover-bg:#1d1d38; --progress-bg:#2c2c4d; --score-bg-1:#15152b; --score-bg-2:#2c2c4d; --score-circle-border:rgba(139,123,240,0.2); --score-circle-bg:rgba(139,123,240,0.05); --wrong-card-bg:#2e1726; --correct-card-bg:#15291c; --no-wrong-bg:#15291c; --show-score-bg-1:#15152b; --show-score-bg-2:#2c2c4d; --show-score-shadow:rgba(139,123,240,0.3); --status-bg:#0b0b18; --theme-btn-bg:rgba(255,255,255,0.06); --theme-btn-active:rgba(139,123,240,0.25); --badge-bg:#8b7bf0; --collapse-bg:#1d1d38; --collapse-border:#2c2c4d; --summary-bg:#1d1d38; --notif-bg:#15152b; --notif-unread-bg:#1d1d45; --scroll-btn-bg:#8b7bf0; --download-btn-bg:#e8743b; --subtab-bg:#1d1d38; --subtab-active-bg:#22c55e; --progress-fill-1:#16a34a; --progress-fill-2:#22c55e; --wrong-card-border:#f87171; --wrong-card-text:#f87171; --correct-card-border:#4ade80; --correct-card-text:#4ade80; --no-wrong-border:#4ade80; --no-wrong-text:#4ade80; --wrong-title-bg:#dc2626; --theme-btn-text:#fff; --badge-text:#fff; --scroll-btn-text:#fff; }
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-body); margin: 0; padding: 0; color: var(--text-primary); transition: background 0.6s, color 0.4s; scroll-behavior: smooth; }
-        header { background: var(--bg-header); color: var(--text-white); text-align: center; padding: 10px 0 8px; box-shadow: 0 4px 6px var(--shadow); position: sticky; top: 0; z-index: 1100; transition: background 0.6s; }
-        header h1 { margin: 0 0 8px; font-size: 24px; }
-        .header-row { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 10px 6px; }
-        .theme-controls { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
-        .theme-pill { background: var(--theme-btn-bg); color: var(--theme-btn-text); border: 2px solid transparent; padding: 6px 14px; border-radius: 50px; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.3s; display: inline-flex; align-items: center; gap: 5px; }
-        .theme-pill:hover { background: var(--theme-btn-active); transform: scale(1.04); }
-        .theme-pill.active { border-color: var(--text-white); background: var(--theme-btn-active); box-shadow: 0 0 12px rgba(255,255,255,0.2); }
-        .demo-btn { background: #fbbf24; color: #2d2a66; border: none; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: bold; transition: all 0.3s; animation: demoPulse 1.5s infinite; }
-        .demo-btn:hover { filter: brightness(1.1); transform: scale(1.05); }
-        @keyframes demoPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.5); } 50% { box-shadow: 0 0 0 8px rgba(251,191,36,0); } }
-        .auto-only { display: none; }
-        .auto-visible .auto-only { display: inline-block; }
-        .notif-bell-wrap { position: relative; display: inline-block; cursor: pointer; margin: 0 4px; }
-        .notif-bell { font-size: 22px; color: var(--text-white); transition: transform 0.3s; }
-        .notif-bell-wrap:hover .notif-bell { transform: scale(1.2); }
-        .notif-badge { position: absolute; top: -6px; left: -8px; background: var(--danger); color: #fff; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; font-weight: bold; display: none; align-items: center; justify-content: center; pointer-events: none; animation: badgePulse 2s infinite; }
-        @keyframes badgePulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } }
-        /* ✅ تم إضافة color بشكل صريح لضمان التناسق مع جميع السمات */
-        .notif-dropdown { display: none; position: absolute; top: 42px; left: 0; background: var(--notif-bg); border: 2px solid var(--border); border-radius: 12px; width: 380px; max-height: 450px; overflow-y: auto; box-shadow: 0 10px 30px var(--shadow); z-index: 2000; padding: 0; text-align: right; color: var(--text-primary); transition: background 0.4s, border-color 0.4s, color 0.4s; }
-        .notif-dropdown.show { display: block; }
-        .notif-dropdown h4 { margin: 0; padding: 14px 18px; background: var(--bg-header); color: var(--text-white); font-size: 16px; border-radius: 10px 10px 0 0; text-align: center; display: flex; justify-content: space-between; align-items: center; }
-        .notif-dropdown h4 .notif-clear { font-size: 12px; cursor: pointer; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 12px; border: none; color: #fff; }
-        .notif-item { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 13px; line-height: 1.6; transition: background 0.3s; cursor: default; color: var(--text-primary); }
-        .notif-item.unread { background: var(--notif-unread-bg); font-weight: bold; }
-        .notif-item .notif-meta { font-size: 10px; color: var(--text-hint); margin-top: 4px; }
-        .notif-item .notif-detail { display: block; margin: 3px 0; font-size: 12px; }
-        .notif-empty { padding: 30px; text-align: center; color: var(--text-hint); font-size: 14px; }
-        .container { max-width: 980px; width: 100%; margin: 20px auto; padding: 0 16px 60px; }
-        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tab-button { background: var(--accent); color: var(--text-white); border: none; padding: 12px 25px; font-size: 18px; cursor: pointer; border-radius: 8px; transition: background 0.3s; }
-        .tab-button:hover { background: var(--accent-hover); }
-        .tab-button.active { background: var(--accent-active); }
-        .content-section { display: none; background: var(--bg-content); padding: 30px; border-radius: 10px; box-shadow: 0 2px 5px var(--shadow); transition: background 0.6s; }
-        .content-section.active { display: block; }
-        /* ... (باقي الأنماط دون تغيير) ... */
-        .card { background: var(--bg-card); padding: 15px 20px; margin-bottom: 12px; border-radius: 10px; border-right: 5px solid var(--card-border); cursor: pointer; transition: transform 0.2s, background 0.4s; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-        .card:hover { transform: translateX(-5px); background: var(--bg-card-hover); }
-        .card-text { flex: 1; min-width: 160px; }
-        .card-text h3 { margin: 0 0 5px; color: var(--text-heading); font-size: 18px; }
-        .card-text p { margin: 0; color: var(--text-secondary); font-size: 14px; }
-        .badge { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; white-space: nowrap; }
-        .badge.done { background: var(--success); color: #fff; }
-        .badge.new { background: var(--text-hint); color: #fff; opacity: 0.7; }
-        .btn-sm { background: var(--accent); color: #fff; border: none; padding: 5px 10px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: bold; transition: all 0.3s; white-space: nowrap; }
-        .btn-sm:hover { filter: brightness(1.2); transform: scale(1.05); }
-        .btn-download-exam { background: var(--download-btn-bg); }
-        .back-btn { background: var(--danger); color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-bottom: 20px; transition: background 0.3s; }
-        .back-btn:hover { background: var(--danger-hover); }
-        .pdf-viewer { border: 2px solid var(--border); border-radius: 5px; overflow: hidden; margin-bottom: 20px; }
-        .my-notes-box { margin-top: 20px; background: var(--bg-card); border: 2px solid var(--border); border-radius: 10px; padding: 14px 16px; transition: background 0.4s, border-color 0.4s; }
-        .my-notes-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: bold; color: var(--text-heading); font-size: 15px; }
-        .my-notes-status { font-size: 12px; font-weight: normal; color: var(--text-hint); }
-        .my-notes-textarea { width: 100%; min-height: 120px; resize: vertical; border: 2px solid var(--option-border); border-radius: 8px; padding: 10px 12px; font-size: 15px; font-family: inherit; background: var(--bg-quiz-card); color: var(--text-primary); box-sizing: border-box; transition: background 0.4s, color 0.4s, border-color 0.4s; }
-        .my-notes-textarea:focus { outline: none; border-color: var(--accent); }
-        iframe { width: 100%; height: 600px; border: none; display: block; }
-        .questions-box { background: var(--bg-card); padding: 20px; border-radius: 8px; border-right: 5px solid var(--success); }
-        .sub-tabs { display: flex; gap: 8px; margin: 20px 0; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-wrap: wrap; }
-        .sub-tab-button { background: var(--subtab-bg); color: var(--text-primary); border: none; padding: 10px 18px; cursor: pointer; border-radius: 20px; font-size: 15px; transition: 0.3s; }
-        .sub-tab-button.active { background: var(--subtab-active-bg); color: #fff; font-weight: bold; }
-        .sub-tab-button:hover:not(.active) { background: var(--bg-card-hover); }
-        .sub-content { display: none; }
-        .sub-content.active { display: block; }
-        .quiz-scroll-container { border: 2px solid var(--border); border-radius: 10px; background: var(--bg-quiz-container); padding: 10px; }
-        .quiz-card { background: var(--bg-quiz-card); margin-bottom: 15px; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px var(--shadow); text-align: right; }
-        .quiz-number { background: var(--quiz-number-bg); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 20px; }
-        .quiz-question-text { font-size: 22px; font-weight: bold; margin-bottom: 30px; color: var(--text-heading); line-height: 1.6; }
-        .quiz-options { display: flex; flex-direction: column; gap: 8px; }
-        .quiz-option-btn { padding: 10px 16px; font-size: 20px; border: 2px solid var(--option-border); background: var(--bg-quiz-card); color: var(--option-text); border-radius: 8px; cursor: pointer; text-align: right; transition: all 0.3s; }
-        .quiz-option-btn:hover { background: var(--option-hover-bg); }
-        .quiz-option-btn.correct { background: var(--success); color: #fff; border-color: var(--success); }
-        .quiz-option-btn.incorrect { background: var(--danger); color: #fff; border-color: var(--danger); }
-        .quiz-option-btn.disabled { opacity: 0.6; pointer-events: none; }
-        .quiz-feedback { margin-top: 15px; font-size: 18px; font-weight: bold; display: none; }
-        .quiz-feedback.show { display: block; }
-        .quiz-feedback.correct-text { color: var(--success); }
-        .quiz-feedback.wrong-text { color: var(--danger); }
-        .quiz-sticky-header { position: sticky; top: 0; z-index: 1050; background: var(--bg-content); padding: 8px 0; margin: 0 0 4px; transition: background 0.6s; }
-        .quiz-sticky-header.is-stuck { box-shadow: 0 4px 10px var(--shadow); border-radius: 0 0 10px 10px; }
-        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
-        .current-q-wrap { text-align: center; }
-        .current-q-indicator { font-size: 13px; font-weight: bold; color: var(--accent); margin-top: 6px; background: var(--bg-card); border-radius: 20px; padding: 4px 10px; display: inline-block; }
-        .reset-btn { background: var(--warning); color: #fff; border: none; padding: 10px 22px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
-        .reset-btn:hover { background: var(--warning-hover); }
-        .progress-bar-wrap { background: var(--progress-bg); border-radius: 20px; height: 14px; margin-bottom: 10px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--progress-fill-1), var(--progress-fill-2)); border-radius: 20px; transition: width 0.5s ease; width: 0%; }
-        .progress-text { text-align: center; font-size: 14px; color: var(--text-hint); margin-bottom: 8px; font-weight: bold; }
-        .show-score-btn { background: linear-gradient(135deg, var(--show-score-bg-1), var(--show-score-bg-2)); color: #fff; border: none; padding: 18px 50px; border-radius: 50px; cursor: pointer; font-size: 22px; font-weight: bold; transition: all 0.5s; box-shadow: 0 6px 20px var(--show-score-shadow); }
-        .show-score-btn:hover { transform: scale(1.08); }
-        .score-card { background: linear-gradient(135deg, var(--score-bg-1), var(--score-bg-2)); color: #fff; margin: 15px 0; border-radius: 10px; padding: 35px 25px; text-align: center; box-shadow: 0 4px 10px var(--shadow); }
-        .score-circle { width: 130px; height: 130px; border-radius: 50%; border: 8px solid var(--score-circle-border); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 20px; background: var(--score-circle-bg); }
-        .score-number { font-size: 42px; font-weight: bold; line-height: 1; }
-        .score-label { font-size: 14px; opacity: 0.8; }
-        .score-details { font-size: 17px; margin-bottom: 8px; }
-        .score-message { font-size: 22px; font-weight: bold; margin-bottom: 15px; }
-        .retry-btn { background: #fff; color: var(--score-bg-1); border: none; padding: 12px 35px; border-radius: 50px; cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.3s; margin-top: 8px; }
-        .retry-btn:hover { transform: scale(1.05); }
-        .wrong-collapse-wrap { margin: 10px 0; border: 2px solid var(--wrong-card-border); border-radius: 10px; overflow: hidden; }
-        .wrong-collapse-header { background: var(--wrong-title-bg); color: #fff; padding: 14px 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; font-size: 17px; font-weight: bold; user-select: none; transition: filter 0.3s; }
-        .wrong-collapse-header:hover { filter: brightness(1.1); }
-        .wrong-collapse-arrow { transition: transform 0.3s; font-size: 14px; }
-        .wrong-collapse-arrow.open { transform: rotate(180deg); }
-        .wrong-collapse-body { display: none; background: var(--bg-quiz-card); }
-        .wrong-collapse-body.open { display: block; }
-        .wrong-collapse-count { background: rgba(255,255,255,0.25); padding: 3px 12px; border-radius: 15px; font-size: 13px; }
-        .wrong-dl-btn { background: #fff; color: var(--wrong-title-bg); border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 12px; font-weight: bold; margin-right: 8px; transition: all 0.3s; }
-        .wrong-dl-btn:hover { filter: brightness(0.9); transform: scale(1.04); }
-        .wrong-q-card { background: var(--bg-quiz-card); border-bottom: 1px solid var(--border); padding: 16px 20px; }
-        .wrong-q-card:last-child { border-bottom: none; }
-        .wrong-q-num { display: inline-block; background: var(--danger); color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: 13px; font-weight: bold; margin-left: 8px; }
-        .wrong-q-text { font-size: 16px; font-weight: bold; color: var(--text-heading); margin: 8px 0; line-height: 1.7; }
-        .wrong-q-options-list { font-size: 14px; color: var(--text-secondary); margin: 6px 0; padding-right: 16px; line-height: 1.6; }
-        .wrong-q-answer { padding: 10px 16px; border-radius: 8px; margin: 6px 0; font-size: 15px; line-height: 1.5; }
-        .wrong-q-user { background: var(--wrong-card-bg); border-right: 4px solid var(--wrong-card-border); color: var(--wrong-card-text); }
-        .wrong-q-correct { background: var(--correct-card-bg); border-right: 4px solid var(--correct-card-border); color: var(--correct-card-text); }
-        .wrong-q-label { font-weight: bold; font-size: 12px; display: block; margin-bottom: 3px; }
-        .no-wrong-msg { background: var(--no-wrong-bg); border: 2px solid var(--no-wrong-border); color: var(--no-wrong-text); padding: 20px; border-radius: 10px; text-align: center; font-size: 20px; font-weight: bold; margin: 15px 0; }
-        .progress-summary { background: var(--summary-bg); border: 2px solid var(--border); border-radius: 12px; padding: 20px; margin: 20px 0; }
-        .progress-summary h3 { text-align: center; color: var(--text-heading); margin-top: 0; font-size: 19px; }
-        .progress-summary-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; margin: 6px 0; border-radius: 8px; cursor: pointer; transition: all 0.3s; background: var(--bg-card); flex-wrap: wrap; gap: 8px; }
-        .progress-summary-row:hover { background: var(--bg-card-hover); transform: translateX(-4px); }
-        .progress-summary-row .ps-name { font-weight: bold; font-size: 15px; color: var(--text-heading); flex: 1; min-width: 120px; }
-        .ps-badge { padding: 4px 10px; border-radius: 15px; font-size: 11px; font-weight: bold; white-space: nowrap; }
-        .ps-badge.done { background: var(--success); color: #fff; }
-        .ps-badge.pending { background: var(--text-hint); color: #fff; opacity: 0.7; }
-        .ps-badge.total { background: var(--accent); color: #fff; }
-        .scroll-to-top { position: fixed; bottom: 50px; left: 20px; width: 46px; height: 46px; background: var(--scroll-btn-bg); color: #fff; border: none; border-radius: 50%; font-size: 22px; cursor: pointer; z-index: 999; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); pointer-events: none; transition: all 0.3s; }
-        .scroll-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        .scroll-to-top:hover { filter: brightness(1.2); transform: scale(1.1) translateY(-4px); }
-        .status-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--status-bg); color: var(--status-text); text-align: center; padding: 8px 15px; font-size: 13px; font-weight: bold; z-index: 998; transition: background 0.6s, color 0.4s; }
-        .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--success-light); margin-left: 8px; vertical-align: middle; }
-        .download-questions-btn { background: var(--success); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; margin: 8px 0; transition: background 0.3s; }
-        .download-questions-btn:hover { background: var(--success-light); }
-        @media (max-width: 768px) { .container { padding: 0 8px; margin: 10px auto; } .content-section { padding: 16px; } .quiz-question-text { font-size: 18px; } .quiz-option-btn { font-size: 16px; padding: 8px 12px; } .card { flex-direction: column; align-items: flex-start; } .notif-dropdown { width: 95vw; left: -120px; } .scroll-to-top { bottom: 50px; left: 12px; width: 40px; height: 40px; font-size: 18px; } header h1 { font-size: 20px; } .wrong-collapse-header { font-size: 14px; padding: 10px 14px; } }
-        a.btn-sm:hover { filter: brightness(1.2); transform: scale(1.05); }  
+    :root{
+      --bg:#0b0d17;
+      --bg2:#101422;
+      --card:#13182a;
+      --card2:#171d31;
+      --line:rgba(255,255,255,.08);
+      --text:#e7ecf6;
+      --muted:#9aa4ba;
+      --faint:#667089;
+      --violet:#8b5cf6;
+      --violet2:#a78bfa;
+      --cyan:#22d3ee;
+      --green:#4ade80;
+      --pink:#f472b6;
+      --shadow:0 18px 60px rgba(0,0,0,.32);
+      --radius:18px;
+      --radius-lg:26px;
+      --max:1180px;
+      --t:.28s cubic-bezier(.4,0,.2,1);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(circle at top right, rgba(139,92,246,.16), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(34,211,238,.12), transparent 24%),
+        var(--bg);
+      color:var(--text);
+      font-family:"Cairo",sans-serif;
+      line-height:1.8;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,input,textarea{font:inherit}
+    ::selection{background:rgba(139,92,246,.35)}
+
+    html, body{
+      overflow-x:hidden;
+      width:100%;
+      max-width:100%;
+    }
+    main{
+      position:relative;
+      width:100%;
+    }
+    .sr-only{
+      position:absolute !important;
+      width:1px !important;
+      height:1px !important;
+      padding:0 !important;
+      margin:-1px !important;
+      overflow:hidden !important;
+      clip:rect(0,0,0,0) !important;
+      white-space:nowrap !important;
+      border:0 !important;
+    }
+    .hero-inner, .container, .nav-wrap{
+      max-width:100%;
+    }
+    .about-text p, .hero p.desc, .item p, .project p, .contact-sub, .info-row, .v{
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .section{padding:96px 0;position:relative}
+    .section:nth-of-type(even){background:rgba(255,255,255,.01)}
+    .label{
+      font-family:"IBM Plex Mono",monospace;
+      color:var(--violet2);
+      font-size:.85rem;
+      letter-spacing:.08em;
+      margin-bottom:10px
+    }
+    .title{
+      font-family:"Space Grotesk",sans-serif;
+      font-weight:700;
+      font-size:clamp(2rem,4vw,3.3rem);
+      line-height:1.12;
+      margin-bottom:34px
+    }
+    .muted{color:var(--muted)}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 14px;
+      border:1px solid rgba(74,222,128,.38);
+      border-radius:999px;
+      background:rgba(74,222,128,.06);
+      color:var(--green);
+      font-family:"IBM Plex Mono",monospace;
+      font-size:.82rem
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:13px 22px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t), color var(--t);
+      white-space:nowrap;
+      cursor:pointer;
+      user-select:none
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--violet),var(--cyan));
+      color:#fff;
+      box-shadow:0 12px 30px rgba(139,92,246,.22)
+    }
+    .btn-primary:hover{box-shadow:0 18px 36px rgba(139,92,246,.28)}
+    .btn-outline{
+      background:rgba(255,255,255,.02);
+      border-color:rgba(139,92,246,.38);
+      color:var(--violet2)
+    }
+    .btn-outline:hover{background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.62)}
+    .full{width:100%}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease, transform .65s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* NAV */
+    .navbar{
+      position:fixed;inset:0 0 auto 0;z-index:100;
+      padding:16px 0;
+      transition:background var(--t), backdrop-filter var(--t), box-shadow var(--t)
+    }
+    .navbar.scrolled{
+      background:rgba(11,13,23,.85);
+      backdrop-filter:blur(14px);
+      box-shadow:0 1px 0 var(--line)
+    }
+    .nav-wrap{
+      display:flex;align-items:center;justify-content:space-between;gap:16px
+    }
+    .logo{
+      display:flex;align-items:center;gap:8px;
+      font-family:"IBM Plex Mono",monospace;font-weight:700
+    }
+    .logo b{color:var(--violet2)}
+    .nav-links{
+      display:flex;align-items:center;gap:30px
+    }
+    .nav-links a{
+      position:relative;
+      color:var(--muted);
+      font-size:.96rem;
+      transition:color var(--t)
+    }
+    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links a::after{
+      content:"";
+      position:absolute;right:0;bottom:-6px;
+      width:0;height:2px;border-radius:2px;
+      background:var(--violet);
+      transition:width var(--t)
+    }
+    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-toggle{
+      display:none;
+      flex-direction:column;gap:5px;
+      padding:8px;border:0;background:transparent
+    }
+    .nav-toggle span{
+      width:24px;height:2px;border-radius:2px;background:#fff;
+      transition:transform var(--t), opacity var(--t)
+    }
+    .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle.open span:nth-child(2){opacity:0}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      padding:120px 0 80px;
+      position:relative;
+      overflow:hidden
+    }
+    .hero::before,.hero::after{
+      content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none
+    }
+    .hero::before{width:520px;height:520px;background:var(--violet);top:-180px;right:-120px}
+    .hero::after{width:380px;height:380px;background:var(--cyan);left:-140px;bottom:-120px}
+    .hero-grid{
+      position:absolute;inset:0;pointer-events:none;opacity:.24;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:60px 60px
+    }
+    .hero-inner{
+      width:min(860px,100%);
+      text-align:center;
+      position:relative;
+      z-index:1;
+      padding:0 20px
+    }
+    .hero-tag{display:flex;justify-content:center;margin-bottom:22px}
+    .hero h1{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(2.8rem,7vw,5.2rem);
+      line-height:1.05;
+      margin-bottom:12px
+    }
+    .hero h1 .small{
+      display:block;
+      font-family:"IBM Plex Mono",monospace;
+      color:var(--violet2);
+      font-size:1rem;
+      margin-bottom:10px
+    }
+    .hero h1 .main{
+      background:linear-gradient(135deg,#fff 35%, var(--violet2) 90%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent
+    }
+    .typed{
+      display:inline-block;
+      min-height:1.6em;
+      color:var(--cyan);
+      font-family:"IBM Plex Mono",monospace;
+      font-size:1.05rem
+    }
+    .caret{animation:blink .9s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
+    .hero p.desc{
+      max-width:640px;margin:18px auto 34px;color:var(--muted);font-size:1.04rem
+    }
+    .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .scroll{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      align-items:center;
+      color:var(--faint);
+      font-family:"IBM Plex Mono",monospace;
+      font-size:.8rem
+    }
+    .scroll-line{width:54px;height:1px;background:var(--violet);position:relative;overflow:hidden}
+    .scroll-line::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(90deg, transparent, var(--violet2), transparent);
+      animation:scan 2.1s linear infinite
+    }
+    @keyframes scan{to{transform:translateX(220%)}}
+
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.3fr .9fr;
+      gap:34px;
+      align-items:start
+    }
+    .about-text p{color:var(--muted);margin-bottom:16px;font-size:1.02rem}
+    .about-text strong{color:#fff}
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:26px;
+      padding-top:26px;
+      border-top:1px solid var(--line)
+    }
+    .stat{
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      text-align:center
+    }
+    .stat .num{
+      display:block;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:2rem;
+      font-weight:700;
+      color:var(--violet2);
+      line-height:1
+    }
+    .stat .txt{font-size:.84rem;color:var(--muted);margin-top:6px}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow)
+    }
+    .profile{
+      padding:28px
+    }
+    .avatar{
+      width:92px;height:92px;margin:0 auto 20px;position:relative
+    }
+    .avatar::before{
+      content:"";position:absolute;inset:-4px;border-radius:50%;
+      background:conic-gradient(from 180deg, var(--violet), var(--cyan), var(--violet));
+      animation:spin 8s linear infinite
+    }
+    .avatar::after{
+      content:"PF";position:absolute;inset:4px;border-radius:50%;
+      background:linear-gradient(135deg, rgba(139,92,246,.95), rgba(34,211,238,.9));
+      display:grid;place-items:center;
+      font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.55rem;color:#fff
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .info{display:grid;gap:12px}
+    .info-row{
+      display:flex;gap:12px;align-items:flex-start;
+      color:var(--muted);
+      font-size:.95rem
+    }
+    .info-row i{color:var(--violet2);width:18px;margin-top:4px}
+
+    /* SKILLS */
+    .skills{background:rgba(255,255,255,.02)}
+    .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
+    .tab{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--muted);
+      padding:9px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:all var(--t)
+    }
+    .tab.active{background:var(--violet);border-color:var(--violet);color:#fff}
+    .tab:hover{border-color:rgba(139,92,246,.5);color:#fff}
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(140px,1fr));
+      gap:14px
+    }
+    .skill{
+      padding:20px 14px;
+      text-align:center;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      transition:transform var(--t), border-color var(--t), background var(--t)
+    }
+    .skill:hover{
+      transform:translateY(-4px);
+      border-color:rgba(139,92,246,.45);
+      background:rgba(139,92,246,.08)
+    }
+    .skill i,.skill .cpp{
+      display:block;
+      font-size:1.9rem;
+      color:var(--violet2);
+      margin-bottom:10px
+    }
+    .skill .cpp{font-family:"IBM Plex Mono",monospace;font-size:1.15rem;font-weight:700}
+    .skill span{font-size:.88rem;color:var(--muted)}
+    .extras{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .extra{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 14px;border-radius:999px;
+      border:1px solid var(--line);color:var(--muted);
+      background:rgba(255,255,255,.02);font-size:.88rem
+    }
+    .extra i{color:var(--violet2)}
+
+    /* PROJECTS */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(290px,1fr));
+      gap:22px
+    }
+    .project{
+      overflow:hidden;
+      transition:transform var(--t), border-color var(--t), box-shadow var(--t)
+    }
+    .project:hover{
+      transform:translateY(-6px);
+      border-color:rgba(139,92,246,.5);
+      box-shadow:0 20px 55px rgba(139,92,246,.12)
+    }
+    .project-img{
+      height:200px;
+      position:relative;
+      overflow:hidden
+    }
+    .ph{
+      width:100%;height:100%;
+      display:grid;place-items:center;
+      font-size:3rem;opacity:.5
+    }
+    .gallery{background:linear-gradient(135deg,#0f4c75,#1b262c);color:var(--cyan)}
+    .algo{background:linear-gradient(135deg,#2d1b69,#1a0533);color:var(--violet2)}
+    .db{background:linear-gradient(135deg,#063232,#0a2e2e);color:var(--green)}
+    .overlay{
+      position:absolute;inset:0;
+      background:rgba(0,0,0,.72);
+      display:flex;align-items:center;justify-content:center;gap:12px;
+      opacity:0;transition:opacity var(--t)
+    }
+    .project:hover .overlay{opacity:1}
+    .icon-btn{
+      width:44px;height:44px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--violet);color:#fff;
+      transition:transform var(--t), background var(--t)
+    }
+    .icon-btn:hover{transform:scale(1.08);background:var(--violet2)}
+    .project-body{padding:22px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .tag{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:.72rem;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(139,92,246,.3);
+      background:rgba(139,92,246,.08);
+      color:var(--violet2)
+    }
+    .project h3{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:1.18rem;
+      margin-bottom:10px
+    }
+    .project p{color:var(--muted);font-size:.93rem}
+
+    /* EDUCATION */
+    .edu-grid{
+      display:grid;
+      grid-template-columns:1fr 1.15fr;
+      gap:34px;
+      align-items:start
+    }
+    .sub-title{
+      display:flex;align-items:center;gap:10px;
+      font-family:"Space Grotesk",sans-serif;
+      color:var(--violet2);
+      margin-bottom:18px;
+      font-size:1.05rem
+    }
+    .timeline{position:relative;padding-right:24px}
+    .timeline::before{
+      content:"";position:absolute;right:6px;top:6px;bottom:6px;width:2px;
+      background:linear-gradient(to bottom, var(--violet), transparent)
+    }
+    .item{
+      position:relative;
+      margin-bottom:24px;
+      padding-right:10px
+    }
+    .dot{
+      position:absolute;right:-1px;top:6px;
+      width:12px;height:12px;border-radius:50%;
+      background:var(--violet);
+      box-shadow:0 0 0 4px rgba(139,92,246,.12)
+    }
+    .date{
+      font-family:"IBM Plex Mono",monospace;
+      color:var(--violet2);
+      font-size:.78rem;
+      display:block;
+      margin-bottom:5px
+    }
+    .item h4{font-size:1rem;margin-bottom:4px}
+    .item p{color:var(--muted);font-size:.92rem}
+
+    .certs{display:grid;gap:12px}
+    .cert{
+      display:flex;align-items:center;gap:14px;
+      padding:14px 16px
+    }
+    .cert .badge{
+      width:40px;height:40px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(139,92,246,.1);
+      border:1px solid rgba(139,92,246,.24);
+      color:var(--violet2);
+      flex:0 0 auto
+    }
+    .cert .meta{display:grid}
+    .cert .meta strong{font-size:.9rem}
+    .cert .meta span{font-size:.76rem;color:var(--faint);font-family:"IBM Plex Mono",monospace}
+
+    /* CONTACT */
+    .contact-sub{color:var(--muted);margin:-12px 0 26px;font-size:1.02rem}
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr .95fr;
+      gap:28px;
+      align-items:start
+    }
+    .form{
+      padding:24px;
+      display:grid;
+      gap:16px
+    }
+    .field{
+      display:grid;
+      gap:7px
+    }
+    .field label{
+      font-family:"IBM Plex Mono",monospace;
+      color:var(--muted);
+      font-size:.84rem
+    }
+    .field input,.field textarea{
+      width:100%;
+      padding:13px 15px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--text);
+      outline:none;
+      transition:border-color var(--t), box-shadow var(--t), transform var(--t)
+    }
+    .field input:focus,.field textarea:focus{
+      border-color:rgba(139,92,246,.6);
+      box-shadow:0 0 0 4px rgba(139,92,246,.12)
+    }
+    .field textarea{resize:vertical;min-height:150px}
+    .note{min-height:1.2em;font-size:.9rem}
+    .links{display:grid;gap:14px}
+    .link-card{
+      display:flex;align-items:center;gap:14px;
+      padding:18px 18px;
+      transition:transform var(--t), border-color var(--t), background var(--t)
+    }
+    .link-card:hover{
+      transform:translateX(-4px);
+      border-color:rgba(139,92,246,.5);
+      background:rgba(139,92,246,.06)
+    }
+    .link-ic{
+      width:46px;height:46px;border-radius:12px;
+      display:grid;place-items:center;
+      color:#fff;flex:0 0 auto
+    }
+    .mail{background:linear-gradient(135deg,#e11d48,#be123c)}
+    .github{background:linear-gradient(135deg,#24292e,#3d444d)}
+    .linkedin{background:linear-gradient(135deg,#0077b5,#0a66c2)}
+    .link-txt{display:grid;gap:2px;flex:1}
+    .link-txt .k{font-size:.76rem;color:var(--faint);font-family:"IBM Plex Mono",monospace}
+    .link-txt .v{font-size:.94rem;color:#fff;direction:ltr;text-align:right}
+    .link-arrow{color:var(--faint)}
+
+    /* FOOTER */
+    .footer{
+      padding:26px 0;
+      text-align:center;
+      border-top:1px solid var(--line);
+      color:var(--faint);
+      font-size:.9rem
+    }
+    .heart{color:var(--pink)}
+
+    .cursor{
+      position:fixed;width:18px;height:18px;border-radius:50%;
+      background:var(--violet);
+      pointer-events:none;z-index:9999;
+      transform:translate(-50%,-50%);
+      opacity:0;transition:width .2s, height .2s, opacity .2s, transform .2s
+    }
+    body:hover .cursor{opacity:1}
+    .top{
+      position:fixed;left:20px;bottom:20px;z-index:99;
+      width:46px;height:46px;border-radius:50%;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--violet),var(--cyan));
+      color:#0b0d17;
+      box-shadow:0 10px 30px rgba(139,92,246,.24);
+      opacity:0;visibility:hidden;
+      transition:opacity var(--t), transform var(--t), visibility var(--t)
+    }
+    .top.show{opacity:1;visibility:visible}
+    .top:hover{transform:translateY(-3px)}
+
+    @media (max-width: 1024px){
+      .about-grid,.edu-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{padding-top:110px}
+    }
+    @media (max-width: 768px){
+      .section{padding:72px 0}
+      .container{padding:0 14px}
+      .nav-toggle{display:flex}
+      .nav-links{
+        position:absolute;inset:100% 0 auto 0;
+        display:none;flex-direction:column;gap:18px;
+        padding:20px 16px;
+        background:rgba(11,13,23,.98);
+        backdrop-filter:blur(14px);
+        border-bottom:1px solid var(--line)
+      }
+      .nav-links.open{display:flex}
+      .hero{
+        min-height:auto;
+        padding:98px 0 54px
+      }
+      .hero::before, .hero::after{
+        width:220px;
+        height:220px;
+        filter:blur(70px);
+        opacity:.12
+      }
+      .hero-inner{
+        width:100%;
+        max-width:100%;
+        padding:0 10px
+      }
+      .hero-actions{flex-direction:column}
+      .hero-actions .btn{width:100%}
+      .stats{grid-template-columns:1fr}
+      .about-grid, .edu-grid, .contact-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .projects-grid{grid-template-columns:1fr}
+      .link-card .v{font-size:.82rem}
+    }
+    @media (max-width: 480px){
+      .container{padding:0 12px}
+      .title{margin-bottom:22px}
+      .hero h1{font-size:clamp(2.35rem,13vw,3.45rem)}
+      .skills-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .project-grid{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .reveal,.cursor,.top,.avatar::before,.scroll-line::after{animation:none;transition:none}
+      .reveal{opacity:1;transform:none}
+      .cursor{display:none}
+    }
   </style>
 </head>
 <body>
-    <header>
-        <h1>منصة المواد التعليمية</h1>
-        <div class="header-row">
-            <div class="theme-controls" id="theme-controls">
-                <button class="theme-pill" data-mode="light" onclick="setThemeMode('light')">☀️ فاتح</button>
-                <button class="theme-pill" data-mode="dark" onclick="setThemeMode('dark')">🌙 غامق</button>
-                <button class="theme-pill" data-mode="auto" onclick="setThemeMode('auto')">🔄 تلقائي</button>
-                <button class="demo-btn auto-only" id="demo-btn" onclick="runDemo()">▶ Demo</button>
-            </div>
-            <div class="notif-bell-wrap" id="notif-bell-wrap" onclick="toggleNotifDropdown()">
-                <span class="notif-bell">🔔</span>
-                <span class="notif-badge" id="notif-badge">0</span>
-                <div class="notif-dropdown" id="notif-dropdown">
-                    <h4>🔔 مركز الإشعارات <button class="notif-clear" onclick="clearAllNotifications(event)">مسح الكل</button></h4>
-                    <div id="notif-list"><div class="notif-empty">لا توجد إشعارات حالياً</div></div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <button class="scroll-to-top" id="scroll-to-top" onclick="scrollToTop()" title="العودة للأعلى">⬆</button>
-    <div class="container">
-        <div id="main-view">
-            <div class="tabs">
-                <button class="tab-button active" onclick="openTab(event, 'section1')">القسم الأول: المحاضرات</button>
-                <button class="tab-button" onclick="openTab(event, 'section2')">القسم الثاني: الأسئلة</button>
-            </div>
-            <div id="section1" class="content-section active">
-                <h2>المحاضرات</h2>
-                <p>اضغط على أي محاضرة لفتح ملفها وأسئلتها داخل الموقع.</p>
-                <div id="lectures-list"></div>
-            </div>
-            <div id="section2" class="content-section">
-                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:15px;">
-                    <h2 style="margin:0;">بنك الأسئلة</h2>
-                    <button class="btn-sm" style="font-size:14px;padding:8px 18px;" onclick="downloadBankFile()">📥 تحميل بنك الأسئلة</button>
-                </div>
-                <div class="sub-tabs" id="sub-tabs-container">
-                    <button class="sub-tab-button active" onclick="openSubTab(event, 'sub-lectures')">📚 أسئلة المحاضرات</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-mid')">📝 الميدتيرم</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-final')">🎓 الفاينل</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-exam-model')">📋 نماذج الامتحانات</button>
-                    <button class="sub-tab-button" onclick="openSubTab(event, 'sub-test-bank')">🏦 بنك الأسئلة</button>
-                </div>
-                <div id="sub-lectures" class="sub-content active"><div id="questions-lectures-list"></div></div>
-                <div id="sub-mid" class="sub-content"><div id="midterms-list"></div></div>
-                <div id="sub-final" class="sub-content"><div id="finals-list"></div></div>
-                <div id="sub-exam-model" class="sub-content"><div id="exam-models-list"></div></div>
-                <div id="sub-test-bank" class="sub-content"><div id="test-banks-list"></div></div>
-            </div>
-        </div>
-        <div id="lecture-view" class="content-section">
-            <button class="back-btn" onclick="goBackToMain()">← العودة لقائمة المحاضرات</button>
-            <h2 id="lecture-title"></h2>
-            <div id="lecture-content-area"></div>
-            <div class="questions-box" id="lecture-questions-box"></div>
-        </div>
-        <div id="quiz-view" class="content-section">
-            <button class="back-btn" onclick="goBackFromQuiz()">← العودة</button>
-            <h2 id="quiz-title" style="text-align:center;"></h2>
-            <button class="download-questions-btn" id="quiz-download-btn" onclick="downloadCurrentQuiz()" style="display:none;">📥 تحميل الأسئلة (Word)</button>
-            <div id="quiz-header-area" class="quiz-sticky-header"></div>
-            <div id="quiz-scroll-container" class="quiz-scroll-container"></div>
-        </div>
+  <div class="cursor" id="cursor"></div>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-wrap">
+      <a class="logo" href="#hero" aria-label="العودة إلى الأعلى">
+        <b>&lt;</b><span>PF</span><b>/&gt;</b>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">عني</a>
+        <a href="#skills">مهاراتي</a>
+        <a href="#projects">مشاريعي</a>
+        <a href="#education">التعليم</a>
+        <a href="#contact">تواصل</a>
+      </nav>
     </div>
-    <div class="status-bar" id="status-bar">Theme Sync: Light <span class="status-dot"></span></div>
+  </header>
 
-    <script>
-        // ========== Theme System ==========
-        var themeMode = localStorage.getItem('themeMode') || 'auto';
-        var demoInterval = null;
-        var isDemoRunning = false;
-        var themeNames = { light: 'Light', dark: 'Dark', morning: 'Morning', noon: 'Noon', afternoon: 'Afternoon', night: 'Night' };
-        function setThemeMode(mode) { themeMode = mode; localStorage.setItem('themeMode', mode); updateThemeUI(); applyTimeTheme(); }
-        function updateThemeUI() {
-            var btns = document.querySelectorAll('.theme-pill');
-            btns.forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-mode') === themeMode); });
-            var ctrl = document.getElementById('theme-controls');
-            if (themeMode === 'auto') ctrl.classList.add('auto-visible'); else ctrl.classList.remove('auto-visible');
-            if (typeof adjustQuizHeaderSticky === 'function') adjustQuizHeaderSticky();
-        }
-        function getAutoTheme(hour) { if (hour >= 6 && hour < 12) return 'morning'; if (hour >= 12 && hour < 15) return 'noon'; if (hour >= 15 && hour < 18) return 'afternoon'; return 'night'; }
-        function applyTheme(themeName) { document.documentElement.setAttribute('data-theme', themeName); }
-        function applyTimeTheme() {
-            if (themeMode === 'light') applyTheme('light');
-            else if (themeMode === 'dark') applyTheme('dark');
-            else applyTheme(getAutoTheme(new Date().getHours()));
-            updateStatusBar();
-        }
-        function formatTime(date) { var h = date.getHours(), m = date.getMinutes(), s = date.getSeconds(); var ampm = h >= 12 ? 'PM' : 'AM'; var h12 = h % 12 || 12; return h12 + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0') + ' ' + ampm; }
-        function updateStatusBar(fakeTime) {
-            var bar = document.getElementById('status-bar');
-            var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            var name = themeNames[currentTheme] || currentTheme;
-            var timeStr = fakeTime ? fakeTime : formatTime(new Date());
-            bar.innerHTML = 'Theme Sync: ' + name + ' — ' + timeStr + ' <span class="status-dot"></span>';
-        }
-        function runDemo() {
-            if (isDemoRunning) return;
-            isDemoRunning = true;
-            var btn = document.getElementById('demo-btn');
-            btn.textContent = '⏸ Running...';
-            btn.style.animation = 'none';
-            var stages = [
-                { theme: 'morning', label: '6:00:00 AM' },
-                { theme: 'noon', label: '12:00:00 PM' },
-                { theme: 'afternoon', label: '3:30:00 PM' },
-                { theme: 'night', label: '8:00:00 PM' }
-            ];
-            var idx = 0;
-            applyTheme(stages[0].theme);
-            updateStatusBar(stages[0].label);
-            demoInterval = setInterval(function() {
-                idx++;
-                if (idx >= stages.length) {
-                    clearInterval(demoInterval);
-                    isDemoRunning = false;
-                    btn.textContent = '▶ Run 24h Demo';
-                    btn.style.animation = '';
-                    applyTimeTheme();
-                    return;
-                }
-                applyTheme(stages[idx].theme);
-                updateStatusBar(stages[idx].label);
-            }, 2500);
-        }
-        (function initTheme() { updateThemeUI(); applyTimeTheme(); })();
-        setInterval(function() { if (!isDemoRunning && themeMode === 'auto') applyTimeTheme(); else if (!isDemoRunning) updateStatusBar(); }, 1000);
+  <main>
+  <div id="siteSeoText" class="sr-only">موقع شخصي لبولا فوزي، طالب علوم حاسب من مصر، يعرض المهارات والمشاريع والشهادات ووسائل التواصل.</div>
 
-        // ========== Scroll to Top ==========
-        var scrollToTopBtn = document.getElementById('scroll-to-top');
-        window.addEventListener('scroll', function() { if (window.scrollY > 350) scrollToTopBtn.classList.add('visible'); else scrollToTopBtn.classList.remove('visible'); });
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    <section class="hero" id="hero">
+      <div class="hero-grid"></div>
+      <div class="container hero-inner">
+        <div class="hero-tag reveal">
+          <span class="pill"><i class="fa-solid fa-circle-check"></i> متاحة للتعاون والعمل</span>
+        </div>
 
-        // ========== Notification System ==========
-        var notifications = [], auditLogs = [];
-        function loadNotifications() {
-            try { var n = localStorage.getItem('notifications_data'); if (n) notifications = JSON.parse(n); } catch (e) { notifications = []; }
-            try { var a = localStorage.getItem('audit_logs'); if (a) auditLogs = JSON.parse(a); } catch (e) { auditLogs = []; }
-        }
-        function saveNotifications() { try { localStorage.setItem('notifications_data', JSON.stringify(notifications)); } catch (e) {} try { localStorage.setItem('audit_logs', JSON.stringify(auditLogs)); } catch (e) {} }
-        function addNotification(notif) {
-            notif.id = Date.now(); notif.read = false; notif.time = formatTime(new Date()); notif.date = new Date().toLocaleDateString('ar-EG');
-            notifications.unshift(notif);
-            if (notifications.length > 50) notifications = notifications.slice(0, 50);
-            saveNotifications(); updateNotifBadge(); renderNotifDropdown();
-        }
-        function addAuditLog(entry) {
-            entry.id = Date.now(); entry.time = formatTime(new Date()); entry.date = new Date().toLocaleDateString('ar-EG');
-            auditLogs.unshift(entry);
-            if (auditLogs.length > 100) auditLogs = auditLogs.slice(0, 100);
-            saveNotifications();
-            addNotification({ type: 'audit', title: '🔧 تعديل إجابة نموذجية', context: entry.context, questionNum: entry.questionNum, questionText: entry.questionText, oldAnswer: entry.oldAnswer, newAnswer: entry.newAnswer, read: false });
-        }
-        function updateNotifBadge() {
-            var badge = document.getElementById('notif-badge');
-            var unread = notifications.filter(function(n) { return !n.read; }).length;
-            if (unread > 0) { badge.style.display = 'flex'; badge.textContent = unread > 99 ? '99+' : unread; } else { badge.style.display = 'none'; }
-        }
-        function toggleNotifDropdown() {
-            var dd = document.getElementById('notif-dropdown');
-            dd.classList.toggle('show');
-            if (dd.classList.contains('show')) {
-                renderNotifDropdown();
-                notifications.forEach(function(n) { n.read = true; });
-                saveNotifications(); updateNotifBadge();
-            }
-        }
-        function clearAllNotifications(e) { e.stopPropagation(); notifications = []; saveNotifications(); updateNotifBadge(); renderNotifDropdown(); }
-        function renderNotifDropdown() {
-            var list = document.getElementById('notif-list');
-            if (notifications.length === 0) { list.innerHTML = '<div class="notif-empty">لا توجد إشعارات حالياً</div>'; return; }
-            var html = '';
-            notifications.forEach(function(n) {
-                var cls = n.read ? '' : 'unread';
-                html += '<div class="notif-item ' + cls + '">';
-                if (n.type === 'audit') {
-                    html += '<strong>' + n.title + '</strong>';
-                    html += '<span class="notif-detail">📁 ' + n.context + ' | سؤال #' + n.questionNum + '</span>';
-                    html += '<span class="notif-detail">📝 السؤال: ' + truncateText(n.questionText, 60) + '</span>';
-                    html += '<span class="notif-detail">❌ القديمة: <del>' + n.oldAnswer + '</del> → ✅ الجديدة: <strong>' + n.newAnswer + '</strong></span>';
-                } else {
-                    html += '<strong>' + (n.title || 'إشعار') + '</strong>';
-                    if (n.context) html += '<span class="notif-detail">📁 ' + n.context + '</span>';
-                    if (n.questionText) html += '<span class="notif-detail">📝 ' + truncateText(n.questionText, 60) + '</span>';
-                }
-                html += '<div class="notif-meta">🕐 ' + n.time + ' | 📅 ' + n.date + '</div>';
-                html += '</div>';
-            });
-            list.innerHTML = html;
-        }
-        function truncateText(text, maxLen) { if (!text) return ''; return text.length > maxLen ? text.substring(0, maxLen) + '...' : text; }
-        function simulateAnswerEdit(context, questionNum, questionText, oldAnswer, newAnswer) {
-            addAuditLog({ context: context, questionNum: questionNum, questionText: questionText, oldAnswer: oldAnswer, newAnswer: newAnswer });
-        }
-        document.addEventListener('click', function(e) { var wrap = document.getElementById('notif-bell-wrap'); var dd = document.getElementById('notif-dropdown'); if (wrap && dd && !wrap.contains(e.target)) dd.classList.remove('show'); });
+        <h1 class="reveal">
+          <span class="small">مرحباً، أنا</span>
+          <span class="main">بولا فوزي</span>
+        </h1>
 
-        // ========== Shared Answer-Edits Log ==========
-        var answerEditsLog = [
-     { id: "edit-100", context: "محتوي الاشعارات", questionNum: null, questionText: null , oldAnswer: null, newAnswer: "هيظهر هنا السوال و مكانه ورقمه ال محلول خطا في الموقع وتم تصليحه" }
-      
-        ];
-        function syncAnswerEditsLog() {
-            var seenIds = [];
-            try { seenIds = JSON.parse(localStorage.getItem('seen_system_edits') || '[]'); } catch (e) { seenIds = []; }
-            var changed = false;
-            answerEditsLog.forEach(function(entry) {
-                if (seenIds.indexOf(entry.id) === -1) {
-                    addAuditLog({ context: entry.context, questionNum: entry.questionNum, questionText: entry.questionText, oldAnswer: entry.oldAnswer, newAnswer: entry.newAnswer });
-                    seenIds.push(entry.id);
-                    changed = true;
-                }
-            });
-            if (changed) { try { localStorage.setItem('seen_system_edits', JSON.stringify(seenIds)); } catch (e) {} }
-        }
-        loadNotifications(); syncAnswerEditsLog(); updateNotifBadge();
-/*
-علاقة القواعد القانونية بالقواعد السلوك الاجتماعي الأخرى
-تعريف واهمية ووظائف القانون
-*/
+        <div class="typed reveal">
+          <span id="typed"></span><span class="caret">|</span>
+        </div>
 
-// ==========================================
-// 1. البيانات
-// ==========================================
-       
+        <p class="desc reveal">
+          طالب علوم حاسب شغوف بالبرمجة، حل المشكلات، وتصميم تجارب رقمية مريحة وواضحة.
+          أحب بناء واجهات نظيفة، وكتابة كود منظم، وتحويل الأفكار إلى منتجات مفيدة.
+        </p>
 
-        // ========== Card Creation ==========
-        function getQuizScoreFromStorage(quizId) {
-            try { var s = localStorage.getItem('quiz_' + quizId); if (s) { var state = JSON.parse(s); if (state && state.done && state.total > 0) { return { done: true, pct: Math.round((state.correct / state.total) * 100), correct: state.correct, total: state.total }; } } } catch (e) {}
-            return { done: false, pct: 0, correct: 0, total: 0 };
-        }
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> تواصل معي</a>
+          <a class="btn btn-outline" href="Paula_Fawzy_CV.pdf" download><i class="fa-solid fa-download"></i> تحميل الـ CV</a>
+        </div>
 
-        function renderLectureContent(lecture) {
-            var area = document.getElementById('lecture-content-area');
-            if (lecture.pdf) {
-                var encodedPdf = encodeURI(lecture.pdf);
-                // فتح الملف جوه "قلم PDF" بدل عرض الـ PDF الخام، عشان يقدر يخطط ويظلل ويحفظ تعديلاته لكل ملف لوحده
-                var annotatorSrc = 'pdf-annotator.html?file=' + encodeURIComponent(lecture.pdf.replace(/\\/g, '/'));
-                var fileName = (lecture.title || 'محاضرة') + '.pdf';
-                area.innerHTML = 
-                    '<div class="pdf-viewer">' +
-                        '<iframe src="' + annotatorSrc + '" allowfullscreen></iframe>' +
-                    '</div>' +
-                    '<div style="text-align:center; margin-top:20px;">' +
-                        '<button class="show-score-btn" onclick="forceDownloadPDF(\'' + encodedPdf + '\', \'' + fileName.replace(/'/g, "\\'") + '\')">📥 تحميل PDF</button>' +
-                        '<p style="margin-top:15px;"><a href="' + annotatorSrc + '" target="_blank" rel="noopener" class="btn-sm" style="text-decoration:none;">🌐 فتح في صفحة كاملة (بأدوات التعليم)</a></p>' +
-                    '</div>' +
-                    '<div class="my-notes-box">' +
-                        '<div class="my-notes-header"><span>📝 ملاحظاتي</span><span class="my-notes-status" id="my-notes-status"></span></div>' +
-                        '<textarea class="my-notes-textarea" id="my-notes-textarea" placeholder="اكتب ملاحظاتك الخاصة بهذه المحاضرة هنا..."></textarea>' +
-                    '</div>';
-                setupLectureNotes(currentLectureIndex);
-            }
-        }
+        <div class="scroll reveal">
+          <span>مرّر للأسفل</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
 
-        // ملاحظاتي الشخصية لكل محاضرة — تُحفظ تلقائياً بدون التأثير على حجم عرض ملف PDF
-        function setupLectureNotes(index) {
-            var ta = document.getElementById('my-notes-textarea');
-            var status = document.getElementById('my-notes-status');
-            if (!ta) return;
-            var key = 'lecture_notes_' + index;
-            try { ta.value = localStorage.getItem(key) || ''; } catch (e) {}
-            var saveTimer = null;
-            ta.addEventListener('input', function() {
-                if (status) status.textContent = '⏳ جاري الحفظ...';
-                clearTimeout(saveTimer);
-                saveTimer = setTimeout(function() {
-                    try {
-                        localStorage.setItem(key, ta.value);
-                        if (status) status.textContent = '✅ تم الحفظ';
-                    } catch (e) {
-                        if (status) status.textContent = '⚠️ لم يتم الحفظ';
-                    }
-                }, 500);
-            });
-        }
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="label reveal">// عني</div>
+        <h2 class="title reveal">من أنا؟</h2>
 
-        function createCards(containerId, data, type, hideDownload) {
-            var c = document.getElementById(containerId);
-            c.innerHTML = '';
-            data.forEach(function(item, index) {
-                var card = document.createElement('div');
-                card.className = 'card';
-                var qid = (type === 'lectures' && containerId === 'questions-lectures-list') ? 'lectures-section2-' + index : type + '-' + index;
-                var scoreInfo = getQuizScoreFromStorage(qid);
-                var badgeHtml = '';
-                if (item.interactive && scoreInfo.done) { badgeHtml = '<span class="badge done">✅ تم الحل</span>'; }
-                else if (item.interactive) { badgeHtml = '<span class="badge new">📝 جديد</span>'; }
-                var dlBtn = '';
-                if (!hideDownload && item.pdf) {
-                    var pdfToUse = (type === 'lectures' && containerId === 'questions-lectures-list' && item.pdf2) ? item.pdf2 : item.pdf;
-                    var encodedPdf = encodeURI(pdfToUse);
-                    var fileName = (item.title || 'ملف') + '.pdf';
-                    dlBtn = '<button class="btn-sm" onclick="event.stopPropagation(); forceDownloadPDF(\'' + encodedPdf + '\', \'' + fileName.replace(/'/g, "\\'") + '\')">📥 تحميل PDF</button>';
-                }
-                if (item.interactive && !item.pdf) { dlBtn += '<button class="btn-sm btn-download-exam" onclick="event.stopPropagation();downloadExamWord(\'' + qid + '\')">📥 تحميل الامتحان</button>'; }
-                card.innerHTML = '<div class="card-text"><h3>' + item.title + '</h3><p>' + (item.desc || '') + '</p></div><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">' + badgeHtml + dlBtn + '</div>';
-                card.addEventListener('click', function() {
-                    if (type === 'lectures') {
-                        if (containerId === 'lectures-list') openLecturePage(index);
-                        else openInteractiveQuiz(item, qid);
-                    } else {
-                        openInteractiveQuiz(item, qid);
-                    }
-                });
-                c.appendChild(card);
-            });
-        }
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              أنا <strong>بولا فوزي</strong>، طالب في كلية الحاسبات والمعلومات.
+              أركز على بناء أساس قوي في علوم الحاسب، مع اهتمام واضح بالبرمجة، الخوارزميات، وقواعد البيانات.
+            </p>
+            <p>
+              أمتلك خبرة جيدة في <strong>C</strong> و<strong>C++</strong> و<strong>Python</strong> و<strong>Java</strong>،
+              بالإضافة إلى <strong>HTML</strong> و<strong>CSS</strong> لبناء واجهات أمامية مرتبة ومتجاوبة.
+              كما أستمتع بتعلّم أدوات التصميم وتحسين تجربة المستخدم.
+            </p>
 
-        // دالة التحميل – تضمن الترميز والتشغيل دائماً
-        function forceDownloadPDF(url, filename) {
-            var encodedUrl = encodeURI(url);
-            fetch(encodedUrl)
-                .then(response => response.blob())
-                .then(blob => {
-                    const blobUrl = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = blobUrl;
-                    a.download = filename;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(blobUrl);
-                })
-                .catch(() => {
-                    // احتياطي: فتح في نافذة جديدة أو رابط مباشر
-                    const a = document.createElement('a');
-                    a.href = encodedUrl;
-                    a.download = filename;
-                    a.target = '_blank';
-                    a.rel = 'noopener noreferrer';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                });
-        }
+            <div class="stats">
+              <div class="stat">
+                <span class="num">10+</span>
+                <span class="txt">شهادة تقنية</span>
+              </div>
+              <div class="stat">
+                <span class="num">5+</span>
+                <span class="txt">لغات برمجة</span>
+              </div>
+              <div class="stat">
+                <span class="num">3+</span>
+                <span class="txt">أدوات Adobe</span>
+              </div>
+            </div>
+          </div>
 
-        function downloadExamWord(qid) {
-            var exam = null;
-            [midterms, finals, examModels, testBanks].forEach(function(arr) {
-                arr.forEach(function(item, idx) {
-                    var prefix = arr === midterms ? 'midterms' : arr === finals ? 'finals' : arr === examModels ? 'examModels' : 'testBanks';
-                    if (qid === prefix + '-' + idx) exam = item;
-                });
-            });
-            if (!exam) return;
-            var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>' + exam.title + '</title><style>body{font-family:Tahoma;padding:20px;line-height:2;}h2{color:#2c3e50;}li{margin:10px 0;}</style></head><body><h2>📝 ' + exam.title + '</h2>';
-            exam.questions.forEach(function(q, i) { html += '<div style="margin-bottom:20px;"><b>' + (i + 1) + '. ' + q.text + '</b><ul>' + q.options.map(function(o) { return '<li>' + o + '</li>'; }).join('') + '</ul></div>'; });
-            html += '</body></html>';
-            var blob = new Blob([html], { type: 'application/msword' });
-            var a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = exam.title.replace(/\s/g, '_') + '.doc';
-            a.click();
-        }
+          <aside class="card profile reveal">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="info">
+              <div class="info-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>أسيوط، مصر</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-envelope"></i>
+                <span>paulafawzy00@gmail.com</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>كلية الحاسبات والمعلومات — علوم الحاسب</span>
+              </div>
+              <div class="info-row">
+                <i class="fa-solid fa-circle-check" style="color:var(--green)"></i>
+                <span>متاحة للفرص التدريبية ومشاريع التعاون</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-        function refreshAllCards() {
-            createCards('lectures-list', lectures, 'lectures', true);
-            createCards('questions-lectures-list', lectures, 'lectures', false);
-            createCards('midterms-list', midterms, 'midterms');
-            createCards('finals-list', finals, 'finals');
-            createCards('exam-models-list', examModels, 'examModels');
-            createCards('test-banks-list', testBanks, 'testBanks');
-        }
-        refreshAllCards();
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="label reveal">// مهاراتي</div>
+        <h2 class="title reveal">Tech Stack</h2>
 
-        // ========== حفظ واستعادة آخر عرض ==========
-        function saveCurrentView() {
-            var view = {
-                type: 'main',
-                activeTab: document.querySelector('.tab-button.active')?.textContent.includes('الأول') ? 'section1' : 'section2',
-                activeSubTab: document.querySelector('.sub-tab-button.active')?.getAttribute('onclick')?.match(/'(sub-\w+)'/)?.[1] || 'sub-lectures',
-                scrollX: window.scrollX, scrollY: window.scrollY
-            };
-            if (document.getElementById('lecture-view').classList.contains('active')) {
-                view.type = 'lecture';
-                view.lectureIndex = currentLectureIndex;
-            } else if (document.getElementById('quiz-view').classList.contains('active')) {
-                view.type = 'quiz';
-                view.quizId = currentQuizId;
-                view.quizTitle = document.getElementById('quiz-title').textContent;
-            }
-            localStorage.setItem('lastView', JSON.stringify(view));
-        }
+        <div class="tabs reveal">
+          <button class="tab active" data-tab="languages">لغات البرمجة</button>
+          <button class="tab" data-tab="database">قواعد البيانات</button>
+          <button class="tab" data-tab="design">التصميم</button>
+          <button class="tab" data-tab="tools">الأدوات</button>
+        </div>
 
-        function restoreLastView() {
-            try {
-                var saved = JSON.parse(localStorage.getItem('lastView'));
-                if (!saved) return;
-                if (saved.type === 'main') {
-                    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-                    document.getElementById(saved.activeTab).classList.add('active');
-                    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-                    document.querySelector('.tab-button[onclick*="' + saved.activeTab + '"]')?.classList.add('active');
-                    if (saved.activeTab === 'section2') {
-                        document.querySelectorAll('.sub-content').forEach(s => s.classList.remove('active'));
-                        document.getElementById(saved.activeSubTab).classList.add('active');
-                        document.querySelectorAll('.sub-tab-button').forEach(b => b.classList.remove('active'));
-                        document.querySelector('.sub-tab-button[onclick*="' + saved.activeSubTab + '"]')?.classList.add('active');
-                    }
-                    refreshAllCards();
-                    window.scrollTo(saved.scrollX || 0, saved.scrollY || 0);
-                } else if (saved.type === 'lecture' && saved.lectureIndex != null) {
-                    openLecturePage(saved.lectureIndex);
-                    setTimeout(() => window.scrollTo(saved.scrollX || 0, saved.scrollY || 0), 100);
-                } else if (saved.type === 'quiz' && saved.quizId) {
-                    var exam = findExamById(saved.quizId);
-                    if (exam) { openInteractiveQuiz(exam, saved.quizId); setTimeout(() => window.scrollTo(saved.scrollX || 0, saved.scrollY || 0), 100); }
-                }
-            } catch(e) {}
-        }
+        <div class="skills-grid" id="skillsGrid">
+          <div class="skill" data-category="languages">
+            <i class="fa-solid fa-c"></i><span>C</span>
+          </div>
+          <div class="skill" data-category="languages">
+            <span class="cpp">C++</span><span>C++</span>
+          </div>
+          <div class="skill" data-category="languages">
+            <i class="fa-brands fa-python"></i><span>Python</span>
+          </div>
+          <div class="skill" data-category="languages">
+            <i class="fa-brands fa-java"></i><span>Java</span>
+          </div>
+          <div class="skill" data-category="languages">
+            <i class="fa-brands fa-html5"></i><span>HTML5</span>
+          </div>
+          <div class="skill" data-category="languages">
+            <i class="fa-brands fa-css3-alt"></i><span>CSS3</span>
+          </div>
 
-        function findExamById(qid) {
-            var parts = qid.split('-');
-            var type = parts[0], idx = parseInt(parts[1]);
-            if (type === 'lectures' || type === 'lectures-section2') return lectures[idx];
-            if (type === 'midterms') return midterms[idx];
-            if (type === 'finals') return finals[idx];
-            if (type === 'examModels') return examModels[idx];
-            if (type === 'testBanks') return testBanks[idx];
-            return null;
-        }
+          <div class="skill" data-category="database" style="display:none">
+            <i class="fa-solid fa-database"></i><span>SQL</span>
+          </div>
+          <div class="skill" data-category="database" style="display:none">
+            <i class="fa-solid fa-table"></i><span>Database Design</span>
+          </div>
+          <div class="skill" data-category="database" style="display:none">
+            <i class="fa-solid fa-magnifying-glass"></i><span>MySQL</span>
+          </div>
 
-        // ========== Navigation ==========
-        var currentLectureIndex = null;
-        var currentQuizId = null;
-        
-function openLecturePage(index) {
-    currentLectureIndex = index;
-    var l = lectures[index];
-    document.getElementById('main-view').style.display = 'none';
-    document.getElementById('lecture-view').classList.add('active');
-    document.getElementById('quiz-view').classList.remove('active');
-    document.getElementById('lecture-title').textContent = l.title;
-    renderLectureContent(l);
-    
-    var box = document.getElementById('lecture-questions-box');
-    
-    // ✅ الحل: أزل l.interactive من الشرط
-    if (l.questions && l.questions.length > 0) {
-        var qid = 'lecture-embedded-' + index;
-        box.innerHTML = '<h3>أسئلة هذه المحاضرة</h3><div id="lq-h-' + index + '" class="quiz-sticky-header"></div><div class="quiz-scroll-container" id="lq-c-' + index + '"></div>';
-        currentQuizExam = l;
-        document.getElementById('quiz-download-btn').style.display = 'inline-block';
-        buildQuiz(document.getElementById('lq-c-' + index), l, 'lq-fb-' + index + '-', qid, document.getElementById('lq-h-' + index));
-    } else {
-        box.innerHTML = '';
-        document.getElementById('quiz-download-btn').style.display = 'none';
+          <div class="skill" data-category="design" style="display:none">
+            <i class="fa-solid fa-pen-nib"></i><span>UX Design</span>
+          </div>
+          <div class="skill" data-category="design" style="display:none">
+            <i class="fa-solid fa-image"></i><span>Photoshop</span>
+          </div>
+          <div class="skill" data-category="design" style="display:none">
+            <i class="fa-solid fa-layer-group"></i><span>Illustrator</span>
+          </div>
+          <div class="skill" data-category="design" style="display:none">
+            <i class="fa-solid fa-film"></i><span>Premiere Pro</span>
+          </div>
+          <div class="skill" data-category="design" style="display:none">
+            <i class="fa-solid fa-file-image"></i><span>InDesign</span>
+          </div>
+
+          <div class="skill" data-category="tools" style="display:none">
+            <i class="fa-brands fa-git-alt"></i><span>Git</span>
+          </div>
+          <div class="skill" data-category="tools" style="display:none">
+            <i class="fa-brands fa-github"></i><span>GitHub</span>
+          </div>
+          <div class="skill" data-category="tools" style="display:none">
+            <i class="fa-solid fa-code"></i><span>VS Code</span>
+          </div>
+          <div class="skill" data-category="tools" style="display:none">
+            <i class="fa-solid fa-note-sticky"></i><span>Notion</span>
+          </div>
+          <div class="skill" data-category="tools" style="display:none">
+            <i class="fa-solid fa-diagram-project"></i><span>Visual Paradigm</span>
+          </div>
+        </div>
+
+        <div class="extras reveal">
+          <span class="extra"><i class="fa-solid fa-brain"></i> Problem Solving</span>
+          <span class="extra"><i class="fa-solid fa-cubes"></i> OOP</span>
+          <span class="extra"><i class="fa-solid fa-shield-halved"></i> CompTIA A+</span>
+          <span class="extra"><i class="fa-solid fa-mobile-screen"></i> Responsive Design</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="label reveal">// مشاريعي</div>
+        <h2 class="title reveal">ما بنيته</h2>
+
+        <div class="projects-grid">
+          <article class="card project reveal">
+            <div class="project-img">
+              <div class="ph gallery"><i class="fa-solid fa-images"></i></div>
+              <div class="overlay">
+                <a href="#" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon-btn" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <h3>Nature Photo Gallery</h3>
+              <p>معرض صور طبيعي بتصميم نظيف وتجاوب كامل، مع تأثيرات بصرية وحركة سلسة وتجربة تصفح مريحة.</p>
+            </div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-img">
+              <div class="ph algo"><i class="fa-solid fa-code-branch"></i></div>
+              <div class="overlay">
+                <a href="#" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="tags">
+                <span class="tag">C++</span>
+                <span class="tag">Algorithms</span>
+              </div>
+              <h3>Problem Solving Solutions</h3>
+              <p>مجموعة حلول لمسائل برمجية وخوارزمية بلغة C++ مع تركيز على التفكير المنطقي وتنظيم الكود.</p>
+            </div>
+          </article>
+
+          <article class="card project reveal">
+            <div class="project-img">
+              <div class="ph db"><i class="fa-solid fa-database"></i></div>
+              <div class="overlay">
+                <a href="#" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-body">
+              <div class="tags">
+                <span class="tag">SQL</span>
+                <span class="tag">Database Design</span>
+              </div>
+              <h3>Database Projects</h3>
+              <p>مشاريع قواعد بيانات تشمل التصميم العلاقي، التطبيع، وكتابة استعلامات SQL منظمة وفعالة.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="label reveal">// التعليم والشهادات</div>
+        <h2 class="title reveal">مسيرتي التعليمية</h2>
+
+        <div class="edu-grid">
+          <div class="reveal">
+            <h3 class="sub-title"><i class="fa-solid fa-graduation-cap"></i> التعليم</h3>
+            <div class="timeline">
+              <div class="item">
+                <span class="dot"></span>
+                <span class="date">2024 — الآن</span>
+                <h4>الفرقة الثانية — علوم الحاسب</h4>
+                <p>كلية الحاسبات والمعلومات — جامعة أسيوط</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <h3 class="sub-title"><i class="fa-solid fa-certificate"></i> الشهادات</h3>
+            <div class="certs">
+              <div class="card cert"><div class="badge"><i class="fa-solid fa-c"></i></div><div class="meta"><strong>Introduction to Programming Using C++ — Level 1</strong><span>ProgrammingAdvices</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-solid fa-terminal"></i></div><div class="meta"><strong>Algorithms & Problem Solving — Level 1 & 2</strong><span>ProgrammingAdvices</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-solid fa-database"></i></div><div class="meta"><strong>Database SQL — Concepts, Design, Projects & Practice</strong><span>ProgrammingAdvices</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-brands fa-html5"></i></div><div class="meta"><strong>HTML Deep Dive + CSS Foundations</strong><span>ProgrammingAdvices</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-brands fa-python"></i></div><div class="meta"><strong>Python — Level 1</strong><span>ProgrammingAdvices</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-brands fa-java"></i></div><div class="meta"><strong>Java OOP</strong><span>ProgrammingAdvices</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-solid fa-pen-nib"></i></div><div class="meta"><strong>UX Design Fundamentals</strong><span>Sahara Tech</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-solid fa-shield-halved"></i></div><div class="meta"><strong>CompTIA A+</strong><span>CompTIA</span></div></div>
+              <div class="card cert"><div class="badge"><i class="fa-solid fa-university"></i></div><div class="meta"><strong>CS50x — Introduction to Computer Science</strong><span>Harvard University</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="label reveal">// تواصل</div>
+        <h2 class="title reveal">لنبنِ شيئاً معاً</h2>
+        <p class="contact-sub reveal">لديك فكرة أو فرصة؟ اكتب لي رسالة وسأرد عليك في أقرب وقت.</p>
+
+        <div class="contact-grid">
+          <form class="card form reveal" id="contactForm">
+            <div class="field">
+              <label for="name">الاسم</label>
+              <input id="name" name="name" type="text" placeholder="اسمك الكريم" required />
+            </div>
+            <div class="field">
+              <label for="email">البريد الإلكتروني</label>
+              <input id="email" name="email" type="email" placeholder="email@example.com" required />
+            </div>
+            <div class="field">
+              <label for="subject">الموضوع</label>
+              <input id="subject" name="subject" type="text" placeholder="موضوع الرسالة" required />
+            </div>
+            <div class="field">
+              <label for="message">الرسالة</label>
+              <textarea id="message" name="message" rows="6" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+            <button class="btn btn-primary full" type="submit"><i class="fa-solid fa-paper-plane"></i> إرسال الرسالة</button>
+            <p class="note muted" id="formNote"></p>
+          </form>
+
+          <div class="links reveal">
+            <a class="card link-card" href="mailto:paulafawzy00@gmail.com">
+              <div class="link-ic mail"><i class="fa-solid fa-envelope"></i></div>
+              <div class="link-txt">
+                <span class="k">البريد الإلكتروني</span>
+                <span class="v">paulafawzy00@gmail.com</span>
+              </div>
+              <i class="fa-solid fa-arrow-left link-arrow"></i>
+            </a>
+
+            <a class="card link-card" href="https://github.com/paula1245124" target="_blank" rel="noreferrer">
+              <div class="link-ic github"><i class="fa-brands fa-github"></i></div>
+              <div class="link-txt">
+                <span class="k">GitHub</span>
+                <span class="v">paulafawzy00</span>
+              </div>
+              <i class="fa-solid fa-arrow-left link-arrow"></i>
+            </a>
+
+            <a class="card link-card" href="https://linkedin.com/in/paulafawzy00" target="_blank" rel="noreferrer">
+              <div class="link-ic linkedin"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="link-txt">
+                <span class="k">LinkedIn</span>
+                <span class="v">paulafawzy00</span>
+              </div>
+              <i class="fa-solid fa-arrow-left link-arrow"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>صُمّم وبُني بـ <span class="heart">♥</span> من طرف <strong>بولا فوزي</strong> — © 2026</p>
+    </div>
+  </footer>
+
+  <a href="#hero" class="top" id="topBtn" aria-label="العودة للأعلى"><i class="fa-solid fa-arrow-up"></i></a>
+
+  <script>
+    'use strict';
+
+    const cursor = document.getElementById('cursor');
+    const finePointer = window.matchMedia('(pointer:fine)').matches;
+
+    if (cursor && finePointer) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+
+      document.querySelectorAll('a, button, .skill, .project, .link-card').forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.width = '34px';
+          cursor.style.height = '34px';
+          cursor.style.opacity = '0.45';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.width = '18px';
+          cursor.style.height = '18px';
+          cursor.style.opacity = '1';
+        });
+      });
     }
-    
-    window.scrollTo(0, 0);
-    saveCurrentView();
-}
-        
-        function goBackToMain() {
-            document.getElementById('lecture-view').classList.remove('active');
-            document.getElementById('main-view').style.display = 'block';
-            document.getElementById('quiz-download-btn').style.display = 'none';
-            currentLectureIndex = null;
-            refreshAllCards();
-            window.scrollTo(0, 0);
-            saveCurrentView();
-        }
 
-        function openInteractiveQuiz(exam, quizId) {
-            document.getElementById('main-view').style.display = 'none';
-            document.getElementById('lecture-view').classList.remove('active');
-            document.getElementById('quiz-view').classList.add('active');
-            document.getElementById('quiz-title').textContent = exam.title;
-            currentQuizExam = exam;
-            currentQuizId = quizId;
-            document.getElementById('quiz-download-btn').style.display = 'inline-block';
-            buildQuiz(document.getElementById('quiz-scroll-container'), exam, 'q-fb-', quizId, document.getElementById('quiz-header-area'));
-            window.scrollTo(0, 0);
-            saveCurrentView();
-        }
-
-        function goBackFromQuiz() {
-            document.getElementById('quiz-view').classList.remove('active');
-            document.getElementById('main-view').style.display = 'block';
-            document.getElementById('quiz-download-btn').style.display = 'none';
-            currentQuizId = null;
-            refreshAllCards();
-            window.scrollTo(0, 0);
-            saveCurrentView();
-        }
-
-        function openTab(evt, tabName) {
-            document.querySelectorAll('.content-section').forEach(function(s) { s.classList.remove('active'); });
-            document.getElementById(tabName).classList.add('active');
-            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-            evt.currentTarget.classList.add('active');
-            document.getElementById('main-view').style.display = 'block';
-            document.getElementById('lecture-view').classList.remove('active');
-            document.getElementById('quiz-view').classList.remove('active');
-            refreshAllCards();
-            saveCurrentView();
-        }
-
-        function openSubTab(evt, subTabName) {
-            document.querySelectorAll('.sub-content').forEach(function(s) { s.classList.remove('active'); });
-            document.querySelectorAll('.sub-tab-button').forEach(function(b) { b.classList.remove('active'); });
-            document.getElementById(subTabName).classList.add('active');
-            evt.currentTarget.classList.add('active');
-            refreshAllCards();
-            saveCurrentView();
-        }
-
-        function downloadBankFile() {
-            fetch('bankqestions.html')
-                .then(function(response) { return response.text(); })
-                .then(function(htmlText) {
-                    var blob = new Blob([htmlText], { type: 'text/html; charset=utf-8' });
-                    var url = URL.createObjectURL(blob);
-                    var a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'bankqestions.html';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                })
-                .catch(function() { alert('حصل خطأ أثناء تحميل الملف'); });
-        }
-
-        // ========== Quiz Engine ==========
-        var quizStates = {};
-        var currentQuizExam = null;
-
-        // ثبات شريط التقدم أثناء السكرول + عرض السؤال الحالي (يعمل في القسم الأول والثاني)
-        function getActiveQuizContext() {
-            var lectureView = document.getElementById('lecture-view');
-            if (lectureView && lectureView.classList.contains('active') && currentLectureIndex != null) {
-                var lHeaderArea = document.getElementById('lq-h-' + currentLectureIndex);
-                var lContainer = document.getElementById('lq-c-' + currentLectureIndex);
-                if (lHeaderArea && lContainer) {
-                    return { headerArea: lHeaderArea, container: lContainer, quizId: 'lecture-embedded-' + currentLectureIndex };
-                }
-            }
-            var quizView = document.getElementById('quiz-view');
-            if (quizView && quizView.classList.contains('active') && currentQuizId) {
-                var qHeaderArea = document.getElementById('quiz-header-area');
-                var qContainer = document.getElementById('quiz-scroll-container');
-                if (qHeaderArea && qContainer) {
-                    return { headerArea: qHeaderArea, container: qContainer, quizId: currentQuizId };
-                }
-            }
-            return null;
-        }
-
-        function adjustQuizHeaderSticky() {
-            var header = document.querySelector('header');
-            var ctx = getActiveQuizContext();
-            if (!header || !ctx) return;
-            ctx.headerArea.style.top = header.offsetHeight + 'px';
-        }
-
-        function updateCurrentQuestionIndicator() {
-            var ctx = getActiveQuizContext();
-            if (!ctx) return;
-            var header = document.querySelector('header');
-            var offset = (header ? header.offsetHeight : 0) + ctx.headerArea.offsetHeight + 8;
-            var cards = ctx.container.querySelectorAll('.quiz-card');
-            if (!cards.length) return;
-            var current = 1;
-            for (var i = 0; i < cards.length; i++) {
-                if (cards[i].getBoundingClientRect().top <= offset) {
-                    current = i + 1;
-                } else {
-                    break;
-                }
-            }
-            var el = document.getElementById(ctx.quizId + '-curq');
-            if (el) el.textContent = '📍 السؤال ' + current + ' من ' + cards.length;
-            var stuck = ctx.headerArea.getBoundingClientRect().top <= ((header ? header.offsetHeight : 0) + 1);
-            ctx.headerArea.classList.toggle('is-stuck', stuck);
-        }
-
-        var quizScrollTicking = false;
-        window.addEventListener('scroll', function() {
-            if (quizScrollTicking) return;
-            quizScrollTicking = true;
-            requestAnimationFrame(function() {
-                updateCurrentQuestionIndicator();
-                quizScrollTicking = false;
-            });
-        }, { passive: true });
-
-        window.addEventListener('resize', function() {
-            adjustQuizHeaderSticky();
-            updateCurrentQuestionIndicator();
-        });
-
-
-
-        function getState(id, total) {
-            if (!quizStates[id]) {
-                var saved = null;
-                try { saved = JSON.parse(localStorage.getItem('quiz_' + id)); } catch (e) {}
-                quizStates[id] = (saved && saved.total === total) ? saved : { correct: 0, wrong: 0, answered: 0, total: total, done: false, wrongQuestions: [], answers: {} };
-            }
-            return quizStates[id];
-        }
-
-        function saveState(id) { localStorage.setItem('quiz_' + id, JSON.stringify(quizStates[id])); }
-
-        function resetQuizState(id) { delete quizStates[id]; localStorage.removeItem('quiz_' + id); refreshAllCards(); }
-
-        function buildQuiz(container, exam, fbPrefix, quizId, headerArea) {
-            container.innerHTML = '';
-            var state = getState(quizId, exam.questions.length);
-            var isRestored = state.answered > 0;
-            if (headerArea) {
-                headerArea.innerHTML = '<div class="quiz-header"><div style="flex:1"><div class="progress-text" id="' + quizId + '-ptxt">تم الإجابة على ' + state.answered + ' من ' + exam.questions.length + '</div><div class="progress-bar-wrap"><div class="progress-bar-fill" id="' + quizId + '-pbar" style="width:' + Math.round((state.answered / state.total) * 100) + '%"></div></div><div class="current-q-wrap"><span class="current-q-indicator" id="' + quizId + '-curq">📍 السؤال 1 من ' + exam.questions.length + '</span></div></div><button class="reset-btn" id="' + quizId + '-rst">🔄 إعادة التعيين</button></div>';
-                document.getElementById(quizId + '-rst').addEventListener('click', function() { resetQuizState(quizId); buildQuiz(container, exam, fbPrefix, quizId, headerArea); });
-            }
-
-            if (isRestored && state.done) {
-                showScoreAndWrong(container, state, quizId, exam, fbPrefix, headerArea);
-            }
-
-            exam.questions.forEach(function(q, i) {
-                var card = document.createElement('div');
-                card.className = 'quiz-card';
-                card.innerHTML = '<div class="quiz-number">' + (i + 1) + '</div><div class="quiz-question-text">' + q.text + '</div><div class="quiz-options"></div><div class="quiz-feedback" id="' + fbPrefix + i + '"></div>';
-                var opts = card.querySelector('.quiz-options');
-                q.options.forEach(function(opt) {
-                    var btn = document.createElement('button');
-                    btn.className = 'quiz-option-btn';
-                    btn.textContent = opt;
-                    btn.addEventListener('click', function() {
-                        if (state.done) return;
-                        var allBtns = opts.querySelectorAll('.quiz-option-btn');
-                        allBtns.forEach(function(b) { b.classList.add('disabled'); });
-                        state.answers[i] = opt;
-                        var fb = document.getElementById(fbPrefix + i);
-                        if (opt === q.answer) {
-                            btn.classList.add('correct');
-                            fb.innerHTML = '✅ إجابة صحيحة!';
-                            fb.className = 'quiz-feedback show correct-text';
-                            state.correct++;
-                        } else {
-                            btn.classList.add('incorrect');
-                            allBtns.forEach(function(b) { if (b.textContent === q.answer) b.classList.add('correct'); });
-                            fb.innerHTML = '❌ إجابة خاطئة — الصحيحة: ' + q.answer;
-                            fb.className = 'quiz-feedback show wrong-text';
-                            state.wrong++;
-                            state.wrongQuestions.push({ text: q.text, options: q.options, userAnswer: opt, correctAnswer: q.answer });
-                        }
-                        state.answered++;
-                        saveState(quizId);
-                        var pct = Math.round((state.answered / state.total) * 100);
-                        var bar = document.getElementById(quizId + '-pbar');
-                        var txt = document.getElementById(quizId + '-ptxt');
-                        if (bar) bar.style.width = pct + '%';
-                        if (txt) txt.textContent = 'تم الإجابة على ' + state.answered + ' من ' + state.total;
-                        if (state.answered === state.total) {
-                            state.done = true;
-                            saveState(quizId);
-                            refreshAllCards();
-                            showScoreAndWrong(container, state, quizId, exam, fbPrefix, headerArea);
-                        }
-                    });
-                    opts.appendChild(btn);
-                });
-                if (isRestored && state.answers[i] !== undefined) {
-                    var allBtns = card.querySelectorAll('.quiz-option-btn');
-                    allBtns.forEach(function(b) { b.classList.add('disabled'); });
-                    var fb = card.querySelector('.quiz-feedback');
-                    if (state.answers[i] === q.answer) {
-                        allBtns.forEach(function(b) { if (b.textContent === q.answer) b.classList.add('correct'); });
-                        fb.innerHTML = '✅ إجابة صحيحة!';
-                        fb.className = 'quiz-feedback show correct-text';
-                    } else {
-                        allBtns.forEach(function(b) { if (b.textContent === state.answers[i]) b.classList.add('incorrect'); if (b.textContent === q.answer) b.classList.add('correct'); });
-                        fb.innerHTML = '❌ إجابة خاطئة — الصحيحة: ' + q.answer;
-                        fb.className = 'quiz-feedback show wrong-text';
-                    }
-                }
-                container.appendChild(card);
-            });
-            container.scrollTop = 0;
-            adjustQuizHeaderSticky();
-            updateCurrentQuestionIndicator();
-
-            // الاستكمال من أول سؤال لسه ملوش إجابة (لو الامتحان متبدأ ومش متخلص)
-            if (isRestored && !state.done) {
-                var firstUnanswered = -1;
-                for (var qi = 0; qi < exam.questions.length; qi++) {
-                    if (state.answers[qi] === undefined) { firstUnanswered = qi; break; }
-                }
-                if (firstUnanswered > -1) {
-                    setTimeout(function() {
-                        var targetCard = container.children[firstUnanswered];
-                        if (!targetCard) return;
-                        var header = document.querySelector('header');
-                        var offset = (header ? header.offsetHeight : 0) + (headerArea ? headerArea.offsetHeight : 0) + 14;
-                        var top = targetCard.getBoundingClientRect().top + window.scrollY - offset;
-                        window.scrollTo(0, Math.max(top, 0));
-                        updateCurrentQuestionIndicator();
-                    }, 60);
-                }
-            }
-        }
-
-        function showScoreAndWrong(container, state, quizId, exam, fbPrefix, headerArea) {
-            var oldScore = document.getElementById(quizId + '-score-card');
-            if (oldScore) oldScore.remove();
-            var oldWrong = document.getElementById(quizId + '-wrong-collapse-wrap');
-            if (oldWrong) oldWrong.remove();
-            var oldSummary = document.getElementById(quizId + '-progress-summary');
-            if (oldSummary) oldSummary.remove();
-            
-            var pct = Math.round((state.correct / state.total) * 100);
-            var msg = '';
-            if (pct >= 90) { msg = '🎉 ممتاز! أداء رائع'; }
-            else if (pct >= 80) { msg = '👍 جيد! يمكنك التحسن أكثر'; }
-            else { msg = '💪 تحتاج مراجعة أكثر'; }
-            
-            var sc = document.createElement('div');
-            sc.className = 'score-card';
-            sc.id = quizId + '-score-card';
-            sc.innerHTML = '<div class="score-circle"><div class="score-number">' + pct + '%</div><div class="score-label">الدرجة</div></div><div class="score-message">' + msg + '</div><div class="score-details">✅ صحيحة: ' + state.correct + ' | ❌ خاطئة: ' + state.wrong + ' | 📝 الإجمالي: ' + state.total + '</div><button class="retry-btn" id="' + quizId + '-retry">🔄 إعادة المحاولة</button>';
-            container.appendChild(sc);
-            document.getElementById(quizId + '-retry').addEventListener('click', function() {
-                resetQuizState(quizId);
-                buildQuiz(container, exam, fbPrefix, quizId, headerArea);
-                container.scrollTop = 0;
-            });
-            
-            if (state.wrongQuestions && state.wrongQuestions.length > 0) {
-                var collapseWrap = document.createElement('div');
-                collapseWrap.className = 'wrong-collapse-wrap';
-                collapseWrap.id = quizId + '-wrong-collapse-wrap';
-                var collapseHeader = document.createElement('div');
-                collapseHeader.className = 'wrong-collapse-header';
-                collapseHeader.innerHTML = '<span>❌ الأسئلة الخاطئة <span class="wrong-collapse-count">' + state.wrongQuestions.length + ' سؤال</span></span><span style="display:flex;align-items:center;gap:8px;"><button class="wrong-dl-btn" onclick="event.stopPropagation();downloadWrongAsWord(\'' + quizId + '\',\'' + exam.title + '\')">📥 تحميل Word</button><span class="wrong-collapse-arrow" id="' + quizId + '-arrow">▼</span></span>';
-                var collapseBody = document.createElement('div');
-                collapseBody.className = 'wrong-collapse-body';
-                collapseBody.id = quizId + '-collapse-body';
-                
-                state.wrongQuestions.forEach(function(wq, idx) {
-                    var card = document.createElement('div');
-                    card.className = 'wrong-q-card';
-                    var optsHtml = wq.options ? '<div class="wrong-q-options-list">الاختيارات: ' + wq.options.map(function(o) { return '<span style="display:inline-block;margin:2px 6px;padding:2px 8px;border:1px solid var(--border);border-radius:4px;">' + o + '</span>'; }).join(' ') + '</div>' : '';
-                    card.innerHTML = '<span class="wrong-q-num">' + (idx + 1) + '</span><div class="wrong-q-text">' + wq.text + '</div>' + optsHtml + '<div class="wrong-q-answer wrong-q-user"><span class="wrong-q-label">❌ إجابتك:</span>' + wq.userAnswer + '</div>' + '<div class="wrong-q-answer wrong-q-correct"><span class="wrong-q-label">✅ الإجابة الصحيحة:</span>' + wq.correctAnswer + '</div>';
-                    collapseBody.appendChild(card);
-                });
-                collapseHeader.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('wrong-dl-btn')) return;
-                    var body = document.getElementById(quizId + '-collapse-body');
-                    var arrow = document.getElementById(quizId + '-arrow');
-                    var isOpen = body.classList.contains('open');
-                    if (isOpen) { body.classList.remove('open'); arrow.classList.remove('open'); }
-                    else { body.classList.add('open'); arrow.classList.add('open'); }
-                });
-                collapseWrap.appendChild(collapseHeader);
-                collapseWrap.appendChild(collapseBody);
-                container.appendChild(collapseWrap);
-            } else {
-                var noW = document.createElement('div');
-                noW.className = 'no-wrong-msg';
-                noW.textContent = '🏆 أحسنت! أجبت على جميع الأسئلة بشكل صحيح!';
-                container.appendChild(noW);
-            }
-            
-            var summary = buildProgressSummary();
-            summary.id = quizId + '-progress-summary';
-            container.appendChild(summary);
-            
-            var bar = document.getElementById(quizId + '-pbar');
-            if (bar) bar.style.width = '100%';
-            setTimeout(function() { sc.scrollIntoView({ behavior: 'smooth' }); }, 200);
-        }
-
-        function buildProgressSummary() {
-            var summary = document.createElement('div');
-            summary.className = 'progress-summary';
-            summary.innerHTML = '<h3>📊 ملخص التقدم في جميع الأقسام</h3>';
-            var categories = [
-                { name: '📚 أسئلة المحاضرات', type: 'lectures', data: lectures, subTab: 'sub-lectures' },
-                { name: '📝 أسئلة الميدتيرم', type: 'midterms', data: midterms, subTab: 'sub-mid' },
-                { name: '🎓 أسئلة الفاينل', type: 'finals', data: finals, subTab: 'sub-final' },
-                { name: '📋 نماذج الامتحانات', type: 'examModels', data: examModels, subTab: 'sub-exam-model' },
-                { name: '🏦 بنك الأسئلة', type: 'testBanks', data: testBanks, subTab: 'sub-test-bank' }
-            ];
-            categories.forEach(function(cat) {
-                var total = cat.data.length;
-                var completed = 0;
-                cat.data.forEach(function(item, idx) {
-                    var qid = cat.type + '-' + idx;
-                    var info = getQuizScoreFromStorage(qid);
-                    if (info.done) completed++;
-                });
-                var row = document.createElement('div');
-                row.className = 'progress-summary-row';
-                row.innerHTML = '<span class="ps-name">' + cat.name + '</span><div class="ps-stats" style="display:flex;gap:8px;flex-wrap:wrap;"><span class="ps-badge total">📦 ' + total + ' عنصر</span><span class="ps-badge ' + (completed > 0 ? 'done' : 'pending') + '">✅ حلّيت: ' + completed + '</span><span class="ps-badge pending">⏳ متبقي: ' + (total - completed) + '</span></div>';
-                row.addEventListener('click', function() {
-                    document.getElementById('main-view').style.display = 'block';
-                    document.getElementById('lecture-view').classList.remove('active');
-                    document.getElementById('quiz-view').classList.remove('active');
-                    document.querySelectorAll('.content-section').forEach(function(s) { s.classList.remove('active'); });
-                    document.getElementById('section2').classList.add('active');
-                    document.querySelectorAll('.sub-content').forEach(function(s) { s.classList.remove('active'); });
-                    document.querySelectorAll('.sub-tab-button').forEach(function(b) { b.classList.remove('active'); });
-                    document.getElementById(cat.subTab).classList.add('active');
-                    var subTabBtn = document.querySelector('.sub-tab-button[onclick*="' + cat.subTab + '"]');
-                    if (subTabBtn) subTabBtn.classList.add('active');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                summary.appendChild(row);
-            });
-            return summary;
-        }
-
-        function downloadWrongAsWord(quizId, examTitle) {
-            var state = quizStates[quizId];
-            if (!state || !state.wrongQuestions || state.wrongQuestions.length === 0) { alert('لا توجد أسئلة خاطئة لتحميلها.'); return; }
-            var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>الأسئلة الخاطئة - ' + examTitle + '</title><style>body{font-family:Tahoma,sans-serif;direction:rtl;padding:20px;line-height:2;}h2{text-align:center;color:#e74c3c;}.q-block{border:1px solid #ddd;padding:15px;margin:15px 0;border-radius:8px;}.q-text{font-weight:bold;font-size:16px;}.wrong{background:#fdecea;padding:8px;border-right:4px solid #e74c3c;margin:8px 0;}.correct{background:#eafaf1;padding:8px;border-right:4px solid #27ae60;margin:8px 0;}.label{font-weight:bold;font-size:13px;display:block;}</style></head><body><h2>❌ الأسئلة الخاطئة - ' + examTitle + '</h2><p>عدد الأسئلة الخاطئة: <strong>' + state.wrongQuestions.length + '</strong></p>';
-            state.wrongQuestions.forEach(function(wq, idx) {
-                html += '<div class="q-block"><p><strong>سؤال #' + (idx + 1) + ':</strong></p><p class="q-text">' + wq.text + '</p>';
-                if (wq.options && wq.options.length > 0) { html += '<p><strong>الاختيارات:</strong> ' + wq.options.join(' | ') + '</p>'; }
-                html += '<div class="wrong"><span class="label">❌ إجابتك:</span>' + wq.userAnswer + '</div>';
-                html += '<div class="correct"><span class="label">✅ الإجابة الصحيحة:</span>' + wq.correctAnswer + '</div></div>';
-            });
-            html += '</body></html>';
-            var blob = new Blob([html], { type: 'application/msword' });
-            var a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'الأسئلة_الخاطئة_' + examTitle.replace(/[^a-zA-Z0-9\u0621-\u064A]/g, '_') + '.doc';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(a.href);
-        }
-
-         function downloadCurrentQuiz() {
-    if (!currentQuizExam) return;
-    var html = '<html dir="rtl"><head><meta charset="UTF-8"><title>' + currentQuizExam.title + '</title>' +
-               '<style>body{font-family:Tahoma;padding:20px;line-height:2;}h2{color:#2c3e50;}</style>' +
-               '</head><body><h2>📝 ' + currentQuizExam.title + '</h2>';
-    
-    currentQuizExam.questions.forEach(function(q, i) {
-        html += '<div style="margin-bottom:20px;">';
-        html += '<b>' + (i + 1) + '. ' + q.text + '</b>';
-        html += '<ul>';
-        q.options.forEach(function(opt) {
-            html += '<li>' + opt + '</li>';
-        });
-        html += '</ul>';
-        html += '<p><strong>الإجابة الصحيحة:</strong> ' + q.answer + '</p>';
-        html += '</div>';
+    const navbar = document.getElementById('navbar');
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 24);
+      topBtn.classList.toggle('show', y > 480);
     });
-    
-    html += '</body></html>';
-    var blob = new Blob([html], { type: 'application/msword' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'أسئلة_' + currentQuizExam.title.replace(/\s/g, '_') + '.doc';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(a.href);
-}
-     
 
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
 
-window.addEventListener('load', function() {
-    restoreLastView();
-    if (typeof adjustQuizHeaderSticky === 'function') adjustQuizHeaderSticky();
-    window.addEventListener('beforeunload', saveCurrentView);
-});
-
-// تسجيل السيرفيس وركر مرة واحدة فقط بشكل صامت ودون إزعاج الزوار
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js').then(function(reg) {
-            console.log('SW جاهز ويعمل في الخلفية ✓');
-        }).catch(function(err) {
-            console.log('خطأ في تسجيل السيرفيس وركر:', err);
-        });
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navToggle.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
     });
-}
 
-console.log('✅ المنصة جاهزة للنشر على GitHub Pages مع ترميز المسارات');
-  
+    navLinks.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-label', 'فتح القائمة');
+      });
+    });
+
+    const typedEl = document.getElementById('typed');
+    const phrases = [
+      'طالب علوم حاسب',
+      'C++ Developer',
+      'Database Learner',
+      'Problem Solver',
+      'Python Enthusiast',
+      'UX Design Learner'
+    ];
+    let p = 0, c = 0, deleting = false;
+
+    function typeLoop() {
+      const text = phrases[p];
+      typedEl.textContent = deleting ? text.slice(0, --c) : text.slice(0, ++c);
+
+      if (!deleting && c === text.length) {
+        deleting = true;
+        return setTimeout(typeLoop, 1500);
+      }
+      if (deleting && c === 0) {
+        deleting = false;
+        p = (p + 1) % phrases.length;
+      }
+      setTimeout(typeLoop, deleting ? 55 : 85);
+    }
+    typeLoop();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const parent = entry.target.parentElement;
+          const siblings = parent ? [...parent.querySelectorAll('.reveal')] : [];
+          const index = siblings.indexOf(entry.target);
+          setTimeout(() => entry.target.classList.add('visible'), Math.max(0, index) * 70);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    const tabButtons = document.querySelectorAll('.tab');
+    const skillCards = document.querySelectorAll('.skill');
+
+    function showTab(tab) {
+      skillCards.forEach((card) => {
+        const match = card.dataset.category === tab;
+        card.style.display = match ? 'block' : 'none';
+      });
+    }
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        showTab(btn.dataset.tab);
+      });
+    });
+    showTab('languages');
+
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = [...document.querySelectorAll('.nav-links a')];
+    const sectionSpy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((a) => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach((sec) => sectionSpy.observe(sec));
+
+    const contactForm = document.getElementById('contactForm');
+    const formNote = document.getElementById('formNote');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        formNote.style.color = '#fca5a5';
+        formNote.textContent = 'من فضلك املأ كل الحقول أولاً.';
+        return;
+      }
+
+      const body =
+`الاسم: ${name}
+البريد الإلكتروني: ${email}
+
+الرسالة:
+${message}`;
+
+      const mailto = `mailto:paulafawzy00@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      formNote.style.color = 'var(--green)';
+      formNote.textContent = 'تم فتح تطبيق البريد لديك لإرسال الرسالة.';
+      contactForm.reset();
+
+      setTimeout(() => {
+        formNote.textContent = '';
+      }, 5000);
+    });
   </script>
 </body>
 </html>
